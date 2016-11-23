@@ -1,0 +1,8 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+$mainRed: #4400a2;
+
+h1 {
+  color: $mainRed;
+  font-size: 90px;
+}
