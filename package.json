@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/camp191/GreenField#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",

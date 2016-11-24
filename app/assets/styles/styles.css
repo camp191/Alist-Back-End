@@ -1,8 +1,6 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
-$mainRed: #4400a2;
-
-h1 {
-  color: $mainRed;
-  font-size: 90px;
+img {
+  max-width: 100%;
 }
