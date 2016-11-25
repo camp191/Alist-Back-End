@@ -1,0 +1,12 @@
+.logo-style {
+  position: relative;
+  .name {
+    position: absolute;
+    font-family: patuaOne;
+    font-size: 2rem;
+    display: inline-block;
+    transform: translateY(-50%);
+    top: 50%;
+    padding-left: 6px;
+  }
+}

@@ -1,0 +1,74 @@
+.hero-section {
+  background: linear-gradient(#235463, #324B63, #3C4663);
+  color: white;
+
+  .topic {
+    margin-top: 10rem;
+
+    .headerTopic {
+      font-size: 4.4rem;
+    }
+
+    .subTopic {
+      font-size: 2rem;
+    }
+  }
+
+  .form-box {
+    margin-top: 3.8rem;
+    margin-bottom: 6.3rem;
+    background-color: $lightGray;
+    border-radius: 8px;
+    box-shadow: 0px 4px 7px 4px rgba(0,0,0,0.29);
+
+    .headerForm {
+      background-color: $darkGray;
+      border-radius: 8px 8px 0px 0px;
+
+      .header {
+        padding: 20px 0px;
+        font-size: 2.4rem;
+      }
+    }
+
+    .formMain {
+      margin: 20px 30px;
+
+      .formTopic {
+        padding: 0;
+        font-size: 1.8rem;
+        color: $textHead;
+        font-weight: normal;
+      }
+
+      .formField {
+        max-width: 100%;
+        font-size: 1.8rem;
+        color: $textGeneral;
+        height: 4.7rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        border: 1px solid #979797;
+
+        &:focus {
+          border: 1px solid $textHead;
+          box-shadow: none;
+          outline: 0;
+        }
+      }
+    }
+
+    .regisBtn {
+      width: 100%;
+      font-size: 2rem;
+      background-color: $greenBtn;
+      box-shadow: 0 4px 0 #009A96;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 0px;
+      margin-top: 1.7rem;
+      margin-bottom: 3.4rem;
+    }
+  }
+
+}

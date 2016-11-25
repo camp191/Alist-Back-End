@@ -5,65 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="./temp/styles/styles.css">
+  <link rel="stylesheet" href="./temp/styles/index.css">
 </head>
 <body>
 
   <header>
     <!-- Logo and Menu -->
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-4">
-          <h1>Alist</h1>
-        </div>
-        <div class="col-xs-8">
-          <ul>
-            <li><a href="#">หน้าแรก</a></li>
-            <li><a href="#">ราคาและโปรโมชั่น</a></li>
-            <li><a href="#">ทดลองใช้งาน</a></li>
-            <li><a href="#">เข้าสู่ระบบ</a></li>
-          </ul>
+    <div class="hero-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="logo-style">
+              <img class="pic" src="./assets/images/logo.png">
+              <p class="name"> Alist</p>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <ul>
+              <li><a href="#">หน้าแรก</a></li>
+              <li><a href="#">ราคาและโปรโมชั่น</a></li>
+              <li><a href="#">ทดลองใช้งาน</a></li>
+              <li><a href="#">เข้าสู่ระบบ</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Large Hero -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>To-Do-List ที่จะช่วยคุณกันลืมที่สามารถใช้ได้ทุก Platforms</h1>
-          <h4>Alist คือ แอปพลิเคชั่น To-Do-List ที่ช่วยแจ้งเตือนหรือเขียนบันทึกกันลืมเพื่อให้คุณไม่พลาดสิ่งสำคัญที่ต้องทำอีกต่อไป </h4>
-        </div>
-        <div class="col-md-6">
-          <h3 class="text-center">ลงทะเบียน</h3>
-          <form action="#">
-            <fieldset>
-              <div class="row">
-                <div class="col-xs-6">
-                  <label for="">ชื่อ นามสกุล</label>
-                  <input type="text">
-                </div>
-                <div class="col-xs-6">
-                  <label for="">E-mail</label>
-                  <input type="text">
-                </div>
+      <!-- Large Hero -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 topic">
+            <h1 class="headerTopic">To-Do-List ที่จะช่วยคุณกันลืมที่สามารถใช้ได้ทุก Platforms</h1>
+            <h4 class="subTopic">Alist คือ แอปพลิเคชั่น To-Do-List ที่ช่วยแจ้งเตือนหรือเขียนบันทึกกันลืมเพื่อให้คุณไม่พลาดสิ่งสำคัญที่ต้องทำอีกต่อไป </h4>
+          </div>
+          <div class="col-md-6">
+            <div class="form-box">
+              <div class="headerForm">
+                <h3 class="text-center header">ลงทะเบียน</h3>
               </div>
-              <div class="row">
-                <div class="col-xs-6">
-                  <label for="">รหัสผ่าน</label>
-                  <input type="text">
-                </div>
-                <div class="col-xs-6">
-                  <label for="">ยืนยันรหัสผ่าน</label>
-                  <input type="text">
-                </div>
-              </div>
-            </fieldset>
+              <form class="formMain" action="#">
+                <fieldset>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label class="col-xs-12 formTopic" for="">ชื่อ-นามสกุล</label>
+                      <input class="col-xs-12 formField" type="text">
+                    </div>
+                    <div class="col-xs-6">
+                      <label class="col-xs-12 formTopic" for="">E-mail</label>
+                      <input class="col-xs-12 formField" type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label class="col-xs-12 formTopic" for="">รหัสผ่าน</label>
+                      <input class="col-xs-12 formField" type="password">
+                    </div>
+                    <div class="col-xs-6">
+                      <label class="col-xs-12 formTopic" for="">ยืนยันรหัสผ่าน</label>
+                      <input class="col-xs-12 formField" type="password">
+                    </div>
+                  </div>
+                </fieldset>
 
-            <button>ลงทะเบียนใช้งานฟรี 30 วัน !!!</button>
-          </form>
+                <button class="regisBtn">ลงทะเบียนใช้งานฟรี 30 วัน !!!</button>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>  
+      </div>
     </div>
   </header>
 

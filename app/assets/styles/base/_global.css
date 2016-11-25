@@ -1,0 +1,12 @@
+* {
+    font-family: rsu;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 85%;
+}
