@@ -1,0 +1,22 @@
+.test-alist {
+  margin-top: 6rem;
+  margin-bottom: 5rem;
+
+  .headerTopic {
+    color: $textHeadColor;
+    font-size: $textHeadSize;
+  }
+
+  .testBtn {
+    width: 29rem;
+    color: white;
+    font-size: 3rem;
+    background-color: $greenBtn;
+    box-shadow: 0 4px 0 #009A96;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 0px;
+    margin-top: 1.7rem;
+    margin-bottom: 3.4rem;
+  }
+}

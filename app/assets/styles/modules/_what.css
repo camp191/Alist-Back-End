@@ -1,0 +1,28 @@
+.what-alist {
+  margin: 5.5rem 0;
+
+  .headerTopic {
+    color: $textHeadColor;
+    font-size: $textHeadSize;
+  }
+
+  .subTopic {
+    color: $textGeneralColor;
+    font-size: $textGeneralSize;
+  }
+
+  .offsetContent {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+
+    .content {
+      color: $textGeneralColor;
+      font-size: $textGeneralSize;
+    }
+  }
+
+  .pic {
+    width: 55%;
+  }
+
+}

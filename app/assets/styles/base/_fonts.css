@@ -9,3 +9,9 @@
   src: url(../../../assets/fonts/RSU_Regular.ttf);
   font-weight: normal;
 }
+
+@font-face {
+  font-family: prompt;
+  src: url(../../../assets/fonts/Prompt-ExtraLightItalic.ttf);
+  font-weight: normal;
+}

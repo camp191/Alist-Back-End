@@ -6,11 +6,11 @@
     margin-top: 10rem;
 
     .headerTopic {
-      font-size: 4.4rem;
+      font-size: $textHeadSize;
     }
 
     .subTopic {
-      font-size: 2rem;
+      font-size: $textGeneralSize;
     }
   }
 
@@ -37,21 +37,21 @@
       .formTopic {
         padding: 0;
         font-size: 1.8rem;
-        color: $textHead;
+        color: $textHeadColor;
         font-weight: normal;
       }
 
       .formField {
         max-width: 100%;
         font-size: 1.8rem;
-        color: $textGeneral;
+        color: $textGeneralColor;
         height: 4.7rem;
         margin-bottom: 1rem;
         border-radius: 4px;
         border: 1px solid #979797;
 
         &:focus {
-          border: 1px solid $textHead;
+          border: 1px solid $textHeadColor;
           box-shadow: none;
           outline: 0;
         }

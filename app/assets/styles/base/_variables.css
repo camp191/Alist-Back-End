@@ -1,5 +1,12 @@
+/* Color Variables */
 $lightGray: #F3F3F3;
 $darkGray: #B8B8B8;
-$textHead: #585858;
-$textGeneral: #888888;
+$textHeadColor: #585858;
+$textGeneralColor: #888888;
 $greenBtn: #00B2AD;
+$darkBlue: #2C3E50;
+
+/* Size Variables */
+
+$textHeadSize: 4.4rem;
+$textGeneralSize: 2rem;
