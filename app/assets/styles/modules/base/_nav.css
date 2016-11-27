@@ -1,0 +1,28 @@
+.nav-alist {
+  margin-top: 4.2rem;
+
+  .menu {
+    display: inline-block;
+    margin-left: 3rem;
+
+    a {
+      font-size: $textGeneralSize;
+      color: white;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .signIn {
+      border: 1px solid white;
+      border-radius: 4px;
+      padding: 0.8rem 2.5rem;
+      transition: background-color 0.5s, border 0.5s;
+
+      &:hover {
+        background-color: $greenBtn;
+        border: 1px solid $greenBtn;
+      }
+    }
+  }
+}

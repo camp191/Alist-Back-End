@@ -1,0 +1,16 @@
+.jumbotron-section {
+  background: linear-gradient(#235463, #324B63, #3C4663);
+
+  .head-page {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    .head {
+      color: white;
+      font-size: 5.5rem;
+    }
+    .subHead {
+      color: white;
+      font-size: $textGeneralSize;
+    }
+  }
+}

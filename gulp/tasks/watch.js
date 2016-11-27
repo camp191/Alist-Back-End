@@ -15,12 +15,22 @@ gulp.task('watch', function(){
     browserSync.reload();
   });
 
+  watch('./app/price.html', function(){
+    browserSync.reload();
+  });
+
   watch('./app/assets/styles/**/*.css', function(){
     gulp.start('cssInject');
+    gulp.start('cssInject2');
   })
 });
 
 gulp.task('cssInject', ['css'], function(){
   return gulp.src('./app/temp/styles/index.css')
+        .pipe(browserSync.stream())
+})
+
+gulp.task('cssInject2', ['css2'], function(){
+  return gulp.src('./app/temp/styles/price.css')
         .pipe(browserSync.stream())
 })

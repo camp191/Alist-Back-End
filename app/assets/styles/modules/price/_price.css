@@ -1,0 +1,10 @@
+.price-alist {
+  .header {
+    font-size: 3rem;
+    color: $textHeadColor;
+  }
+
+  .tag {
+    font-size: $textGeneralSize;
+  }
+}

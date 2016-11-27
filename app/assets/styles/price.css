@@ -5,9 +5,6 @@
 @import "./base/_global.css";
 @import "./modules/base/_logo.css";
 @import "./modules/base/_nav.css";
+@import "./modules/base/_jumbotron.css";
 @import "./modules/base/_footer.css";
-@import "./modules/index/_hero.css";
-@import "./modules/index/_what.css";
-@import "./modules/index/_features.css";
-@import "./modules/index/_testimonial.css";
-@import "./modules/index/_testProgram.css";
+@import "./modules/price/_price.css";

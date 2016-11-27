@@ -14,3 +14,13 @@ gulp.task('css', function(){
         })
         .pipe(gulp.dest('./app/temp/styles'));
 })
+
+gulp.task('css2', function(){
+  return gulp.src('./app/assets/styles/price.css')
+        .pipe(postCSS([importCSS, varCSS, autoPrefixer, nested]))
+        .on('error', function(errorInfo){
+          console.log(errorInfo.toString());
+          this.emit('end');
+        })
+        .pipe(gulp.dest('./app/temp/styles'));
+})

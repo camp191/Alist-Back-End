@@ -50,6 +50,13 @@
       background-color: $darkBlue;
       border: 1px solid $greenBtn;
       border-radius: 4px;
+      transition: background-color 0.5s, color 0.5s;
+
+      &:hover {
+        background-color: $greenBtn;
+        color: white;
+      }
+      
     }
   }
 }
