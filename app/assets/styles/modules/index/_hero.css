@@ -5,12 +5,26 @@
   .topic {
     margin-top: 10rem;
 
+    @mixin Medium {
+      margin-top: 5rem;
+    }
+
     .headerTopic {
       font-size: $textHeadSize;
+
+      @mixin Medium {
+        text-align: center;
+        font-size: 5rem;
+      }
     }
 
     .subTopic {
       font-size: $textGeneralSize;
+
+      @mixin Medium {
+        text-align: center;
+        font-size: 2.2rem;
+      }
     }
   }
 

@@ -24,5 +24,11 @@
         border: 1px solid $greenBtn;
       }
     }
+
+    @mixin Small {
+      display: none;
+    }
   }
+
+
 }

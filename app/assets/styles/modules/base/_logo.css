@@ -1,13 +1,14 @@
 .logo-style {
-  position: relative;
+  .pic {
+    margin-top: -0.5rem;
+    margin-right: 0.3rem;
+  }
+
   .name {
+    margin: 0;
     color: white;
-    position: absolute;
     font-family: patuaOne;
     font-size: 2rem;
     display: inline-block;
-    transform: translateY(-50%);
-    top: 50%;
-    padding-left: 6px;
   }
 }

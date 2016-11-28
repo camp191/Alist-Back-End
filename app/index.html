@@ -16,13 +16,12 @@
     <div class="hero-section">
       <div class="container ">
         <div class="row nav-alist">
-          <div class="col-xs-4">
+          <div class="col-xs-4 col-sm-2">
             <div class="logo-style">
-              <img class="pic" src="./assets/images/logo.png">
-              <p class="name"> Alist</p>
+              <p class="name"><img class="pic" src="./assets/images/logo.png"> Alist</p>
             </div>
           </div>
-          <div class="col-xs-8 text-right">
+          <div class="col-xs-8 col-sm-10 text-right">
             <ul class="nav-menu">
               <li class="menu"><a href="index.html">หน้าแรก</a></li>
               <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
@@ -103,7 +102,7 @@
         <h4 class="text-center subTopic">Alist มีจุดเด่นที่สามารถช่วยคุณได้อย่างไรบ้าง</h4>
       </div>
       <div class="row feature">
-        <div class="col-sm-5 col-sm-offset-1 text-center">
+        <div class="col-sm-5 col-sm-offset-1 text-center picBox">
           <img class="pic" src="./assets/images/FeatureEasyUse.jpg" alt="">
         </div>
         <div class="col-sm-5">
@@ -112,13 +111,14 @@
         </div>
       </div>
       <div class="row feature">
-        <div class="col-sm-5 col-sm-offset-1">
-          <h2 class="text-left headerFeature">ใช้งานได้หลากหลายอุปกรณ์</h2>
-          <p class="text-left contentFeature">คุณสามารถใช้ Alist ได้กับหลากหลายอุปกรณ์ไม่ว่าจะเป็นบนคอมพิวเตอร์ที่ระบบปฏิบัติการ Windows,OSX, Linux หรือจะบนโทรศัพท์ระบบปฏิบัติการ iOS และAndroid ยิ่งไปกว่านั้นข้อมูล List ของคุณยังสามารถ Sync เพื่อใช้กับหลายระบบได้ด้วย</p>
-        </div>
-        <div class="col-sm-5 text-center">
+        <div class="col-sm-5 text-center col-sm-push-6">
           <img class="pic" src="./assets/images/FeatureManyDevice.jpg" alt="">
         </div>
+        <div class="col-sm-5 col-sm-offset-1 col-sm-pull-5">
+          <h2 class="text-left headerFeature">ใช้งานได้หลากหลายอุปกรณ์</h2>
+          <p class="text-left contentFeature">คุณสามารถใช้ Alist Sync ได้กับหลากหลายอุปกรณ์ไม่ว่าจะเป็นบนคอมพิวเตอร์ที่ระบบปฏิบัติการ Windows,OSX, Linux หรือจะบนโทรศัพท์ระบบปฏิบัติการ iOS และ Android</p>
+        </div>
+
       </div>
       <div class="row feature">
         <div class="col-sm-5 col-sm-offset-1 text-center">
@@ -167,11 +167,17 @@
   <footer class="footer-alist">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="logo-style">
-            <img class="pic" src="./assets/images/logo.png">
-            <p class="name"> Alist</p>
-          </div>
+        <div class="col-sm-6 col-sm-push-6 text-right subscribe-alist">
+          <h4 class="subscribeTopic">ติดตามข่าวสารต่างๆและโปรโมชั่น</h4>
+          <form action="#">
+            <input class="formField" type="text" placeholder="อีเมล์">
+            <button class="subscribeBtn">ติดตามข่าวสาร</button>
+          </form>
+        </div>
+        <div class="col-sm-6 col-sm-pull-6 contact">
+            <div class="logo-style">
+              <p class="name"><img class="pic" src="./assets/images/logo.png"> Alist</p>
+            </div>
           <ul class="iconSet">
             <li><a class="icon" href="##"><span class="fa fa-facebook-square"></span></a></li>
             <li><a class="icon" href="#"><span class="fa fa-twitter-square"></span></a></li>
@@ -179,13 +185,6 @@
             <li><a class="icon" href="#"><span class="fa fa-github"></span></a></li>
           </ul>
           <h4 class="copyright">© 2016 All rights reserved. Alist, Inc.</h4>
-        </div>
-        <div class="col-sm-6 text-right subscribe-alist">
-          <h4 class="subscribeTopic">ติดตามข่าวสารต่างๆและโปรโมชั่น</h4>
-          <form action="#">
-            <input class="formField" type="text" placeholder="อีเมล์">
-            <button class="subscribeBtn">ติดตามข่าวสาร</button>
-          </form>
         </div>
       </div>
     </div>

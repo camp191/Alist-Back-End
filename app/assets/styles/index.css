@@ -3,6 +3,7 @@
 @import "./base/_fonts.css";
 @import "./base/_variables.css";
 @import "./base/_global.css";
+@import "./base/_mixin.css";
 @import "./modules/base/_logo.css";
 @import "./modules/base/_nav.css";
 @import "./modules/base/_footer.css";
