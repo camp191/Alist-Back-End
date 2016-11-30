@@ -1,0 +1,29 @@
+.questions-answers {
+  margin-top: 10rem;
+  margin-bottom: 6rem;
+
+  .header {
+    color: $textHeadColor;
+    font-size: $textHeadSize;
+  }
+
+  .subHead {
+    color: $textGeneralColor;
+    font-size: $textGeneralSize;
+    margin-bottom: 4rem;
+  }
+
+  .QA {
+    margin-bottom: 4rem;
+
+    .question {
+      color: $textHeadColor;
+      font-size: $textGeneralSize;
+    }
+
+    .answer {
+      color: $textGeneralColor;
+      font-size: $textGeneralSize;
+    }
+  }
+}

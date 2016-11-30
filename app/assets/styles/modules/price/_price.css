@@ -1,10 +1,89 @@
 .price-alist {
+  background-color: $lightGray;
+  border-radius: 8px;
+  box-shadow: 2px 5px 11px rgba(0,0,0,0.37);
+  color: $textGeneralColor;
+  font-size: $textGeneralSize;
+  padding: 3rem 3rem;
+  margin-top: 8rem;
+
   .header {
     font-size: 3rem;
     color: $textHeadColor;
+    margin-bottom: 1.5rem;
+    h2 {
+      margin:0;
+    }
   }
 
-  .tag {
+  .basicTag {
+    color: $basicPackageColor;
+    border: 1px solid $basicPackageColor;
+    border-radius: 5px;
+    padding: 0 1rem;
+    margin-left:11rem;
+  }
+
+  .proTag {
+    color: $proPackageColor;
+    border: 1px solid $proPackageColor;
+    border-radius: 5px;
+    padding: 0 1.7rem;
+    margin-left:13rem;
+  }
+
+  .description {
     font-size: $textGeneralSize;
+  }
+
+  .feature {
+    padding-left: 0;
+    margin-top: 2rem;
+
+    .styleIconBasic {
+      color: $basicPackageColor;
+      margin-right: 2.3rem;
+    }
+
+    .styleIconPro {
+      color: $proPackageColor;
+      margin-right: 2.3rem;
+    }
+
+    li {
+      font-size: $textGeneralSize;
+      list-style: none;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .price {
+    font-size: $textGeneralSize;
+    margin-top: -2rem;
+    span {
+      font-size: 8.5rem;
+    }
+  }
+
+  .basicButton {
+    margin-top: -2rem;
+    background-color: $basicPackageColor;
+    width: 100%;
+    height: 6rem;
+    color: white;
+    box-shadow: 0 4px 0 #CD8C23;
+    border:none;
+    border-radius: 3px;
+  }
+
+  .proButton {
+    margin-top: -2rem;
+    background-color: $proPackageColor;
+    width: 100%;
+    height: 6rem;
+    color: white;
+    box-shadow: 0 4px 0 #AC3B3B;
+    border:none;
+    border-radius: 3px;
   }
 }
