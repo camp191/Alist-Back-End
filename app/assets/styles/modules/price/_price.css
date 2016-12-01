@@ -6,6 +6,7 @@
   font-size: $textGeneralSize;
   padding: 3rem 3rem;
   margin-top: 8rem;
+  position: relative;
 
   .header {
     font-size: 3rem;
@@ -21,7 +22,9 @@
     border: 1px solid $basicPackageColor;
     border-radius: 5px;
     padding: 0 1rem;
-    margin-left:11rem;
+    position: absolute;
+    top: 3rem;
+    right: 3.5rem;
   }
 
   .proTag {
@@ -30,6 +33,9 @@
     border-radius: 5px;
     padding: 0 1.7rem;
     margin-left:13rem;
+    position: absolute;
+    top: 3rem;
+    right: 3.5rem;
   }
 
   .description {
@@ -74,6 +80,21 @@
     box-shadow: 0 4px 0 #CD8C23;
     border:none;
     border-radius: 3px;
+
+    &:hover {
+      background-color: #FAB543;
+      box-shadow: 0 4px 0 #D69E44;
+    }
+
+    &:active {
+      background-color: #D78F18;
+      box-shadow: inset 0 4px 4px #9D6B1B;
+      color: #E1E1E1;
+    }
+
+    &:focus {
+      outline-style: none;
+    }
   }
 
   .proButton {
@@ -85,5 +106,20 @@
     box-shadow: 0 4px 0 #AC3B3B;
     border:none;
     border-radius: 3px;
+
+    &:hover {
+      background-color: #E27878;
+      box-shadow: 0 4px 0 #C55F5F;
+    }
+
+    &:active {
+      background-color: #C25454;
+      box-shadow: inset 0 4px 4px #913838;
+      color: #E1E1E1;
+    }
+
+    &:focus {
+      outline-style: none;
+    }
   }
 }
