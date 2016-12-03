@@ -26,7 +26,7 @@
               <li class="menu"><a href="index.html">หน้าแรก</a></li>
               <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
               <li class="menu"><a href="#">ทดลองใช้งาน</a></li>
-              <li class="menu"><a class="signIn" href="#">เข้าสู่ระบบ</a></li>
+              <li class="menu"><a class="signIn" id="modal-open" href="#">เข้าสู่ระบบ</a></li>
             </ul>
           </div>
         </div>
@@ -139,5 +139,43 @@
       </div>
     </div>
   </footer>
+
+  <!-- Modal Sign In Box -->
+  <div class="modal-signin">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="form">
+            <div class="headerForm">
+              <h3 class="text-center header">เข้าสู่ระบบ</h3>
+              <a href="#"><span class="fa fa-close closeIcon" id="modal-close"></span></a>
+            </div>
+            <form class="formMain" action="#">
+              <fieldset>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input class="col-xs-12 formField" type="text" placeholder="E-mail">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input class="col-xs-12 formField" type="password" placeholder="รหัสผ่าน">
+                  </div>
+                </div>
+              </fieldset>
+              <button class="signinBtn">เข้าสู่ระบบ</button>
+              <h4 class="text-center forgotPassword">ลืมอีเมล์หรือรหัสผ่าน? <a href="#">คลิกที่นี่</a></h4>
+              <hr>
+              <h4 class="text-center signinSocial">เข้าสู่ระบบผ่าน Social Media</h4>
+              <button class="fbBtn"><span class="fa fa-facebook-square"></span> เข้าสู่ระบบผ่านระบบ Facebook</button>
+              <button class="gplusBtn"><span class="fa fa-google-plus"></span> เข้าสู่ระบบผ่านระบบ Google Plus</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./temp/scripts/price.js"></script>
 </body>
 </html>

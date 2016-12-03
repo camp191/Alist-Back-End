@@ -6,6 +6,16 @@
   bottom: 0;
   left: 0;
   right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.2);
+  transition: all 0.3s ease-out;
+
+  &-openModal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
 
   .form {
     margin-top: 3.8rem;

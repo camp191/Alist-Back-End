@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
-    Index: "./app/assets/scripts/Index.js",
-    Price: "./app/assets/scripts/Price.js"
+    index: "./app/assets/scripts/index.js",
+    price: "./app/assets/scripts/price.js"
   },
   output: {
     path: "./app/temp/scripts",
@@ -10,12 +10,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        loaders: 'babel',
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
         query: {
           presets: ['es2015']
-        },
-        test: /\.js$/,
-        exclude: /node_modules/
+        }
       }
     ]
   }

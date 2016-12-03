@@ -23,6 +23,10 @@
         background-color: $greenBtn;
         border: 1px solid $greenBtn;
       }
+
+      &:focus {
+        text-decoration: none;
+      }
     }
 
     @mixin Small {
