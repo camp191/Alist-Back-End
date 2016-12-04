@@ -1,0 +1,19 @@
+.modal-bg {
+  position: fixed;
+  z-index: 5;
+  background-color: rgba(136,136,136,.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 0.3s ease-out;
+
+  &-openModal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

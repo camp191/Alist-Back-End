@@ -1,6 +1,7 @@
 .hero-section {
   background: linear-gradient(#235463, #324B63, #3C4663);
   color: white;
+  padding-top: 70px;
 
   .topic {
     margin-top: 10rem;

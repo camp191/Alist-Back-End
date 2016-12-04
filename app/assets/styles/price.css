@@ -8,6 +8,7 @@
 @import "./modules/base/_nav.css";
 @import "./modules/base/_jumbotron.css";
 @import "./modules/base/_footer.css";
+@import "./modules/base/_modal-bg.css";
 @import "./modules/base/_modal-signin.css";
 @import "./modules/price/_price.css";
 @import "./modules/price/_questions.css";

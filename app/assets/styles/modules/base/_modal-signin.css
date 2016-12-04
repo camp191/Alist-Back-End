@@ -1,7 +1,6 @@
 .modal-signin {
   position: fixed;
-  z-index: 5;
-  background-color: rgba(136,136,136,.8);
+  z-index: 6;
   top: 0;
   bottom: 0;
   left: 0;

@@ -2,32 +2,51 @@ import $ from 'jquery';
 
 class Modal {
   constructor(){
-    this.modal = $('.modal-signin');
+    this.modal = $('.modal-bg');
+    this.modalSignIn = $('.modal-signin');
     this.openModalButton = $('#modal-open');
     this.closeModalButton = $('#modal-close');
-    this.event();
+    this.forgotPassword = $('#forget');
+    this.passwordBox = $('.password');
+    this.eventSignIn();
+    this.eventForget();
   }
 
-  event(){
+  // Event click for open and close modal box
+  eventSignIn(){
     this.openModalButton.click(this.openModal.bind(this));
     this.closeModalButton.click(this.closeModal.bind(this));
     $(document).keyup(this.keyHandler.bind(this));
   }
 
   openModal(){
-    this.modal.addClass('modal-signin-openModal');
+    this.passwordBox.show();
+    this.modal.addClass('modal-bg-openModal')
+    this.modalSignIn.addClass('modal-signin-openModal');
   }
 
   closeModal(){
-    this.modal.removeClass('modal-signin-openModal');
+
+    this.modalSignIn.removeClass('modal-signin-openModal');
+    this.modal.removeClass('modal-bg-openModal')
 
     return false;
   }
 
   keyHandler(e){
-    if (e = 27){
-      this.modal.removeClass('modal-signin-openModal');
+    if (e.keyCode == 27){
+      this.modalSignIn.removeClass('modal-signin-openModal');
+      this.modal.removeClass('modal-bg-openModal')
     }
+  }
+
+  // Event click on forget password link
+  eventForget(){
+    this.forgotPassword.click(this.forgetPass.bind(this));
+  }
+
+  forgetPass(){
+    this.passwordBox.fadeOut();
   }
 
 }

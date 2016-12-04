@@ -11,28 +11,31 @@
 </head>
 <body>
 
-  <header>
-    <!-- Logo and Menu -->
-    <div class="hero-section">
-      <div class="container">
-        <div class="row nav-alist">
-          <div class="col-xs-4 col-sm-2">
-            <div class="logo-style">
-              <p class="name"><img class="pic" src="./assets/images/logo.png"> Alist</p>
-            </div>
-          </div>
-          <div class="col-xs-8 col-sm-10 text-right">
-            <ul class="nav-menu">
-              <li class="menu"><a href="index.html">หน้าแรก</a></li>
-              <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
-              <li class="menu"><a href="#">ทดลองใช้งาน</a></li>
-              <li class="menu"><a class="signIn" id="modal-open" href="#">เข้าสู่ระบบ</a></li>
-            </ul>
+  <!-- Logo and Menu -->
+  <div class="bg-nav">
+    <div class="container">
+      <div class="row nav-alist">
+        <div class="col-xs-4 col-sm-2">
+          <div class="logo-style">
+            <p class="name"><img class="pic" src="./assets/images/logo.png"> Alist</p>
           </div>
         </div>
+        <div class="col-xs-8 col-sm-10 col-xs-0 text-right">
+          <ul class="nav-menu">
+            <li class="menu"><a href="index.html">หน้าแรก</a></li>
+            <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
+            <li class="menu"><a href="#">ทดลองใช้งาน</a></li>
+            <li class="menu"><a class="signIn" id="modal-open">เข้าสู่ระบบ</a></li>
+            <li><a class="fa fa-bars hamburgerBtn"></a></li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Large Hero -->
+  <!-- Large Hero -->
+  <header>
+    <div class="hero-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6 topic">
@@ -190,6 +193,9 @@
     </div>
   </footer>
 
+  <!-- Modal Background -->
+  <div class="modal-bg"></div>
+
   <!-- Modal Sign In Box -->
   <div class="modal-signin">
     <div class="container">
@@ -207,14 +213,14 @@
                     <input class="col-xs-12 formField" type="text" placeholder="E-mail">
                   </div>
                 </div>
-                <div class="row">
+                <div class="row password">
                   <div class="col-xs-12">
                     <input class="col-xs-12 formField" type="password" placeholder="รหัสผ่าน">
                   </div>
                 </div>
               </fieldset>
               <button class="signinBtn">เข้าสู่ระบบ</button>
-              <h4 class="text-center forgotPassword">ลืมอีเมล์หรือรหัสผ่าน? <a href="#">คลิกที่นี่</a></h4>
+              <h4 class="text-center forgotPassword">ลืมอีเมล์หรือรหัสผ่าน? <a href="#" id="forget">คลิกที่นี่</a></h4>
               <hr>
               <h4 class="text-center signinSocial">เข้าสู่ระบบผ่าน Social Media</h4>
               <button class="fbBtn"><span class="fa fa-facebook-square"></span> เข้าสู่ระบบผ่านระบบ Facebook</button>

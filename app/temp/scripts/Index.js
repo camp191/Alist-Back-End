@@ -50,9 +50,14 @@
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
+	var _StickyHeader = __webpack_require__(3);
+
+	var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var modal = new _Modal2.default();
+	var stickyHeader = new _StickyHeader2.default();
 
 /***/ },
 /* 1 */
@@ -78,15 +83,22 @@
 	  function Modal() {
 	    _classCallCheck(this, Modal);
 
-	    this.modal = (0, _jquery2.default)('.modal-signin');
+	    this.modal = (0, _jquery2.default)('.modal-bg');
+	    this.modalSignIn = (0, _jquery2.default)('.modal-signin');
 	    this.openModalButton = (0, _jquery2.default)('#modal-open');
 	    this.closeModalButton = (0, _jquery2.default)('#modal-close');
-	    this.event();
+	    this.forgotPassword = (0, _jquery2.default)('#forget');
+	    this.passwordBox = (0, _jquery2.default)('.password');
+	    this.eventSignIn();
+	    this.eventForget();
 	  }
 
+	  // Event click for open and close modal box
+
+
 	  _createClass(Modal, [{
-	    key: 'event',
-	    value: function event() {
+	    key: 'eventSignIn',
+	    value: function eventSignIn() {
 	      this.openModalButton.click(this.openModal.bind(this));
 	      this.closeModalButton.click(this.closeModal.bind(this));
 	      (0, _jquery2.default)(document).keyup(this.keyHandler.bind(this));
@@ -94,21 +106,39 @@
 	  }, {
 	    key: 'openModal',
 	    value: function openModal() {
-	      this.modal.addClass('modal-signin-openModal');
+	      this.passwordBox.show();
+	      this.modal.addClass('modal-bg-openModal');
+	      this.modalSignIn.addClass('modal-signin-openModal');
 	    }
 	  }, {
 	    key: 'closeModal',
 	    value: function closeModal() {
-	      this.modal.removeClass('modal-signin-openModal');
+
+	      this.modalSignIn.removeClass('modal-signin-openModal');
+	      this.modal.removeClass('modal-bg-openModal');
 
 	      return false;
 	    }
 	  }, {
 	    key: 'keyHandler',
 	    value: function keyHandler(e) {
-	      if (e = 27) {
-	        this.modal.removeClass('modal-signin-openModal');
+	      if (e.keyCode == 27) {
+	        this.modalSignIn.removeClass('modal-signin-openModal');
+	        this.modal.removeClass('modal-bg-openModal');
 	      }
+	    }
+
+	    // Event click on forget password link
+
+	  }, {
+	    key: 'eventForget',
+	    value: function eventForget() {
+	      this.forgotPassword.click(this.forgetPass.bind(this));
+	    }
+	  }, {
+	    key: 'forgetPass',
+	    value: function forgetPass() {
+	      this.passwordBox.fadeOut();
 	    }
 	  }]);
 
@@ -10342,6 +10372,56 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var StickyHeader = function () {
+	  function StickyHeader() {
+	    _classCallCheck(this, StickyHeader);
+
+	    this.window = (0, _jquery2.default)(window);
+	    this.nav = (0, _jquery2.default)(".bg-nav");
+	    this.sticky();
+	  }
+
+	  _createClass(StickyHeader, [{
+	    key: 'sticky',
+	    value: function sticky() {
+	      this.window.scroll(this.checkWindow.bind(this));
+	    }
+	  }, {
+	    key: 'checkWindow',
+	    value: function checkWindow() {
+	      if (this.window.scrollTop() > 50) {
+	        this.nav.addClass('bg-nav-scrollStyle');
+	      } else {
+	        this.nav.removeClass('bg-nav-scrollStyle');
+	      }
+	    }
+	  }]);
+
+	  return StickyHeader;
+	}();
+
+	exports.default = StickyHeader;
 
 /***/ }
 /******/ ]);

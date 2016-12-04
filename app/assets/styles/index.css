@@ -7,6 +7,7 @@
 @import "./modules/base/_logo.css";
 @import "./modules/base/_nav.css";
 @import "./modules/base/_footer.css";
+@import "./modules/base/_modal-bg.css";
 @import "./modules/base/_modal-signin.css";
 @import "./modules/index/_hero.css";
 @import "./modules/index/_what.css";

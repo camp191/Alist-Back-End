@@ -1,3 +1,6 @@
-import Modal from './modules/Modal';
+import Modal from "./modules/Modal";
+import StickyHeader from "./modules/StickyHeader";
 
-var modal = new Modal();
+
+let modal = new Modal();
+let stickyHeader = new StickyHeader();
