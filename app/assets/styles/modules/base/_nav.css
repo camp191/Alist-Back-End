@@ -1,3 +1,4 @@
+/* Background of navbar*/
 .bg-nav {
   position: fixed;
   z-index: 5;
@@ -17,16 +18,27 @@
   }
 }
 
+/* Navbar */
 .nav-alist {
   .menu {
     display: inline-block;
     margin-left: 3rem;
+
+    @mixin Small {
+      display: block;
+      margin-bottom: 7rem;
+      margin-left: 0rem;
+    }
 
     a {
       font-size: $textGeneralSize;
       color: white;
       &:hover {
         text-decoration: none;
+      }
+
+      @mixin Small {
+        font-size: 2.5rem;
       }
     }
 
@@ -45,10 +57,10 @@
       &:focus {
         text-decoration: none;
       }
-    }
 
-    @mixin Small {
-      display: none;
+      @mixin Small {
+        padding: 0.8rem 8rem;
+      }
     }
   }
 
@@ -59,6 +71,7 @@
     position: absolute;
     top: 0rem;
     right: 3rem;
+    transition: top 0.5s ease-out;
 
     &:hover {
       text-decoration: none;
@@ -73,5 +86,38 @@
       display: block;
     }
   }
+}
 
+
+/* Navbar menu for phone screen*/
+.nav-menu {
+  @mixin Small {
+    position: fixed;
+    background-color: $darkBlue;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 10rem;
+    padding-left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.2);
+    transition: visibility 0.3s, transform 0.3s, opacity 0.3s;
+
+    &-show {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+
+  ul {
+    @mixin Small {
+      padding-left: 0;
+    }
+  }
 }
