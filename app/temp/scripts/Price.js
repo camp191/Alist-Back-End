@@ -97,10 +97,18 @@
 	    this.modalSignIn = (0, _jquery2.default)('.modal-signin');
 	    this.openModalButton = (0, _jquery2.default)('#modal-open');
 	    this.closeModalButton = (0, _jquery2.default)('#modal-close');
-	    this.forgotPassword = (0, _jquery2.default)('#forget');
-	    this.passwordBox = (0, _jquery2.default)('.password');
+	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
+	    this.forgetPasswordBox = (0, _jquery2.default)('.forgetPassword');
+	    this.forgetPassword = (0, _jquery2.default)('#forget');
+	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
+	    this.headerSignIn = (0, _jquery2.default)('.header');
+	    this.signinBtn = (0, _jquery2.default)('.signinBtn');
+	    this.socialSignIn = (0, _jquery2.default)('.social');
+	    this.wantToSignIn = (0, _jquery2.default)('.wantToSignIn');
+	    this.signInLink = (0, _jquery2.default)('#signInLink');
 	    this.eventSignIn();
 	    this.eventForget();
+	    this.eventSignInLink();
 	  }
 
 	  // Event click for open and close modal box
@@ -116,14 +124,18 @@
 	  }, {
 	    key: 'openModal',
 	    value: function openModal() {
-	      this.passwordBox.show();
 	      this.modal.addClass('modal-bg-openModal');
 	      this.modalSignIn.addClass('modal-signin-openModal');
+	      this.passwordBox.show();
+	      this.headerSignIn.text('เข้าสู่ระบบ');
+	      this.signinBtn.text('เข้าสู่ระบบ');
+	      this.socialSignIn.show();
+	      this.forgetPasswordBox.show();
+	      this.wantToSignIn.hide();
 	    }
 	  }, {
 	    key: 'closeModal',
 	    value: function closeModal() {
-
 	      this.modalSignIn.removeClass('modal-signin-openModal');
 	      this.modal.removeClass('modal-bg-openModal');
 
@@ -143,12 +155,39 @@
 	  }, {
 	    key: 'eventForget',
 	    value: function eventForget() {
-	      this.forgotPassword.click(this.forgetPass.bind(this));
+	      this.forgetPassword.click(this.forgetPass.bind(this));
 	    }
 	  }, {
 	    key: 'forgetPass',
 	    value: function forgetPass() {
-	      this.passwordBox.fadeOut();
+	      this.passwordBox.hide();
+	      this.headerSignIn.text('ลืมรหัสผ่าน');
+	      this.signinBtn.text('ลงรหัสผ่านใหม่ไปทางอีเมล์');
+	      this.socialSignIn.hide();
+	      this.forgetPasswordBox.hide();
+	      this.wantToSignIn.show();
+
+	      return false;
+	    }
+
+	    // Event click on sign-in link on forget password modal
+
+	  }, {
+	    key: 'eventSignInLink',
+	    value: function eventSignInLink() {
+	      this.signInLink.click(this.signIn.bind(this));
+	    }
+	  }, {
+	    key: 'signIn',
+	    value: function signIn() {
+	      this.passwordBox.show();
+	      this.headerSignIn.text('เข้าสู่ระบบ');
+	      this.signinBtn.text('เข้าสู่ระบบ');
+	      this.socialSignIn.show();
+	      this.forgetPasswordBox.show();
+	      this.wantToSignIn.hide();
+
+	      return false;
 	    }
 	  }]);
 
@@ -10551,6 +10590,7 @@
 	        this.headerForm.text("ลงทะเบียนติดตามข่าวสารสำเร็จ");
 	        this.emailSubscribe.show();
 	        this.emailSubscribeSuccess.text(this.emailBox.val());
+	        this.emailBox.val("");
 	        this.content.text("ขอบคุณที่ติดตามข่าวสารและโปรโมชั่นกับ Alist สามารถตรวสอบข่าวสารและโปรโมชั่นที่น่าสนใจทุกเดือนได้ที่อีเมล์ของท่าน");
 	      } else if (!this.checkEmail(this.emailBox.val())) {
 	        this.header.addClass("headerForm-fail");

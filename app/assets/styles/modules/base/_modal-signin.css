@@ -92,7 +92,7 @@
       }
     }
 
-    .forgotPassword {
+    .forgetPassword, .wantToSignIn {
       color: $textHeadColor;
       font-size: $textGeneralSize;
 
@@ -104,6 +104,10 @@
         margin-bottom: 0rem;
         border-bottom: 1px solid $textGeneralColor;
       }
+    }
+
+    .wantToSignIn {
+      padding-bottom: 3rem;
     }
 
     hr {

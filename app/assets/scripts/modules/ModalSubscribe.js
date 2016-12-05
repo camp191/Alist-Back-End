@@ -35,6 +35,7 @@ class ModalSubscribe {
       this.headerForm.text("ลงทะเบียนติดตามข่าวสารสำเร็จ");
       this.emailSubscribe.show();
       this.emailSubscribeSuccess.text(this.emailBox.val());
+      this.emailBox.val("");
       this.content.text("ขอบคุณที่ติดตามข่าวสารและโปรโมชั่นกับ Alist สามารถตรวสอบข่าวสารและโปรโมชั่นที่น่าสนใจทุกเดือนได้ที่อีเมล์ของท่าน");
     } else if(!this.checkEmail(this.emailBox.val())) {
       this.header.addClass("headerForm-fail");
