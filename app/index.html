@@ -172,10 +172,11 @@
       <div class="row">
         <div class="col-sm-6 col-sm-push-6 text-right subscribe-alist">
           <h4 class="subscribeTopic">ติดตามข่าวสารต่างๆและโปรโมชั่น</h4>
-          <form action="#">
-            <input class="formField" type="text" placeholder="อีเมล์">
+          <form onsubmit="return false;">
+            <input class="formField" type="text" placeholder="อีเมล์" id="email-subscribe">
             <button class="subscribeBtn">ติดตามข่าวสาร</button>
           </form>
+
         </div>
         <div class="col-sm-6 col-sm-pull-6 contact">
             <div class="logo-style">
@@ -226,6 +227,26 @@
               <button class="fbBtn"><span class="fa fa-facebook-square"></span> เข้าสู่ระบบผ่านระบบ Facebook</button>
               <button class="gplusBtn"><span class="fa fa-google-plus"></span> เข้าสู่ระบบผ่านระบบ Google Plus</button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Subscribe -->
+  <div class="modal-subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="subscribeform">
+            <div class="headerForm">
+              <h3 class="text-center headerSubscribe">Test</h3>
+              <a href="#"><span class="fa fa-close closeIcon" id="closeSubscribe"></span></a>
+            </div>
+            <div class="contentBox">
+              <p class="emailSubscribe">อีเมล์ที่ลงทะเบียน : <span id="emailSubscribe"></span></p>
+              <p class="contentSubscribe"></p>
+            </div>
           </div>
         </div>
       </div>

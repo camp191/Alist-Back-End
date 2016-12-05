@@ -58,11 +58,16 @@
 
 	var _MenuBtn2 = _interopRequireDefault(_MenuBtn);
 
+	var _ModalSubscribe = __webpack_require__(5);
+
+	var _ModalSubscribe2 = _interopRequireDefault(_ModalSubscribe);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var modal = new _Modal2.default();
 	var stickyHeader = new _StickyHeader2.default();
 	var menu = new _MenuBtn2.default();
+	var modalSubscribe = new _ModalSubscribe2.default();
 
 /***/ },
 /* 1 */
@@ -10484,6 +10489,104 @@
 	}();
 
 	exports.default = Menu;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ModalSubscribe = function () {
+	  function ModalSubscribe() {
+	    _classCallCheck(this, ModalSubscribe);
+
+	    this.emailBox = (0, _jquery2.default)("#email-subscribe");
+	    this.subscribeBtn = (0, _jquery2.default)(".subscribeBtn");
+	    this.modal = (0, _jquery2.default)(".modal-bg");
+	    this.subscribeModal = (0, _jquery2.default)(".modal-subscribe");
+	    this.header = (0, _jquery2.default)(".headerForm");
+	    this.headerForm = (0, _jquery2.default)(".headerSubscribe");
+	    this.closeBtn = (0, _jquery2.default)("#closeSubscribe");
+	    this.emailSubscribe = (0, _jquery2.default)(".emailSubscribe");
+	    this.emailSubscribeSuccess = (0, _jquery2.default)("#emailSubscribe");
+	    this.content = (0, _jquery2.default)(".contentSubscribe");
+	    this.event();
+	  }
+
+	  _createClass(ModalSubscribe, [{
+	    key: "event",
+	    value: function event() {
+	      this.subscribeBtn.click(this.modalSubscribe.bind(this));
+	      this.closeBtn.click(this.closeModal.bind(this));
+	      (0, _jquery2.default)(document).keyup(this.keyHandler.bind(this));
+	    }
+	  }, {
+	    key: "checkEmail",
+	    value: function checkEmail(email) {
+	      var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	      return regex.test(email);
+	    }
+	  }, {
+	    key: "modalSubscribe",
+	    value: function modalSubscribe() {
+	      this.modal.addClass("modal-bg-openModal");
+	      this.subscribeModal.addClass("modal-subscribe-openModal");
+
+	      if (this.checkEmail(this.emailBox.val())) {
+	        this.header.addClass("headerForm-success");
+	        this.headerForm.text("ลงทะเบียนติดตามข่าวสารสำเร็จ");
+	        this.emailSubscribe.show();
+	        this.emailSubscribeSuccess.text(this.emailBox.val());
+	        this.content.text("ขอบคุณที่ติดตามข่าวสารและโปรโมชั่นกับ Alist สามารถตรวสอบข่าวสารและโปรโมชั่นที่น่าสนใจทุกเดือนได้ที่อีเมล์ของท่าน");
+	      } else if (!this.checkEmail(this.emailBox.val())) {
+	        this.header.addClass("headerForm-fail");
+	        this.emailSubscribe.hide();
+	        this.headerForm.text("พบข้อผิดพลาด");
+	        this.content.text("พบข้อผิดพลาด กรุณาตรวจสอบอีเมล์ของท่านให้ดีว่าพิมพ์ถูกต้องจากนั้น กดติดตามข่าวสารใหม่");
+	      }
+	    }
+
+	    // Close subscribe modal
+
+	  }, {
+	    key: "closeModal",
+	    value: function closeModal() {
+	      this.subscribeModal.removeClass('modal-subscribe-openModal');
+	      this.modal.removeClass('modal-bg-openModal');
+	      this.header.removeClass("headerForm-fail");
+	      this.header.removeClass("headerForm-success");
+	      return false;
+	    }
+	  }, {
+	    key: "keyHandler",
+	    value: function keyHandler(e) {
+	      if (e.keyCode == 27) {
+	        this.subscribeModal.removeClass('modal-subscribe-openModal');
+	        this.modal.removeClass('modal-bg-openModal');
+	        this.header.removeClass("headerForm-fail");
+	        this.header.removeClass("headerForm-success");
+	      }
+	    }
+	  }]);
+
+	  return ModalSubscribe;
+	}();
+
+	exports.default = ModalSubscribe;
 
 /***/ }
 /******/ ]);
