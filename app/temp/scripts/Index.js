@@ -62,12 +62,17 @@
 
 	var _ModalSubscribe2 = _interopRequireDefault(_ModalSubscribe);
 
+	var _Signup = __webpack_require__(6);
+
+	var _Signup2 = _interopRequireDefault(_Signup);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var modal = new _Modal2.default();
 	var stickyHeader = new _StickyHeader2.default();
 	var menu = new _MenuBtn2.default();
 	var modalSubscribe = new _ModalSubscribe2.default();
+	var signup = new _Signup2.default();
 
 /***/ },
 /* 1 */
@@ -101,7 +106,7 @@
 	    this.forgetPasswordBox = (0, _jquery2.default)('.forgetPassword');
 	    this.forgetPassword = (0, _jquery2.default)('#forget');
 	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
-	    this.headerSignIn = (0, _jquery2.default)('.header');
+	    this.headerSignIn = (0, _jquery2.default)('.headerSignIn');
 	    this.signinBtn = (0, _jquery2.default)('.signinBtn');
 	    this.socialSignIn = (0, _jquery2.default)('.social');
 	    this.wantToSignIn = (0, _jquery2.default)('.wantToSignIn');
@@ -10627,6 +10632,144 @@
 	}();
 
 	exports.default = ModalSubscribe;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Signup = function () {
+	  function Signup() {
+	    _classCallCheck(this, Signup);
+
+	    this.modal = (0, _jquery2.default)(".modal-bg");
+	    this.modalSignUpBox = (0, _jquery2.default)('.modal-signup');
+	    this.emailSignUp = (0, _jquery2.default)('#emailSignup');
+	    this.nameSignUp = (0, _jquery2.default)('#nameSignUpDone');
+	    this.closeBtn = (0, _jquery2.default)('#closeSignup');
+	    this.formName = (0, _jquery2.default)('#signup-name');
+	    this.formEmail = (0, _jquery2.default)('#signup-email');
+	    this.formPassword = (0, _jquery2.default)('#signup-password');
+	    this.formRePassword = (0, _jquery2.default)('#signup-rePassword');
+	    this.formFill = (0, _jquery2.default)('#cautionSignUp-formFill');
+	    this.cautionName = (0, _jquery2.default)('#cautionSignUp-name');
+	    this.cautionEmail = (0, _jquery2.default)('#cautionSignUp-email');
+	    this.cautionPassword = (0, _jquery2.default)('#cautionSignUp-password');
+	    this.cautionRePassword = (0, _jquery2.default)('#cautionSignUp-rePassword');
+	    this.signupBtn = (0, _jquery2.default)('#signupBtn');
+	    this.event();
+	  }
+
+	  _createClass(Signup, [{
+	    key: 'event',
+	    value: function event() {
+	      this.formName.blur(this.checkName.bind(this));
+	      this.formEmail.blur(this.checkEmail.bind(this));
+	      this.formPassword.blur(this.checkPassword.bind(this));
+	      this.formRePassword.blur(this.checkRePassword.bind(this));
+	      this.signupBtn.click(this.modalSignUp.bind(this));
+	      this.closeBtn.click(this.closeModal.bind(this));
+	    }
+	  }, {
+	    key: 'formNoFill',
+	    value: function formNoFill() {
+	      if (this.formName.val() === '' || this.formEmail.val() === '' || this.formPassword.val() === '' || this.formRePassword.val() === '') {
+	        return false;
+	      } else {
+	        this.formFill.fadeOut();
+	        return true;
+	      }
+	    }
+	  }, {
+	    key: 'checkName',
+	    value: function checkName() {
+	      var regexName = /^[a-zA-z ก-๙]+$/;
+
+	      if (regexName.test(this.formName.val()) || this.formName.val() === '') {
+	        this.cautionName.fadeOut();
+	        return true;
+	      } else {
+	        this.cautionName.fadeIn();
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'checkEmail',
+	    value: function checkEmail() {
+	      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	      if (regexEmail.test(this.formEmail.val()) || this.formEmail.val() === '') {
+	        this.cautionEmail.fadeOut();
+	        return true;
+	      } else {
+	        this.cautionEmail.fadeIn();
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'checkPassword',
+	    value: function checkPassword() {
+	      var regexPassword = /^[a-zA-z0-9]+$/;
+
+	      if (regexPassword.test(this.formPassword.val()) && this.formPassword.val().length >= 4 && this.formPassword.val().length <= 10 || this.formPassword.val() === '') {
+	        this.cautionPassword.fadeOut();
+	        return true;
+	      } else {
+	        this.cautionPassword.fadeIn();
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'checkRePassword',
+	    value: function checkRePassword() {
+	      if (this.formPassword.val() === this.formRePassword.val() || this.formRePassword.val() === '') {
+	        this.cautionRePassword.fadeOut();
+	        return true;
+	      } else {
+	        this.cautionRePassword.fadeIn();
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'modalSignUp',
+	    value: function modalSignUp() {
+	      if (this.checkName() && this.checkEmail() && this.checkPassword() && this.checkRePassword() && this.formNoFill()) {
+	        this.formFill.fadeOut();
+	        this.modal.addClass("modal-bg-openModal");
+	        this.modalSignUpBox.addClass("modal-signup-openModal");
+	        this.emailSignUp.text(this.formEmail.val());
+	        this.nameSignUp.text(this.formName.val());
+	      } else {
+	        this.formFill.fadeIn();
+	      }
+	    }
+	  }, {
+	    key: 'closeModal',
+	    value: function closeModal() {
+	      this.modal.removeClass("modal-bg-openModal");
+	      this.modalSignUpBox.removeClass("modal-signup-openModal");
+	    }
+	  }]);
+
+	  return Signup;
+	}();
+
+	exports.default = Signup;
 
 /***/ }
 /******/ ]);

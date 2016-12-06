@@ -11,6 +11,7 @@
 @import "./modules/base/_modal-signin.css";
 @import "./modules/base/_modal-subscribe.css";
 @import "./modules/index/_hero.css";
+@import "./modules/index/_modal-signup.css";
 @import "./modules/index/_what.css";
 @import "./modules/index/_features.css";
 @import "./modules/index/_testimonial.css";

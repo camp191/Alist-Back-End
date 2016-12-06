@@ -1,17 +1,17 @@
 @font-face {
   font-family: patuaOne;
-  src: url(../../../assets/fonts/PatuaOne-Regular.ttf);
+  src: url(../../assets/fonts/PatuaOne-Regular.ttf);
   font-weight: normal;
 }
 
 @font-face {
   font-family: rsu;
-  src: url(../../../assets/fonts/RSU_Regular.ttf);
+  src: url(../../assets/fonts/RSU_Regular.ttf);
   font-weight: normal;
 }
 
 @font-face {
   font-family: prompt;
-  src: url(../../../assets/fonts/Prompt-ExtraLightItalic.ttf);
+  src: url(../../assets/fonts/Prompt-ExtraLightItalic.ttf);
   font-weight: normal;
 }

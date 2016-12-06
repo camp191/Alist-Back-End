@@ -10,7 +10,7 @@ class Modal {
     this.forgetPasswordBox = $('.forgetPassword');
     this.forgetPassword = $('#forget');
     this.passwordBox = $('.passwordSignIn');
-    this.headerSignIn = $('.header');
+    this.headerSignIn = $('.headerSignIn');
     this.signinBtn = $('.signinBtn');
     this.socialSignIn = $('.social');
     this.wantToSignIn = $('.wantToSignIn');

@@ -47,31 +47,39 @@
               <div class="headerForm">
                 <h3 class="text-center header">ลงทะเบียน</h3>
               </div>
-              <form class="formMain" action="#">
+
+              <form class="formMain" onsubmit="return false">
+                <div class="cautionSignUp-box">
+                  <h4 class="cautionSignUp" id="cautionSignUp-formFill"><span class="fa fa-exclamation-circle"></span> กรุณาข้อมูลให้ครบทุกช่อง</h4>
+                  <h4 class="cautionSignUp" id="cautionSignUp-name"><span class="fa fa-exclamation-circle"></span> กรุณาใส่ชื่อและนามสกุลด้วยภาษาอังกฤษหรือไทยเท่านั้น</h4>
+                  <h4 class="cautionSignUp" id="cautionSignUp-email"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์ให้ถูกต้อง</h4>
+                  <h4 class="cautionSignUp" id="cautionSignUp-password"><span class="fa fa-exclamation-circle"></span> กรุณาใส่รหัสผ่านด้วย A-Z, a-z หรือตัวเลขจำนวน 4-10 ตัวอักษร</h4>
+                  <h4 class="cautionSignUp" id="cautionSignUp-rePassword"><span class="fa fa-exclamation-circle"></span> รหัสผ่านกับรหัสผ่านที่ยืนยันไม่ตรงกัน</h4>
+                </div>
                 <fieldset>
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="col-xs-12 formTopic" for="">ชื่อ-นามสกุล</label>
-                      <input class="col-xs-12 formField" type="text">
+                      <input class="col-xs-12 formField" id="signup-name" autofocus="autofocus" type="text">
                     </div>
                     <div class="col-sm-6">
                       <label class="col-xs-12 formTopic" for="">E-mail</label>
-                      <input class="col-xs-12 formField" type="text">
+                      <input class="col-xs-12 formField" id="signup-email" type="text">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="col-xs-12 formTopic" for="">รหัสผ่าน</label>
-                      <input class="col-xs-12 formField" type="password">
+                      <input class="col-xs-12 formField" id="signup-password" type="password">
                     </div>
                     <div class="col-sm-6">
                       <label class="col-xs-12 formTopic" for="">ยืนยันรหัสผ่าน</label>
-                      <input class="col-xs-12 formField" type="password">
+                      <input class="col-xs-12 formField" id="signup-rePassword" type="password">
                     </div>
                   </div>
                 </fieldset>
 
-                <button class="regisBtn">ลงทะเบียนใช้งานฟรี 30 วัน !!!</button>
+                <button class="regisBtn" id="signupBtn">ลงทะเบียนใช้งานฟรี 30 วัน !!!</button>
               </form>
             </div>
           </div>
@@ -204,7 +212,7 @@
         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
           <div class="form">
             <div class="headerForm">
-              <h3 class="text-center header">เข้าสู่ระบบ</h3>
+              <h3 class="text-center headerSignIn">เข้าสู่ระบบ</h3>
               <a href="#"><span class="fa fa-close closeIcon" id="modal-close"></span></a>
             </div>
             <form class="formMain" action="#">
@@ -249,6 +257,26 @@
             <div class="contentBox">
               <p class="emailSubscribe">อีเมล์ที่ลงทะเบียน : <span id="emailSubscribe"></span></p>
               <p class="contentSubscribe"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal SignUp -->
+  <div class="modal-signup">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="signUpForm">
+            <div class="headerSignUpForm">
+              <h3 class="text-center headerSignUp">ลงทะเบียนสำเร็จ</h3>
+              <a href="#"><span class="fa fa-close closeIcon" id="closeSignup"></span></a>
+            </div>
+            <div class="contentBox">
+              <p class="emailSignup">อีเมล์ที่ลงทะเบียน : <span class="emailSignup" id="emailSignup"></span></p>
+              <p class="contentSignup">ขอบคุณ คุณ <span class="contentSignup" id="nameSignUpDone"></span> ที่ลงทะเบียนใช้งาน Alist โดยอีเมล์ยืนยันการลงทะเบียนจะถูกส่งไปที่อีเมล์ที่ได้ลงทะเบียนไว้ข้างต้น</p>
             </div>
           </div>
         </div>

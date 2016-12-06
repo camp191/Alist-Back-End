@@ -101,7 +101,7 @@
 	    this.forgetPasswordBox = (0, _jquery2.default)('.forgetPassword');
 	    this.forgetPassword = (0, _jquery2.default)('#forget');
 	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
-	    this.headerSignIn = (0, _jquery2.default)('.header');
+	    this.headerSignIn = (0, _jquery2.default)('.headerSignIn');
 	    this.signinBtn = (0, _jquery2.default)('.signinBtn');
 	    this.socialSignIn = (0, _jquery2.default)('.social');
 	    this.wantToSignIn = (0, _jquery2.default)('.wantToSignIn');
