@@ -100,12 +100,22 @@
 	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
 	    this.forgetPasswordBox = (0, _jquery2.default)('.forgetPassword');
 	    this.forgetPassword = (0, _jquery2.default)('#forget');
+	    this.forgetPasswordBtn = (0, _jquery2.default)('#forgetPasswordBtn');
+	    this.forgetEmailSucess = (0, _jquery2.default)('#forgetPasswordEmailSuccess');
+	    this.forgetEmailContent = (0, _jquery2.default)('.forgetPasswordSuccess');
 	    this.passwordBox = (0, _jquery2.default)('.passwordSignIn');
+	    this.headerSignInBox = (0, _jquery2.default)('#headerSignInBox');
 	    this.headerSignIn = (0, _jquery2.default)('.headerSignIn');
 	    this.signinBtn = (0, _jquery2.default)('.signinBtn');
 	    this.socialSignIn = (0, _jquery2.default)('.social');
 	    this.wantToSignIn = (0, _jquery2.default)('.wantToSignIn');
 	    this.signInLink = (0, _jquery2.default)('#signInLink');
+	    this.signInEmailForm = (0, _jquery2.default)('#signin-email');
+	    this.signInPasswordForm = (0, _jquery2.default)('#signin-password');
+	    this.cautionFormFill = (0, _jquery2.default)('#cautionSignIn-formFill');
+	    this.cautionEmail = (0, _jquery2.default)('#cautionSignIn-email');
+	    this.cautionPassword = (0, _jquery2.default)('#cautionSignIn-password');
+	    this.signInBtn = (0, _jquery2.default)('#signinBtn');
 	    this.eventSignIn();
 	    this.eventForget();
 	    this.eventSignInLink();
@@ -119,6 +129,9 @@
 	    value: function eventSignIn() {
 	      this.openModalButton.click(this.openModal.bind(this));
 	      this.closeModalButton.click(this.closeModal.bind(this));
+	      this.signInEmailForm.blur(this.checkEmail.bind(this));
+	      this.signInPasswordForm.blur(this.checkPassword.bind(this));
+	      this.signInBtn.click(this.checkSignIn.bind(this));
 	      (0, _jquery2.default)(document).keyup(this.keyHandler.bind(this));
 	    }
 	  }, {
@@ -128,17 +141,27 @@
 	      this.modalSignIn.addClass('modal-signin-openModal');
 	      this.passwordBox.show();
 	      this.headerSignIn.text('เข้าสู่ระบบ');
-	      this.signinBtn.text('เข้าสู่ระบบ');
+	      this.forgetPasswordBtn.hide();
+	      this.signinBtn.show();
 	      this.socialSignIn.show();
 	      this.forgetPasswordBox.show();
 	      this.wantToSignIn.hide();
+	      this.signInEmailForm.val('');
+	      this.signInPasswordForm.val('');
+	      this.forgetEmailContent.hide();
+	      this.signInEmailForm.show();
+	      this.headerSignInBox.removeClass('headerForm-success');
+	      this.cautionFormFill.hide();
+	      this.cautionEmail.hide();
+	      this.cautionPassword.hide();
+	      this.signInPasswordForm.removeClass('formField-fail');
+	      this.signInEmailForm.removeClass('formField-fail');
 	    }
 	  }, {
 	    key: 'closeModal',
 	    value: function closeModal() {
 	      this.modalSignIn.removeClass('modal-signin-openModal');
 	      this.modal.removeClass('modal-bg-openModal');
-
 	      return false;
 	    }
 	  }, {
@@ -156,18 +179,33 @@
 	    key: 'eventForget',
 	    value: function eventForget() {
 	      this.forgetPassword.click(this.forgetPass.bind(this));
+	      this.forgetPasswordBtn.click(this.forgetPasswordModal.bind(this));
 	    }
 	  }, {
 	    key: 'forgetPass',
 	    value: function forgetPass() {
 	      this.passwordBox.hide();
 	      this.headerSignIn.text('ลืมรหัสผ่าน');
-	      this.signinBtn.text('ลงรหัสผ่านใหม่ไปทางอีเมล์');
+	      this.signinBtn.hide();
+	      this.forgetPasswordBtn.show();
 	      this.socialSignIn.hide();
 	      this.forgetPasswordBox.hide();
 	      this.wantToSignIn.show();
-
+	      this.signInEmailForm.val('');
 	      return false;
+	    }
+	  }, {
+	    key: 'forgetPasswordModal',
+	    value: function forgetPasswordModal() {
+	      if (this.checkEmail()) {
+	        this.headerSignInBox.addClass('headerForm-success');
+	        this.headerSignIn.text('ส่งรหัสผ่านใหม่สำเร็จ');
+	        this.forgetEmailSucess.text(this.signInEmailForm.val());
+	        this.signInEmailForm.hide();
+	        this.forgetPasswordBtn.hide();
+	        this.wantToSignIn.hide();
+	        this.forgetEmailContent.show();
+	      }
 	    }
 
 	    // Event click on sign-in link on forget password modal
@@ -186,8 +224,57 @@
 	      this.socialSignIn.show();
 	      this.forgetPasswordBox.show();
 	      this.wantToSignIn.hide();
+	      this.forgetPasswordBtn.hide();
+	      this.signinBtn.show();
+	      this.signInEmailForm.val('');
 
 	      return false;
+	    }
+
+	    // Event check email and password sign in
+
+	  }, {
+	    key: 'checkEmail',
+	    value: function checkEmail() {
+	      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	      if (regexEmail.test(this.signInEmailForm.val()) || this.signInEmailForm.val() === '') {
+	        this.cautionEmail.fadeOut();
+	        this.signInEmailForm.removeClass('formField-fail');
+	        return true;
+	      } else {
+	        this.cautionEmail.fadeIn();
+	        this.signInEmailForm.addClass('formField-fail');
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'checkPassword',
+	    value: function checkPassword() {
+	      var regexPassword = /^[a-zA-z0-9]+$/;
+
+	      if (regexPassword.test(this.signInPasswordForm.val()) && this.signInPasswordForm.val().length >= 4 && this.signInPasswordForm.val().length <= 10 || this.signInPasswordForm.val() === '') {
+	        this.cautionPassword.fadeOut();
+	        this.signInPasswordForm.removeClass('formField-fail');
+	        return true;
+	      } else {
+	        this.cautionPassword.fadeIn();
+	        this.signInPasswordForm.addClass('formField-fail');
+	        return false;
+	      }
+	    }
+	  }, {
+	    key: 'checkSignIn',
+	    value: function checkSignIn() {
+	      if (this.signInEmailForm.val() == '' || this.signInPasswordForm.val() == '') {
+	        this.cautionFormFill.fadeIn();
+	        this.signInEmailForm.addClass('formField-fail');
+	        this.signInPasswordForm.addClass('formField-fail');
+	      } else {
+	        this.cautionFormFill.fadeOut();
+	        this.signInEmailForm.removeClass('formField-fail');
+	        this.signInPasswordForm.removeClass('formField-fail');
+	      }
 	    }
 	  }]);
 

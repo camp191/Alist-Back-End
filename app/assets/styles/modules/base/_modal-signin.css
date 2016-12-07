@@ -28,6 +28,10 @@
       border-radius: 8px 8px 0px 0px;
       position: relative;
 
+      &-success {
+        background-color: $greenBtn;
+      }
+
       .headerSignIn {
         margin: 0;
         padding: 20px 0px;
@@ -47,6 +51,12 @@
     .formMain {
       margin: 3rem 6rem;
 
+      .cautionSignIn{
+        font-size: $textGeneralSize;
+        color: $redDanger;
+        display: none;
+      }
+
       .formField {
         max-width: 100%;
         font-size: 1.8rem;
@@ -56,6 +66,10 @@
         border-radius: 4px;
         border: 1px solid #979797;
 
+        &-fail {
+          border: 1px solid $redDanger;
+        }
+
         &:focus {
           border: 1px solid $textHeadColor;
           box-shadow: none;
@@ -64,7 +78,16 @@
       }
     }
 
-    .signinBtn {
+    .contentBox {
+      .forgetPasswordSuccess {
+        display: none;
+        color: $textHeadColor;
+        font-size: $textGeneralSize;
+        padding-bottom: 3rem;
+      }
+    }
+
+    .signinBtn, .forgetPasswordBtn {
       width: 100%;
       font-size: 2rem;
       background-color: $greenBtn;
@@ -90,6 +113,10 @@
       &:focus {
         outline-style: none;
       }
+    }
+
+    .forgetPasswordBtn {
+      display: none;
     }
 
     .forgetPassword, .wantToSignIn {
