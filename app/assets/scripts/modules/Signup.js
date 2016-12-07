@@ -44,9 +44,11 @@ class Signup {
 
     if(regexName.test(this.formName.val()) || this.formName.val() === '') {
       this.cautionName.fadeOut();
+      this.formName.removeClass('formField-fail');
       return true;
     } else {
       this.cautionName.fadeIn();
+      this.formName.addClass('formField-fail');
       return false;
     }
   }
@@ -56,9 +58,11 @@ class Signup {
 
     if(regexEmail.test(this.formEmail.val()) || this.formEmail.val() === '') {
       this.cautionEmail.fadeOut();
+      this.formEmail.removeClass('formField-fail');
       return true;
     } else {
       this.cautionEmail.fadeIn();
+      this.formEmail.addClass('formField-fail');
       return false;
     }
   }
@@ -68,9 +72,11 @@ class Signup {
 
     if((regexPassword.test(this.formPassword.val()) && this.formPassword.val().length >= 4 && this.formPassword.val().length <= 10) || this.formPassword.val() === '') {
       this.cautionPassword.fadeOut();
+      this.formPassword.removeClass('formField-fail');
       return true;
     } else {
       this.cautionPassword.fadeIn();
+      this.formPassword.addClass('formField-fail');
       return false;
     }
   }
@@ -78,9 +84,11 @@ class Signup {
   checkRePassword(){
     if(this.formPassword.val() === this.formRePassword.val() || this.formRePassword.val() === '') {
       this.cautionRePassword.fadeOut();
+      this.formRePassword.removeClass('formField-fail');
       return true;
     } else {
       this.cautionRePassword.fadeIn();
+      this.formRePassword.addClass('formField-fail');
       return false;
     }
   }
@@ -88,12 +96,20 @@ class Signup {
   modalSignUp(){
     if(this.checkName() && this.checkEmail() && this.checkPassword() && this.checkRePassword() && this.formNoFill()) {
       this.formFill.fadeOut();
+      this.formName.removeClass('formField-fail');
+      this.formEmail.removeClass('formField-fail');
+      this.formPassword.removeClass('formField-fail');
+      this.formRePassword.removeClass('formField-fail');
       this.modal.addClass("modal-bg-openModal");
       this.modalSignUpBox.addClass("modal-signup-openModal");
       this.emailSignUp.text(this.formEmail.val());
       this.nameSignUp.text(this.formName.val());
     } else {
       this.formFill.fadeIn();
+      this.formName.addClass('formField-fail');
+      this.formEmail.addClass('formField-fail');
+      this.formPassword.addClass('formField-fail');
+      this.formRePassword.addClass('formField-fail');
     }
   }
 
