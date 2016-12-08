@@ -90,11 +90,20 @@ class Modal {
     this.forgetPasswordBox.hide();
     this.wantToSignIn.show();
     this.signInEmailForm.val('');
+    this.cautionFormFill.hide();
+    this.cautionEmail.hide();
+    this.cautionPassword.hide();
+    this.signInEmailForm.removeClass('formField-fail');
+    this.signInPasswordForm.removeClass('formField-fail');
     return false;
   }
 
   forgetPasswordModal(){
-    if(this.checkEmail()) {
+    if (this.signInEmailForm.val() === '') {
+      this.cautionEmail.show();
+      this.signInEmailForm.addClass('formField-fail');
+      return false
+    } else if(this.checkEmail()) {
       this.headerSignInBox.addClass('headerForm-success');
       this.headerSignIn.text('ส่งรหัสผ่านใหม่สำเร็จ');
       this.forgetEmailSucess.text(this.signInEmailForm.val());
@@ -103,6 +112,7 @@ class Modal {
       this.wantToSignIn.hide();
       this.forgetEmailContent.show();
     }
+
   }
 
   // Event click on sign-in link on forget password modal
@@ -120,6 +130,8 @@ class Modal {
     this.forgetPasswordBtn.hide();
     this.signinBtn.show();
     this.signInEmailForm.val('');
+    this.cautionEmail.hide();
+    this.signInEmailForm.removeClass('formField-fail');
 
     return false;
   }

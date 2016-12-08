@@ -1,7 +1,8 @@
 module.exports = {
   entry: {
     index: "./app/assets/scripts/index.js",
-    price: "./app/assets/scripts/price.js"
+    price: "./app/assets/scripts/price.js",
+    test: "./app/assets/scripts/test.js"
   },
   output: {
     path: "./app/temp/scripts",

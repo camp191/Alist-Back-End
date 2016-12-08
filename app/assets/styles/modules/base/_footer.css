@@ -56,6 +56,11 @@
         outline: 0;
       }
 
+      &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px #1D2D3D inset !important;
+          -webkit-text-fill-color: #5D6369;
+      }
+
 
     }
 

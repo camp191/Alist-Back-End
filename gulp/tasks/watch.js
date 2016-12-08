@@ -19,9 +19,14 @@ gulp.task('watch', function(){
     browserSync.reload();
   });
 
+  watch('./app/test.html', function(){
+    browserSync.reload();
+  });
+
   watch('./app/assets/styles/**/*.css', function(){
     gulp.start('cssInject');
     gulp.start('cssInject2');
+    gulp.start('cssInject3');
   })
 
   watch('./app/assets/scripts/**/*.js', function(){
@@ -36,6 +41,11 @@ gulp.task('cssInject', ['css'], function(){
 
 gulp.task('cssInject2', ['css2'], function(){
   return gulp.src('./app/temp/styles/price.css')
+        .pipe(browserSync.stream())
+})
+
+gulp.task('cssInject3', ['css3'], function(){
+  return gulp.src('./app/temp/styles/test.css')
         .pipe(browserSync.stream())
 })
 
