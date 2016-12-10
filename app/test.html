@@ -50,46 +50,47 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="form-box">
-            <div class="headerForm">
-              <img src="" alt="">
-              <h3 class="text-center header">Alist <span>v. 0.0.1 Beta</span></h3>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="app-box">
+            <div class="header-App text-center">
+              <img class="headerImage" src="./assets/images/logo-app.png" alt="App Logo">
+              <h3 class="text-center headerText">Alist <span class="version">v. 0.0.1 Beta</span></h3>
             </div>
 
-            <div class="Todo-Main">
-              <div class="col-xs-12">
-                <div class="tabBar">
-                  <div class="col-xs-6">
-                    <a href="#">รายการที่ยังไม่ได้ทำ <span class="tag"></span></a>
+            <div class="todo-main">
+              <div class="todo-box">
+                <div class="col-xs-12 todo-Style">
+                  <div class="tabBar">
+                    <div class="col-xs-6 text-center tabNotDoneBox">
+                      <a class="tabNotDone" href="#">รายการที่ยังไม่ได้ทำ <span class="tag">3</span></a>
+                    </div>
+                    <div class="col-xs-6 text-center tabDoneBox">
+                      <a class="tabDone" href="#">รายการที่ทำสำเร็จแล้ว</a>
+                    </div>
                   </div>
-                  <div class="col-xs-6">
-                    <a href="#">รายการที่ทำสำเร็จแล้ว</a>
-                  </div>
-                </div>
 
-                <ul class="todo-notdone">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
+                  <ul class="todo-notdone">
+                    <li class="ndList">ออกไปจ่ายตลาด <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
+                    <li class="ndList">เคลียร์งาน RWD <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
+                    <li class="ndList">ไปกินข้าวกับแม่ <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="add-form">
+                <form  onsubmit="return false">
+                  <fieldset class="col-xs-10 fieldsetStyle">
+                    <input class="todoInput" type="text" placeholder="พิมพ์รายการที่ต้องทำที่นี่เลย">
+                  </fieldset>
+                  <button class="addBtn col-xs-2" id="addBtn">เพิ่ม</button>
+                </form>
               </div>
             </div>
-
-            <form class="formMain" onsubmit="return false">
-              <fieldset>
-                <input type="text" placeholder="พิมพ์รายการที่ต้องทำที่นี่เลย">
-              </fieldset>
-              <button class="regisBtn" id="signupBtn">เพิ่ม</button>
-            </form>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
-
 
   <!-- Footer -->
   <footer class="footer-alist">
