@@ -22,6 +22,34 @@
       color: $textGeneralColor;
       font-size: $textGeneralSize;
     }
+
+    .people {
+      margin-top: 4rem;
+
+      @mixin Small {
+        margin-top: 1rem;
+      }
+
+      .nameBox {
+        @mixin Medium {
+          margin-top: 2rem;
+        }
+
+        @mixin Small {
+          margin-top: 1rem;
+          margin-bottom: 4rem;
+        }
+        p {
+          font-size: $textGeneralSize;
+          color: $textHeadColor;
+          margin:0;
+
+          @mixin Medium {
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 
 

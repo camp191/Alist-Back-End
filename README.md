@@ -1,3 +1,3 @@
 # Alist || To-Do-List Web Design Project
 
-# Thank you image and picture Credit from www.freepik.com and www.unsplash.com
+# Thank you for all of images and pictures from www.freepik.com and www.unsplash.com.
