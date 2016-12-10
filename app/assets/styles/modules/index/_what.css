@@ -23,6 +23,10 @@
 
   .pic {
     width: 55%;
+
+    @mixin Small {
+      width: 100%;
+    }
   }
 
 }
