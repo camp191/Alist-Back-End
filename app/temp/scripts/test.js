@@ -10762,7 +10762,15 @@
 	    this.tabDoneBox = (0, _jquery2.default)('.tabDoneBox');
 	    this.todoNotDone = (0, _jquery2.default)('.todo-notdone');
 	    this.todoDone = (0, _jquery2.default)('.todo-done');
+	    this.addBtn = (0, _jquery2.default)('#addBtn');
+	    this.todoInput = (0, _jquery2.default)('#todoInput');
+	    this.tabTag = (0, _jquery2.default)('#tag');
+	    this.cautionAdd = (0, _jquery2.default)('#cautionAdd');
+	    this.deleteBtn = (0, _jquery2.default)('.deleteBtn');
 	    this.eventTab();
+	    this.eventAddRemove();
+	    this.deleteTask();
+	    this.doneTask();
 	  }
 
 	  _createClass(App, [{
@@ -10771,6 +10779,14 @@
 	      this.tabDone.click(this.tabDoneActive.bind(this));
 	      this.tabNotDone.click(this.tabNotDoneActive.bind(this));
 	    }
+	  }, {
+	    key: 'eventAddRemove',
+	    value: function eventAddRemove() {
+	      this.addBtn.click(this.addTask.bind(this));
+	    }
+
+	    // change tab function
+
 	  }, {
 	    key: 'tabDoneActive',
 	    value: function tabDoneActive() {
@@ -10793,6 +10809,52 @@
 	      });
 
 	      return false;
+	    }
+
+	    // Add Task function
+
+	  }, {
+	    key: 'addTask',
+	    value: function addTask() {
+	      if (this.todoInput.val() === '') {
+	        this.cautionAdd.show();
+	        this.todoInput.addClass('todoInput-fail');
+	      } else {
+	        var TaskCount = this.todoNotDone.children().length + 1;
+	        var createTask = '<li class="ndList">' + this.todoInput.val() + '<a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>';
+	        (0, _jquery2.default)(createTask).appendTo(this.todoNotDone).hide().fadeIn();
+	        this.todoInput.val('');
+	        this.tabTag.text(TaskCount);
+	        this.cautionAdd.hide();
+	        this.todoInput.removeClass('todoInput-fail');
+	      }
+	    }
+
+	    // Delete Task function
+
+	  }, {
+	    key: 'deleteTask',
+	    value: function deleteTask() {
+	      (0, _jquery2.default)(document).on('click', 'a.deleteBtn', function () {
+	        (0, _jquery2.default)(this).parent().fadeOut(function () {
+	          (0, _jquery2.default)(this).remove();
+	          (0, _jquery2.default)('#tag').text((0, _jquery2.default)('.todo-notdone').children().length);
+	        });
+	        return false;
+	      });
+	    }
+	  }, {
+	    key: 'doneTask',
+	    value: function doneTask() {
+	      (0, _jquery2.default)(document).on('click', 'a.doneBtn', function () {
+	        var createDone = '<li class="ndList">' + (0, _jquery2.default)(this).parent().text() + '<a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>';
+	        (0, _jquery2.default)(createDone).appendTo((0, _jquery2.default)('.todo-done'));
+	        (0, _jquery2.default)(this).parent().fadeOut(function () {
+	          (0, _jquery2.default)(this).remove();
+	          (0, _jquery2.default)('#tag').text((0, _jquery2.default)('.todo-notdone').children().length);
+	        });
+	        return false;
+	      });
 	    }
 	  }]);
 

@@ -62,7 +62,7 @@
                 <div class="col-xs-12 todo-Style">
                   <div class="tabBar">
                     <div class="col-xs-6 text-center tabNotDoneBox">
-                      <a class="tabNotDone" href="#">รายการที่ยังไม่ได้ทำ <span class="tag">3</span></a>
+                      <a class="tabNotDone" href="#">รายการที่ยังไม่ได้ทำ <span class="tag" id="tag">3</span></a>
                     </div>
                     <div class="col-xs-6 text-center tabDoneBox">
                       <a class="tabDone" href="#">รายการที่ทำสำเร็จแล้ว</a>
@@ -70,14 +70,14 @@
                   </div>
 
                   <ul class="todo-notdone">
-                    <li class="ndList">ออกไปจ่ายตลาด <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
-                    <li class="ndList">เคลียร์งาน RWD <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
-                    <li class="ndList">ไปกินข้าวกับแม่ <a href="#" class="fa fa-check checkIcon"></a><a href="#" class="fa fa-trash trashIcon"></a></li>
+                    <li class="ndList">ออกไปจ่ายตลาด <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
+                    <li class="ndList">เคลียร์งาน RWD <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
+                    <li class="ndList">ไปกินข้าวกับแม่ <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
                   </ul>
 
                   <ul class="todo-done">
-                    <li class="ndList">อ่านหนังสือสอบ <a href="#" class="fa fa-trash trashIcon"></a></li>
-                    <li class="ndList">ทำกับข้าว <a href="#" class="fa fa-trash trashIcon"></a></li>
+                    <li class="ndList">อ่านหนังสือสอบ <a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
+                    <li class="ndList">ทำกับข้าว <a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
                   </ul>
                 </div>
               </div>
@@ -85,10 +85,11 @@
               <div class="add-form">
                 <form  onsubmit="return false">
                   <fieldset class="col-xs-10 fieldsetStyle">
-                    <input class="todoInput" type="text" placeholder="พิมพ์รายการที่ต้องทำที่นี่เลย">
+                    <input class="todoInput" id="todoInput" type="text" placeholder="พิมพ์รายการที่ต้องทำที่นี่เลย">
                   </fieldset>
                   <button class="addBtn col-xs-2" id="addBtn">เพิ่ม</button>
                 </form>
+                <h4 class="cautionAdd col-xs-12" id="cautionAdd"><span class="fa fa-exclamation-circle"></span> กรุณาใส่รายการที่ต้องการทำ</h4>
               </div>
             </div>
           </div>
