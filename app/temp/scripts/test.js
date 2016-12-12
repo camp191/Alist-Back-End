@@ -62,12 +62,17 @@
 
 	var _ModalSubscribe2 = _interopRequireDefault(_ModalSubscribe);
 
+	var _App = __webpack_require__(7);
+
+	var _App2 = _interopRequireDefault(_App);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var modal = new _Modal2.default();
 	var stickyHeader = new _StickyHeader2.default();
 	var menu = new _MenuBtn2.default();
 	var modalSubscribe = new _ModalSubscribe2.default();
+	var app = new _App2.default();
 
 /***/ },
 /* 1 */
@@ -10725,6 +10730,76 @@
 	}();
 
 	exports.default = ModalSubscribe;
+
+/***/ },
+/* 6 */,
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var App = function () {
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    this.tabNotDone = (0, _jquery2.default)('.tabNotDone');
+	    this.tabDone = (0, _jquery2.default)('.tabDone');
+	    this.tabNotDoneBox = (0, _jquery2.default)('.tabNotDoneBox');
+	    this.tabDoneBox = (0, _jquery2.default)('.tabDoneBox');
+	    this.todoNotDone = (0, _jquery2.default)('.todo-notdone');
+	    this.todoDone = (0, _jquery2.default)('.todo-done');
+	    this.eventTab();
+	  }
+
+	  _createClass(App, [{
+	    key: 'eventTab',
+	    value: function eventTab() {
+	      this.tabDone.click(this.tabDoneActive.bind(this));
+	      this.tabNotDone.click(this.tabNotDoneActive.bind(this));
+	    }
+	  }, {
+	    key: 'tabDoneActive',
+	    value: function tabDoneActive() {
+	      this.tabNotDoneBox.addClass('tabNotDoneBox-inactive');
+	      this.tabDoneBox.addClass('tabDoneBox-active');
+	      this.todoNotDone.fadeOut();
+	      this.todoNotDone.promise().done(function () {
+	        (0, _jquery2.default)('.todo-done').fadeIn();
+	      });
+	      return false;
+	    }
+	  }, {
+	    key: 'tabNotDoneActive',
+	    value: function tabNotDoneActive() {
+	      this.tabNotDoneBox.removeClass('tabNotDoneBox-inactive');
+	      this.tabDoneBox.removeClass('tabDoneBox-active');
+	      this.todoDone.fadeOut();
+	      this.todoDone.promise().done(function () {
+	        (0, _jquery2.default)('.todo-notdone').fadeIn();
+	      });
+
+	      return false;
+	    }
+	  }]);
+
+	  return App;
+	}();
+
+	exports.default = App;
 
 /***/ }
 /******/ ]);
