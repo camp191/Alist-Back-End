@@ -1,5 +1,5 @@
 {
-  "name": "green-field",
+  "name": "Alist",
   "version": "0.0.1",
   "description": "Website mini Project",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/camp191/GreenField.git"
+    "url": "git+https://github.com/camp191/Alist.git"
   },
   "author": "Thanapat Sorralump",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/camp191/GreenField/issues"
+    "url": "https://github.com/camp191/Alist/issues"
   },
-  "homepage": "https://github.com/camp191/GreenField#readme",
+  "homepage": "https://github.com/camp191/Alist#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
