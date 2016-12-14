@@ -13,6 +13,7 @@ class App {
     this.tabTag = $('#tag');
     this.cautionAdd = $('#cautionAdd');
     this.deleteBtn = $('.deleteBtn');
+    this.doneBox = $('.done-box');
     this.eventTab();
     this.eventAddRemove();
     this.deleteTask();
@@ -35,8 +36,10 @@ class App {
     this.tabDoneBox.addClass('tabDoneBox-active');
     this.todoNotDone.fadeOut();
     this.todoNotDone.promise().done(function(){
+      $('.done-box').hide();
       $('.todo-done').fadeIn();
     });
+
     return false;
   }
 
@@ -46,7 +49,12 @@ class App {
     this.todoDone.fadeOut();
     this.todoDone.promise().done(function(){
       $('.todo-notdone').fadeIn();
+      if ($('.todo-notdone').children().length === 0){
+        $('.done-box').fadeIn();
+      }
     })
+
+
 
     return false;
   }
@@ -65,6 +73,10 @@ class App {
       this.tabTag.text(TaskCount);
       this.cautionAdd.hide();
       this.todoInput.removeClass('todoInput-fail');
+
+      if (this.todoNotDone.children().length !== 0){
+        this.doneBox.fadeOut();
+      }
     }
   }
 
@@ -74,9 +86,19 @@ class App {
         $(this).parent().fadeOut(function(){
           $(this).remove();
           $('#tag').text($('.todo-notdone').children().length)
+
+          if ($('.todo-notdone').children().length === 0){
+            $('.done-box').fadeIn();
+          }
+
+          if ($('.todo-done').css('display') == 'block') {
+            $('.done-box').hide();
+          }
         })
         return false;
       });
+
+
   }
 
   doneTask(){
@@ -86,6 +108,10 @@ class App {
       $(this).parent().fadeOut(function(){
         $(this).remove();
         $('#tag').text($('.todo-notdone').children().length)
+
+        if ($('.todo-notdone').children().length === 0){
+          $('.done-box').fadeIn();
+        }
       })
       return false;
     });

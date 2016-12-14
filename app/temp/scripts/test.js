@@ -10767,6 +10767,7 @@
 	    this.tabTag = (0, _jquery2.default)('#tag');
 	    this.cautionAdd = (0, _jquery2.default)('#cautionAdd');
 	    this.deleteBtn = (0, _jquery2.default)('.deleteBtn');
+	    this.doneBox = (0, _jquery2.default)('.done-box');
 	    this.eventTab();
 	    this.eventAddRemove();
 	    this.deleteTask();
@@ -10794,8 +10795,10 @@
 	      this.tabDoneBox.addClass('tabDoneBox-active');
 	      this.todoNotDone.fadeOut();
 	      this.todoNotDone.promise().done(function () {
+	        (0, _jquery2.default)('.done-box').hide();
 	        (0, _jquery2.default)('.todo-done').fadeIn();
 	      });
+
 	      return false;
 	    }
 	  }, {
@@ -10806,6 +10809,9 @@
 	      this.todoDone.fadeOut();
 	      this.todoDone.promise().done(function () {
 	        (0, _jquery2.default)('.todo-notdone').fadeIn();
+	        if ((0, _jquery2.default)('.todo-notdone').children().length === 0) {
+	          (0, _jquery2.default)('.done-box').fadeIn();
+	        }
 	      });
 
 	      return false;
@@ -10827,6 +10833,10 @@
 	        this.tabTag.text(TaskCount);
 	        this.cautionAdd.hide();
 	        this.todoInput.removeClass('todoInput-fail');
+
+	        if (this.todoNotDone.children().length !== 0) {
+	          this.doneBox.fadeOut();
+	        }
 	      }
 	    }
 
@@ -10839,6 +10849,14 @@
 	        (0, _jquery2.default)(this).parent().fadeOut(function () {
 	          (0, _jquery2.default)(this).remove();
 	          (0, _jquery2.default)('#tag').text((0, _jquery2.default)('.todo-notdone').children().length);
+
+	          if ((0, _jquery2.default)('.todo-notdone').children().length === 0) {
+	            (0, _jquery2.default)('.done-box').fadeIn();
+	          }
+
+	          if ((0, _jquery2.default)('.todo-done').css('display') == 'block') {
+	            (0, _jquery2.default)('.done-box').hide();
+	          }
 	        });
 	        return false;
 	      });
@@ -10852,6 +10870,10 @@
 	        (0, _jquery2.default)(this).parent().fadeOut(function () {
 	          (0, _jquery2.default)(this).remove();
 	          (0, _jquery2.default)('#tag').text((0, _jquery2.default)('.todo-notdone').children().length);
+
+	          if ((0, _jquery2.default)('.todo-notdone').children().length === 0) {
+	            (0, _jquery2.default)('.done-box').fadeIn();
+	          }
 	        });
 	        return false;
 	      });

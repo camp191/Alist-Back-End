@@ -254,6 +254,16 @@
   }
 }
 
+.done-box {
+  font-size: $textHeadSize;
+  color: $textGeneralColor;
+  display: none;
+
+  .content {
+    text-shadow: inset 0px 2px 3px rgba(0,0,0,0.5);
+  }
+}
+
 .add-form {
   margin-top: 2.5rem;
   margin-bottom: 6rem;
