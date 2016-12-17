@@ -5,6 +5,11 @@
   .headerTopic {
     color: $textHeadColor;
     font-size: $textHeadSize;
+
+    @mixin Small {
+      font-size: 4rem;
+      padding: 0 1rem;
+    }
   }
 
   .testBtn {
