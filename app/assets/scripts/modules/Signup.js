@@ -3,6 +3,7 @@ import $ from 'jquery';
 class Signup {
   constructor(){
     this.modal = $(".modal-bg");
+    this.formMain = $(".formMain");
     this.modalSignUpBox = $('.modal-signup');
     this.emailSignUp = $('#emailSignup');
     this.nameSignUp = $('#nameSignUpDone');
@@ -16,6 +17,10 @@ class Signup {
     this.cautionEmail = $('#cautionSignUp-email');
     this.cautionPassword = $('#cautionSignUp-password');
     this.cautionRePassword = $('#cautionSignUp-rePassword');
+    this.nameField = $('#signup-name');
+    this.emailField = $('#signup-email');
+    this.passField = $('#signup-password');
+    this.rePassField = $('#signup-rePassword');
     this.signupBtn = $('#signupBtn');
     this.event();
   }
@@ -104,6 +109,7 @@ class Signup {
       this.modalSignUpBox.addClass("modal-signup-openModal");
       this.emailSignUp.text(this.formEmail.val());
       this.nameSignUp.text(this.formName.val());
+      this.formMain.attr('onsubmit', 'return true');
     } else {
       this.formFill.fadeIn();
       this.formName.addClass('formField-fail');
@@ -116,6 +122,11 @@ class Signup {
   closeModal(){
     this.modal.removeClass("modal-bg-openModal");
     this.modalSignUpBox.removeClass("modal-signup-openModal");
+    this.formMain.attr('onsubmit', 'return false');
+    this.nameField.val('');
+    this.emailField.val('');
+    this.passField.val('');
+    this.rePassField.val('');
   }
 
 }

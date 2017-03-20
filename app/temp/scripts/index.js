@@ -10735,7 +10735,7 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -10756,6 +10756,7 @@
 	    _classCallCheck(this, Signup);
 
 	    this.modal = (0, _jquery2.default)(".modal-bg");
+	    this.formMain = (0, _jquery2.default)(".formMain");
 	    this.modalSignUpBox = (0, _jquery2.default)('.modal-signup');
 	    this.emailSignUp = (0, _jquery2.default)('#emailSignup');
 	    this.nameSignUp = (0, _jquery2.default)('#nameSignUpDone');
@@ -10769,12 +10770,16 @@
 	    this.cautionEmail = (0, _jquery2.default)('#cautionSignUp-email');
 	    this.cautionPassword = (0, _jquery2.default)('#cautionSignUp-password');
 	    this.cautionRePassword = (0, _jquery2.default)('#cautionSignUp-rePassword');
+	    this.nameField = (0, _jquery2.default)('#signup-name');
+	    this.emailField = (0, _jquery2.default)('#signup-email');
+	    this.passField = (0, _jquery2.default)('#signup-password');
+	    this.rePassField = (0, _jquery2.default)('#signup-rePassword');
 	    this.signupBtn = (0, _jquery2.default)('#signupBtn');
 	    this.event();
 	  }
 
 	  _createClass(Signup, [{
-	    key: 'event',
+	    key: "event",
 	    value: function event() {
 	      this.formName.blur(this.checkName.bind(this));
 	      this.formEmail.blur(this.checkEmail.bind(this));
@@ -10784,7 +10789,7 @@
 	      this.closeBtn.click(this.closeModal.bind(this));
 	    }
 	  }, {
-	    key: 'formNoFill',
+	    key: "formNoFill",
 	    value: function formNoFill() {
 	      if (this.formName.val() === '' || this.formEmail.val() === '' || this.formPassword.val() === '' || this.formRePassword.val() === '') {
 	        return false;
@@ -10794,7 +10799,7 @@
 	      }
 	    }
 	  }, {
-	    key: 'checkName',
+	    key: "checkName",
 	    value: function checkName() {
 	      var regexName = /^[a-zA-z ก-๙]+$/;
 
@@ -10809,7 +10814,7 @@
 	      }
 	    }
 	  }, {
-	    key: 'checkEmail',
+	    key: "checkEmail",
 	    value: function checkEmail() {
 	      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -10824,7 +10829,7 @@
 	      }
 	    }
 	  }, {
-	    key: 'checkPassword',
+	    key: "checkPassword",
 	    value: function checkPassword() {
 	      var regexPassword = /^[a-zA-z0-9]+$/;
 
@@ -10839,7 +10844,7 @@
 	      }
 	    }
 	  }, {
-	    key: 'checkRePassword',
+	    key: "checkRePassword",
 	    value: function checkRePassword() {
 	      if (this.formPassword.val() === this.formRePassword.val() || this.formRePassword.val() === '') {
 	        this.cautionRePassword.fadeOut();
@@ -10852,7 +10857,7 @@
 	      }
 	    }
 	  }, {
-	    key: 'modalSignUp',
+	    key: "modalSignUp",
 	    value: function modalSignUp() {
 	      if (this.checkName() && this.checkEmail() && this.checkPassword() && this.checkRePassword() && this.formNoFill()) {
 	        this.formFill.fadeOut();
@@ -10864,6 +10869,7 @@
 	        this.modalSignUpBox.addClass("modal-signup-openModal");
 	        this.emailSignUp.text(this.formEmail.val());
 	        this.nameSignUp.text(this.formName.val());
+	        this.formMain.attr('onsubmit', 'return true');
 	      } else {
 	        this.formFill.fadeIn();
 	        this.formName.addClass('formField-fail');
@@ -10873,10 +10879,15 @@
 	      }
 	    }
 	  }, {
-	    key: 'closeModal',
+	    key: "closeModal",
 	    value: function closeModal() {
 	      this.modal.removeClass("modal-bg-openModal");
 	      this.modalSignUpBox.removeClass("modal-signup-openModal");
+	      this.formMain.attr('onsubmit', 'return false');
+	      this.nameField.val('');
+	      this.emailField.val('');
+	      this.passField.val('');
+	      this.rePassField.val('');
 	    }
 	  }]);
 
