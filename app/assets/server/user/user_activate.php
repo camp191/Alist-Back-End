@@ -7,10 +7,10 @@
   $fetchResult = mysqli_fetch_array($result);
 
   if(!$fetchResult) {
-    echo "Activate Invalid !";
+    header('Location: http://localhost/alist/app/activate_notdone.html');
   } else {
     $updateSQL = "UPDATE user SET activate = 'Yes'  WHERE SID = '" . trim($_GET['sid']) . "' AND id = '" . trim($_GET['uid']) . "'";
     $upQuery = mysqli_query($con ,$updateSQL);
-    echo "Activate Successfully !";
+    header('Location: http://localhost/alist/app/activate_done.html');
   }
 ?>

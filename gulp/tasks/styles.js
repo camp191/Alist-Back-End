@@ -35,3 +35,13 @@ gulp.task('css3', function(){
         })
         .pipe(gulp.dest('./app/temp/styles'));
 })
+
+gulp.task('css4', function(){
+  return gulp.src('./app/assets/styles/activate.css')
+        .pipe(postCSS([importCSS, varCSS, mixins, autoPrefixer, nested]))
+        .on('error', function(errorInfo){
+          console.log(errorInfo.toString());
+          this.emit('end');
+        })
+        .pipe(gulp.dest('./app/temp/styles'));
+})
