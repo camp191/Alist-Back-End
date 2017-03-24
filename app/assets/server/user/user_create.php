@@ -11,8 +11,10 @@
   $RePassword = md5($_REQUEST["re-password"]);
   $SessionID = session_id();
 
+  $sqlEmail = "SELECT * FROM user WHERE email='$Email'";
+  $result = mysqli_query($con, $sqlEmail);
 
-  if ($Password == $RePassword) {
+  if ($Password == $RePassword && mysqli_num_rows($result) == 0) {
     $sql= "INSERT INTO user(name, email, password, job, birthdate, subStatus, payment, packageID, expDate, SID, activate)
             VALUES ('$Name','$Email','$Password','','','No','','','', '$SessionID' ,'No')";
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql" . mysqli_error());

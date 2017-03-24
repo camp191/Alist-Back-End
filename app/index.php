@@ -8,6 +8,13 @@
   <link rel="icon" href="./assets/images/logo.png">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./temp/styles/index.css">
+  <?php
+  session_start();
+  if(isset($_SESSION["name"])){
+    header("Location: login.php");
+  }
+  ?>
+
 </head>
 <body>
   <!-- Logo and Menu -->
@@ -50,6 +57,7 @@
 
               <form method="post" class="formMain" onsubmit="return false" action="./assets/server/user/user_create.php" target="iframe_target">
                 <div class="cautionSignUp-box">
+                  <h4 class="cautionSignUp checkEmail"></h4>
                   <h4 class="cautionSignUp" id="cautionSignUp-formFill"><span class="fa fa-exclamation-circle"></span> กรุณาข้อมูลให้ครบทุกช่อง</h4>
                   <h4 class="cautionSignUp" id="cautionSignUp-name"><span class="fa fa-exclamation-circle"></span> กรุณาใส่ชื่อและนามสกุลด้วยภาษาอังกฤษหรือไทยเท่านั้น</h4>
                   <h4 class="cautionSignUp" id="cautionSignUp-email"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์ให้ถูกต้อง</h4>
@@ -247,25 +255,26 @@
               <h3 class="text-center headerSignIn">เข้าสู่ระบบ</h3>
               <a href="#"><span class="fa fa-close closeIcon" id="modal-close"></span></a>
             </div>
-            <form class="formMain" onsubmit="return false">
+            <form class="formMain" id="formMain" onsubmit="return true" action="./assets/server/user/user_login.php" method="post">
               <div class="cautionSignIn-box">
                 <h4 class="cautionSignIn" id="cautionSignIn-formFill"><span class="fa fa-exclamation-circle"></span> กรุณาข้อมูลให้ครบทุกช่อง</h4>
                 <h4 class="cautionSignIn" id="cautionSignIn-email"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์ให้ถูกต้อง</h4>
                 <h4 class="cautionSignIn" id="cautionSignIn-password"><span class="fa fa-exclamation-circle"></span> กรุณาใส่รหัสผ่านให้ถูกต้อง ความยาว 4-10 ตัวอักษร</h4>
+                <h4 class="cautionSignIn" id="cautionSignIn-login"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์และรหัสผ่านให้ถูกต้อง</h4>
               </div>
               <fieldset>
                 <div class="row">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
+                    <input class="col-xs-12 formField" name="email" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
                   </div>
                 </div>
                 <div class="row passwordSignIn">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-password" type="password" placeholder="รหัสผ่าน">
+                    <input class="col-xs-12 formField" name="password" id="signin-password" type="password" placeholder="รหัสผ่าน">
                   </div>
                 </div>
               </fieldset>
-              <button class="signinBtn" id="signinBtn">เข้าสู่ระบบ</button>
+              <button class="signinBtn" name="signinBtn" id="signinBtn">เข้าสู่ระบบ</button>
               <button class="forgetPasswordBtn" id="forgetPasswordBtn">ส่งรหัสผ่านใหม่ไปทางอีเมล์</button>
               <div class="contentBox">
                 <p class="forgetPasswordSuccess text-center">ขณะนี้ Alist ได้ส่งรหัสผ่านใหม่ไปยังอีเมล์ <span class="forgetPasswordSuccess" id="forgetPasswordEmailSuccess"></span> เป็นที่เรียบร้อยแล้ว</p>
@@ -326,5 +335,20 @@
   </div>
 
   <script type="text/javascript" src="./temp/scripts/index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    $('document').ready(function(){
+        $('#signup-email').blur(function(){
+        var jqxhr = $.ajax({
+          url: "./assets/server/user/checkEmail.php",
+          data: "email=" + $("#signup-email").val(),
+          method: "POST",
+          async: false
+        })
+        .done(function(data,status) {$(".checkEmail").show().html(data);})
+        .fail(function(xhr, status, exception) {alert(status);})
+      })
+    })
+  </script>
 </body>
 </html>

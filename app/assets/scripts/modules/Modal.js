@@ -24,6 +24,7 @@ class Modal {
     this.cautionFormFill = $('#cautionSignIn-formFill');
     this.cautionEmail = $('#cautionSignIn-email');
     this.cautionPassword = $('#cautionSignIn-password');
+    this.cautionLogin = $('#cautionSignIn-login');
     this.signInBtn = $('#signinBtn');
     this.eventSignIn();
     this.eventForget();
@@ -58,6 +59,7 @@ class Modal {
     this.cautionFormFill.hide();
     this.cautionEmail.hide();
     this.cautionPassword.hide();
+    this.cautionLogin.hide();
     this.signInPasswordForm.removeClass('formField-fail');
     this.signInEmailForm.removeClass('formField-fail');
   }

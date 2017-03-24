@@ -120,6 +120,7 @@
 	    this.cautionFormFill = (0, _jquery2.default)('#cautionSignIn-formFill');
 	    this.cautionEmail = (0, _jquery2.default)('#cautionSignIn-email');
 	    this.cautionPassword = (0, _jquery2.default)('#cautionSignIn-password');
+	    this.cautionLogin = (0, _jquery2.default)('#cautionSignIn-login');
 	    this.signInBtn = (0, _jquery2.default)('#signinBtn');
 	    this.eventSignIn();
 	    this.eventForget();
@@ -159,6 +160,7 @@
 	      this.cautionFormFill.hide();
 	      this.cautionEmail.hide();
 	      this.cautionPassword.hide();
+	      this.cautionLogin.hide();
 	      this.signInPasswordForm.removeClass('formField-fail');
 	      this.signInEmailForm.removeClass('formField-fail');
 	    }
