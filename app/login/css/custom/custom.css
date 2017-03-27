@@ -1,0 +1,36 @@
+/* Font Face */
+@font-face {
+  font-family: patuaOne;
+  src: url(./../../../assets/fonts/PatuaOne-Regular.ttf);
+  font-weight: normal;
+}
+
+/* Icon nav bar */
+.brand-nav {
+    margin-top: -3px;
+}
+.brand-nav .name {
+    font-family: patuaOne;
+    font-weight: normal;
+}
+
+/* mini profile on side bar */
+.mini-profile {
+    padding: 10px;
+}
+
+.mini-profile .content {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.mini-profile .avatar {
+    width: 50px;
+    height: 50px;
+    padding-right: 0;
+}
+
+.mini-profile .image {
+    width: 100%;
+    height: 100%;
+}
