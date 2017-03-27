@@ -1,341 +1,146 @@
 <?php
 $page = "setting";
 include "./server/include/header.php";
+$sql = "SELECT * from user WHERE id='$id'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result);
 ?>
 
         <div id="page-wrapper">
 
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Update Account Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Settings
+                            Account Settings
                             <small>ตั้งค่าต่างๆข้อมูล Account</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-table"></i> Tables
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h2>Bordered Table</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <form action="">
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Picture Preview</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <img src="./../assets/images/profileAvatar.png" id="previewImg" height="150px" accept="image/gif, image/jpeg, image/png">
+                                </div>
+                            </div>
+                            <div class="text-center btn btn-default file-upload">
+                                <span>Upload Picture</span>
+                                <input type="file" onchange="previewFile()" class="upload">
+                            </div>                           
+                            
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h2>Bordered with Striped Rows</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="disabledSelect">Email:</label>
+                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Name-Surname:</label>
+                                <input class="form-control">
+                                <p class="help-block">Example: Thanapat Sorralump</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sex:</label>
+                                <select class="form-control">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+
+
+                             <div class="form-group">
+                                <label>Job:</label>
+                                <input class="form-control">
+                                <p class="help-block">Example: Student, Teacher, Engineer etc.</p>
+                            </div>                           
+
+                            <div class="form-group">
+                                <label>Birthdate:</label>
+                                <input class="form-control" id="date" name="date">
+                                <p class="help-block">Example: yyyy/mm/dd Format</p>
+                            </div>
+
+
+                    </div>
+                    <div class="col-lg-12 text-center btn-update">
+                        <button class="btn btn-primary btn-lg">Update Your Profile </button>
+                    </div>
+                    </form>
+                </div>
+
+
+                <!-- Update Password Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Password Setting
+                            <small>เปลี่ยนแปลงรหัสผ่าน</small>
+                        </h1>
                     </div>
                 </div>
+                <!-- /.row -->
+                
+                <div class="row">
+                    <form action="">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Current Password:</label>
+                                <input class="form-control" type="password">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>New Password:</label>
+                                <input class="form-control" type="password">
+                            </div>                        
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Confirm New Password:</label>
+                                <input class="form-control" type="password">
+                            </div>                        
+                        </div>
+
+                       <div class="col-lg-3 text-center">
+                            <button class="btn btn-primary btn-lg btn-update">Update Password</button>
+                        </div>
+                    </form>
+                    
+                </div>
+                <!-- row -->
+
+                <!-- Delete Account -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Delete Account
+                            <small>ลบบัญชี</small>
+                        </h1>
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Once you delete your account, there is no going back. Please be certain.</h4>
+                            <button class="btn btn-danger btn-lg btn-update">Delete Your Account</button>
+                        </div>
+                    </div>
                 <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2>Basic Table</h2>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2>Striped Rows</h2>
-                        <div class="table-responsive">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2>Contextual Classes</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Page</th>
-                                        <th>Visits</th>
-                                        <th>% New Visits</th>
-                                        <th>Revenue</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="active">
-                                        <td>/index.html</td>
-                                        <td>1265</td>
-                                        <td>32.3%</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr class="success">
-                                        <td>/about.html</td>
-                                        <td>261</td>
-                                        <td>33.3%</td>
-                                        <td>$234.12</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>/sales.html</td>
-                                        <td>665</td>
-                                        <td>21.3%</td>
-                                        <td>$16.34</td>
-                                    </tr>
-                                    <tr class="danger">
-                                        <td>/blog.html</td>
-                                        <td>9516</td>
-                                        <td>89.3%</td>
-                                        <td>$1644.43</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/404.html</td>
-                                        <td>23</td>
-                                        <td>34.3%</td>
-                                        <td>$23.52</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/services.html</td>
-                                        <td>421</td>
-                                        <td>60.3%</td>
-                                        <td>$724.32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>/blog/post.html</td>
-                                        <td>1233</td>
-                                        <td>93.2%</td>
-                                        <td>$126.34</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2>Bootstrap Docs</h2>
-                        <p>For complete documentation, please visit <a target="_blank" href="http://getbootstrap.com/css/#tables">Bootstrap's Tables Documentation</a>.</p>
-                    </div>
-                </div>
-                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->
@@ -345,3 +150,5 @@ include "./server/include/header.php";
 <?php
 include "./server/include/footer.php";
 ?>
+
+

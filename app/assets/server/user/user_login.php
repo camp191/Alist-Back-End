@@ -14,6 +14,7 @@
     } else {
       $row = mysqli_fetch_array($result);
       $_SESSION["name"] = $row["name"];
+      $_SESSION["id"] = $row["id"];
       header("Location: ./../../../login/index.php");
       exit();
     }

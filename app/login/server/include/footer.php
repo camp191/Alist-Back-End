@@ -24,6 +24,24 @@
     <!-- jQuery -->
     <script src='js/jquery.js'></script>
 
+    <!-- Date and Time Plugin Javascript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js'></script>
+    <script>
+    $(document).ready(function(){
+      var date_input=$('input[name=\"date\"]');
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : 'body';
+      var options={
+        format: 'yyyy/mm/dd',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+    </script>
+
+    <script src='js/custom/custom.js'></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src='js/bootstrap.min.js'></script>
 
@@ -31,6 +49,7 @@
     <script src='js/plugins/morris/raphael.min.js'></script>
     <script src='js/plugins/morris/morris.min.js'></script>
     <script src='js/plugins/morris/morris-data.js'></script>
+
 
 </body>
 
