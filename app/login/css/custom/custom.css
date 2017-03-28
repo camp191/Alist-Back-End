@@ -57,3 +57,11 @@
     margin: 15px 0;
 }
 
+/* Subscribe Form Margin */
+.form-mleft {
+    padding-left: 0;
+}
+
+.form-mright {
+    padding-right: 0;
+}

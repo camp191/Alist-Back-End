@@ -10,7 +10,7 @@ include "./server/include/header.php";
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Hello, <?php echo $name ?>
+                    Hello, <?php echo $nameShow ?>
                 </h1>
             </div>
         </div>

@@ -1,16 +1,14 @@
 <?php
     session_start();
+    include "./../../../assets/server/connection.php";
+    
     $id = $_SESSION["id"];
     $FSName = $_REQUEST["FSName"];
     $Sex = $_REQUEST["Sex"];
     $Job = $_REQUEST["Job"];
     $Bdate = $_REQUEST["date"];
     $Picture = $_FILES["Picture"]["name"];
-    echo "<script>";
-    echo "alert('$Picture')";
-    echo "</script>";
 
-    include "./../../../assets/server/connection.php";
 
     if($Picture == ''){
         $updSQL = "UPDATE user SET name='$FSName', sex='$Sex', job='$Job', birthdate='$Bdate' WHERE id='$id'";
@@ -25,9 +23,6 @@
 		$newfilename = $id . $picture_ext;
         $targetFile = "./../../upload/images/" . $newfilename;
 		$check = move_uploaded_file($_FILES["Picture"]["tmp_name"], $targetFile );
-        echo "<script>";
-        echo "alert('Update Success');";
-        echo "</script>";
 
         $updSQL = "UPDATE user SET name='$FSName', sex='$Sex', job='$Job', birthdate='$Bdate', picture='$newfilename' WHERE id='$id'";	
     } else {

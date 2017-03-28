@@ -11,283 +11,93 @@ include "./server/include/header.php";
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Bootstrap Grid
+                            Subscribe Status
+                            <small> สถานะการใช้งาน</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-wrench"></i> Bootstrap Grid
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-md-push-1 col-md-5">
                         <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-12
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Subscribe Status</h3>
                             </div>
-                        </div>
+                            <div class="panel-body">
+                                <p><strong>Name: </strong> Thanapat Sorralump</p>
+                                <p><strong>Package: </strong> Not Subscribe</p>
+                                <p><strong>Exp Date: </strong> 2017-06-01</p>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="col-md-push-1 col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Payment Information</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Name: </strong> Thanapat Sorralump</p>
+                                <p><strong>Card Number: </strong> 1234-5678-9012</p>
+                                <p><strong>CVV: </strong> * * * *</p>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
-                <!-- /.row -->
 
+                <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-6 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-6
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-6
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Subscribe Package
+                            <small> เลือกใช้งานแพคเกจ</small>
+                        </h1>
                     </div>
                 </div>
                 <!-- /.row -->
-
+                
                 <div class="row">
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
+                    <form action="">
+                        <div class="col-md-push-3 col-md-6">
+                            <div class="form-group">
+                                <label>Package:</label>
+                                <select class="form-control" name="Package">
+                                    <option>Basic - 50 Bath/Month</option>
+                                    <option>Pro - 80 Bath/Month</option>
+                                </select>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
+                            <div class="form-group">
+                                <label>Firstname Lastname:</label>
+                                <input class="form-control" name="FSName" value="">
+                                <p class="help-block">Example: Thanapat Sorralump</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
+                            <div class="col-md-8 form-mleft">
+                                <div class="form-group">
+                                    <label>Card Number:</label>
+                                    <input class="form-control" name="CardName" value="">
+                                    <p class="help-block">Example: 1234-5678-9012</p>
+                                </div>                            
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
+                            <div class="col-md-4 form-mright">
+                                <div class="form-group">
+                                    <label>CVV:</label>
+                                    <input class="form-control" name="CVV" value="">
+                                    <p class="help-block">Example: 1234</p>
+                                </div>                            
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-2
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+                            <hr style="width: 100%; height:2px;" />
 
-                <div class="row">
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-1
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-8 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-8
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+                            <p><strong>Note: </strong>Please check your information before subscribe package.</p>
 
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-lg">Subscribe</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-6
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-3
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <!-- /.row -->
-
             </div>
             <!-- /.container-fluid -->
 
