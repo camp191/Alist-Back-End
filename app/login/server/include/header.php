@@ -10,6 +10,17 @@
         exit();
     }
 
+    $sql = "SELECT * from user WHERE id='$id'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_array($result);
+    $nameShow = $row["name"];
+
+    if($row['picture'] == ''){
+        $picAvatar = "<img class='media-object image'  src='./../assets/images/profileAvatar.png' alt=''>";
+    } else {
+        $picAvatar = "<img class='media-object image'  src='./upload/images/" . $row['picture'] . "'>";
+    }
+
 echo "<!DOCTYPE html>
 <html lang='en'>
 
@@ -158,7 +169,7 @@ echo "<!DOCTYPE html>
                     </ul>
                 </li>-->
                 <li class='dropdown'>
-                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-user'></i> $name <b class='caret'></b></a>
+                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-user'></i> $nameShow <b class='caret'></b></a>
                     <ul class='dropdown-menu'>
                         <li>
                             <a href='#'><i class='fa fa-fw fa-user'></i> Profile</a>
@@ -181,13 +192,11 @@ echo "<!DOCTYPE html>
                 <ul class='nav navbar-nav side-nav'>
                     <li class='mini-profile'>
                         <div class='media'>
-                            <span class='pull-left avatar'>
-                                <img class='media-object image'  src='./../assets/images/profileAvatar.png' alt=''>
-                            </span>
+                            <span class='media-left pull-left avatar'>";
+                                echo $picAvatar . " </span>
                             <div class='media-body content'>
-                                <h5 class='media-heading text-muted'><strong>$name</strong>
-                                </h5>
-                                <p class='small text-muted'>Package: <span class='label label-warning'>Pro</span> </p>
+                                <h5 class='media-heading text-muted'><strong>$nameShow</strong></h5>
+                                <p class='small text-muted'>Package: <span class='label label-default'>Not Subscribe</span> </p>
                             </div>
                         </div>
                     </li>

@@ -10,6 +10,7 @@ $row = mysqli_fetch_array($result);
 
             <div class="container-fluid">
 
+
                 <!-- Update Account Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -22,7 +23,18 @@ $row = mysqli_fetch_array($result);
                 <!-- /.row -->
 
                 <div class="row">
-                    <form action="">
+                <?php
+                    if (empty($_GET)) {
+                        echo "";
+                    } else if($_GET["stage"] == "done"){
+                        echo "<div class='alert alert-success alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                <i class='fa fa-check'></i>  ข้อมูลบัญชีได้ถูกบันทึกเรียบร้อยแล้ว
+                            </div>";
+                    }
+
+                ?>
+                    <form action="./server/settings/updAccount.php" method="Post" enctype="multipart/form-data">
                     <div class="col-md-6">
                         <div class="text-center">
                             <div class="panel panel-default">
@@ -30,12 +42,18 @@ $row = mysqli_fetch_array($result);
                                     <h3 class="panel-title">Picture Preview</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <img src="./../assets/images/profileAvatar.png" id="previewImg" height="150px" accept="image/gif, image/jpeg, image/png">
+                                    <?php
+                                        if($row['picture'] == ''){
+                                            echo("<img src='./../assets/images/profileAvatar.png' id='previewImg' height='150px' accept='image/gif, image/jpeg, image/png'>");
+                                        } else {
+                                            echo("<img src='./upload/images/" . $row['picture'] . "' id='previewImg' height='150px' accept='image/gif, image/jpeg, image/png'>");
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             <div class="text-center btn btn-default file-upload">
                                 <span>Upload Picture</span>
-                                <input type="file" onchange="previewFile()" class="upload">
+                                <input type="file" name="Picture" onchange="previewFile()" class="upload"/>
                             </div>                           
                             
                         </div>
@@ -44,34 +62,35 @@ $row = mysqli_fetch_array($result);
 
                             <div class="form-group">
                                 <label for="disabledSelect">Email:</label>
-                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
+                                <input class="form-control" id="disabledInput" type="text" placeholder="<?=$row["email"]?>" disabled>
                             </div>
 
                             <div class="form-group">
                                 <label>Name-Surname:</label>
-                                <input class="form-control">
+                                <input class="form-control" name="FSName" value="<?=$row["name"]?>">
                                 <p class="help-block">Example: Thanapat Sorralump</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Sex:</label>
-                                <select class="form-control">
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                <select class="form-control" name="Sex">
+                                    <option <?php echo($row['sex'] == '-' ? 'selected' : ''); ?> >-</option>
+                                    <option <?php echo($row['sex'] == 'Male' ? 'selected' : ''); ?>>Male</option>
+                                    <option <?php echo($row['sex'] == 'Female' ? 'selected' : ''); ?>>Female</option>
                                 </select>
                             </div>
 
 
                              <div class="form-group">
                                 <label>Job:</label>
-                                <input class="form-control">
+                                <input class="form-control" name="Job" value="<?=$row["job"]?>">
                                 <p class="help-block">Example: Student, Teacher, Engineer etc.</p>
                             </div>                           
 
                             <div class="form-group">
                                 <label>Birthdate:</label>
-                                <input class="form-control" id="date" name="date">
-                                <p class="help-block">Example: yyyy/mm/dd Format</p>
+                                <input class="form-control" id="date" name="date" value="<?=$row["birthdate"]?>">
+                                <p class="help-block">Example: yyyy-mm-dd Format</p>
                             </div>
 
 
@@ -95,7 +114,7 @@ $row = mysqli_fetch_array($result);
                 <!-- /.row -->
                 
                 <div class="row">
-                    <form action="">
+                    <form>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Current Password:</label>
