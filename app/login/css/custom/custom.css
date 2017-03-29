@@ -1,3 +1,8 @@
+/* Wrapper Full Page */
+html,body{  height: 96.5%; }
+#wrapper{height: 100%;}
+#page-wrapper{min-height: 100%;}
+
 /* Font Face */
 @font-face {
   font-family: patuaOne;
@@ -65,3 +70,7 @@
 .form-mright {
     padding-right: 0;
 }
+
+/* textarea contact form */
+textarea { resize: vertical; }
+
