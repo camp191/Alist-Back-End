@@ -38,6 +38,23 @@
         header("Location: ./index.php?subscribe=expire");
     }
 
+    // check package id for use right function
+    // list function
+    if($row['packageID'] != '0'){
+        $listLink = "<a href='list.php'><i class='fa fa-fw fa-list'></i> List <span class='label label-success'>Basic</span></a>";
+    } else {
+        $listLink = "<a data-toggle='modal' href='#packageModal'><i class='fa fa-fw fa-list'></i> List <span class='label label-success'>Basic</span></a>";
+    }
+
+    // project function
+    if($row['packageID'] == '2'){
+        $projectLink = "<a href='project.php'><i class='fa fa-fw fa-table'></i> Project <span class='label label-warning'>Pro</span></a>";
+    } else {
+        $projectLink = "<a data-toggle='modal' href='#packageModal'><i class='fa fa-fw fa-table'></i> Project <span class='label label-warning'>Pro</span></a>";
+    }
+    
+
+
 echo "<!DOCTYPE html>
 <html lang='en'>
 
@@ -228,10 +245,10 @@ echo "<!DOCTYPE html>
                         <a href='index.php'><i class='fa fa-fw fa-home'></i> Home</a>
                     </li>
                     <li class='"; echo($page == 'list' ? 'active' : ''); echo"'>
-                        <a href='list.php'><i class='fa fa-fw fa-list'></i> List <span class='label label-success'>Basic</span></a>
+                        $listLink
                     </li>
                     <li class='"; echo($page == 'project' ? 'active' : ''); echo"'>
-                        <a href='project.php'><i class='fa fa-fw fa-table'></i> Project <span class='label label-warning'>Pro</span></a>
+                        $projectLink
                     </li>
                     <li class='"; echo($page == 'package' ? 'active' : ''); echo"'>
                         <a href='package.php'><i class='fa fa-fw fa-cubes'></i> Packages and Subscribe</a>

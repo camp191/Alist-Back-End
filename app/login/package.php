@@ -97,14 +97,14 @@ $row = mysqli_fetch_array($result);
                             <p><strong>Your payment information</strong> <i class="fa fa-cc-visa fa-lg"></i> <i class="fa fa-cc-mastercard fa-lg"></i> <i class="fa fa-cc-amex fa-lg"></i></p>
 
 
-                            <div class="col-md-8 form-mleft">
+                            <div class="col-xs-8 form-mleft">
                                 <div class="form-group">
                                     <label>Card Number:</label>
                                     <input class="form-control" name="CardNumber" value="" id="cardNumber">
                                     <p class="help-block">Example: 1234-5678-9012</p>
                                 </div>                            
                             </div>
-                            <div class="col-md-4 form-mright">
+                            <div class="col-xs-4 form-mright">
                                 <div class="form-group">
                                     <label>CVV:</label>
                                     <input class="form-control" name="CVV" value="" id="CVV">
@@ -128,7 +128,7 @@ $row = mysqli_fetch_array($result);
 
         </div>
         <!-- /#page-wrapper -->
-        <!-- Modal -->
+        <!-- Modal Subscribe -->
         <div class="modal fade" id="subModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

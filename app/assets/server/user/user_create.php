@@ -15,9 +15,9 @@
   $result = mysqli_query($con, $sqlEmail);
 
   if ($Password == $RePassword && mysqli_num_rows($result) == 0) {
-    $sql= "INSERT INTO user(name, email, password, job, birthdate, subStatus, payment, packageID, expDate, SID, activate)
-            VALUES ('$Name','$Email','$Password','','','No','','','', '$SessionID' ,'No')";
-    $result = mysqli_query($con, $sql) or die ("Error in query: $sql" . mysqli_error());
+    $sqlInsertUser= "INSERT INTO user(name, email, password, sex, job,picture, birthdate, namePay, cardNumber, packageID, expDate, SID, activate)
+            VALUES ('$Name','$Email','$Password','-','','','','','','0','', '$SessionID' ,'No')";
+    $result = mysqli_query($con, $sqlInsertUser) or die ("Error in query: $sqlInsertUser" . mysqli_error());
 
     $uid = mysqli_insert_id($con);
     $Message = "

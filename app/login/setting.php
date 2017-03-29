@@ -155,7 +155,9 @@ $row = mysqli_fetch_array($result);
                     <div class="row">
                         <div class="col-md-12">
                             <h4>Once you delete your account, there is no going back. Please be certain.</h4>
-                            <button class="btn btn-danger btn-lg btn-update">Delete Your Account</button>
+                            <form action="./server/settings/deleteAccount.php" id="formDeleteAccount" method="post">
+                                <input type="button" class="btn btn-danger btn-lg btn-update" data-toggle="modal" data-target="#deleteModal" value="Delete Your Account">
+                            </form>
                         </div>
                     </div>
                 <!-- /.row -->
@@ -166,6 +168,27 @@ $row = mysqli_fetch_array($result);
 
         </div>
         <!-- /#page-wrapper -->
+
+        <!-- Modal Delete Account -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete Account Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to <strong>Delete</strong> Alist account?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="confirmDelete" class="btn btn-danger">Yes, Delete my account</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
 <?php
 include "./server/include/footer.php";
 ?>

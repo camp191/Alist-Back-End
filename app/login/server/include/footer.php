@@ -22,6 +22,27 @@
         </div>
     </div>
 
+    <!-- Function Package Modal -->
+    <div class='modal fade' id='packageModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
+        <div class='modal-dialog' role='document'>
+            <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                <h4 class='modal-title' id='myModalLabel'>Wrong Package</h4>
+            </div>
+            <div class='modal-body'>
+                Can't use this feature. Please subscribe right package before use this feature. :)
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                <a type='button' href='./package.php' class='btn btn-primary'>Subscribe Package</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- jQuery -->
     <script src='js/jquery.js'></script>
 

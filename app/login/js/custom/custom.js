@@ -13,7 +13,7 @@ function previewFile() {
   }
 }
 
-// confirm subscribe
+// confirm subscribe modal
 $("#submitBtn").click(function(){
   if($('#FLName').val() === '' || $('#cardNumber').val() === '' || $('#CVV').val() === ''){
     $('#formSubmitFail').html(`<div class="alert alert-danger">
@@ -44,3 +44,8 @@ $(".closeSubscribe").click(function(){
 $("#confirmSubscribe").click(function(){
   $("#formSubscribe").submit();
 })
+
+// delete account modal
+$("#confirmDelete").click(function(){
+  $("#formDeleteAccount").submit();
+});
