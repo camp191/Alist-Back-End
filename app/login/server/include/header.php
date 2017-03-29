@@ -21,6 +21,10 @@
         $picAvatar = "<img class='media-object image'  src='./upload/images/" . $row['picture'] . "'>";
     }
 
+    $sqlPackage = "SELECT * FROM package WHERE packageID='" . $row['packageID'] . "'";
+    $resultPackage = mysqli_query($con, $sqlPackage);
+    $rowPackage = mysqli_fetch_array($resultPackage);
+
 echo "<!DOCTYPE html>
 <html lang='en'>
 
@@ -196,8 +200,15 @@ echo "<!DOCTYPE html>
                                 echo $picAvatar . " </span>
                             <div class='media-body content'>
                                 <h5 class='media-heading text-muted'><strong>$nameShow</strong></h5>
-                                <p class='small text-muted'>Package: <span class='label label-default'>Not Subscribe</span> </p>
-                            </div>
+                                <p class='small text-muted'>Package:";
+                                if($rowPackage["packageName"] == 'Not Subscribe'){
+                                    echo " <span class='label label-default'>Not Subscribe</span> </p>";
+                                } else if ($rowPackage["packageName"] == 'Basic'){
+                                    echo " <span class='label label-success'>Basic</span> </p>";
+                                } else {
+                                    echo " <span class='label label-warning'>Pro</span> </p>";
+                                }
+                            echo "</div>
                         </div>
                     </li>
                     <li class='"; echo($page == 'home' ? 'active' : ''); echo"'>

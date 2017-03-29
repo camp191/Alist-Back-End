@@ -1,3 +1,4 @@
+// read file image
 function previewFile() {
   var preview = document.getElementById('previewImg');
   var file    = document.querySelector('input[type=file]').files[0];
@@ -11,3 +12,35 @@ function previewFile() {
     reader.readAsDataURL(file);
   }
 }
+
+// confirm subscribe
+$("#submitBtn").click(function(){
+  if($('#FLName').val() === '' || $('#cardNumber').val() === '' || $('#CVV').val() === ''){
+    $('#formSubmitFail').html(`<div class="alert alert-danger">
+                            <i class="fa fa-info-circle"></i> Please fill all inputs for subscribe. :)
+                        </div>`);
+    $('#confirmSubscribe').hide();
+    $('#topicModal').hide();
+  } else {
+    $('#topicModal').show();
+    $('#confirmSubscribe').show();
+
+    if($('#selectPackage').val() === '1') {
+      $('#modalPackage').text('Basic - 50 Bath/Month');
+    } else if ($('#selectPackage').val() === '2'){
+      $('#modalPackage').text('Pro - 80 Bath/Month');
+    }
+
+    $('#modalFLName').text($('#FLName').val());
+    $('#modalCardNumber').text($('#cardNumber').val());
+    $('#modalCVV').text($('#CVV').val());
+  }
+})
+
+$(".closeSubscribe").click(function(){
+  $('#formSubmitFail').html('');
+})
+
+$("#confirmSubscribe").click(function(){
+  $("#formSubscribe").submit();
+})

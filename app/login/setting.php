@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($result);
                             </div>
 
                             <div class="form-group">
-                                <label>Name-Surname:</label>
+                                <label>Firstname Lastname:</label>
                                 <input class="form-control" name="FSName" value="<?=$row["name"]?>">
                                 <p class="help-block">Example: Thanapat Sorralump</p>
                             </div>
