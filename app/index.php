@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./temp/styles/index.css">
   <?php
   session_start();
-  if(isset($_SESSION["name"])){
+  if(isset($_SESSION["id"])){
     header("Location: ./login/index.php");
   }
   ?>

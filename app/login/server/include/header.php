@@ -1,29 +1,42 @@
 <?php
     session_start();
-    $name = $_SESSION["name"];
     $id = $_SESSION["id"];
     
+    // include mysql connection
     include "./../assets/server/connection.php";
 
-    if(!isset($name)){
+    // check if not log in
+    if(!isset($id)){
         header("Location: ./../index.php");
         exit();
     }
 
+    // query basic info user
     $sql = "SELECT * from user WHERE id='$id'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
     $nameShow = $row["name"];
 
+    // check condition for avatar picture
     if($row['picture'] == ''){
         $picAvatar = "<img class='media-object image'  src='./../assets/images/profileAvatar.png' alt=''>";
     } else {
         $picAvatar = "<img class='media-object image'  src='./upload/images/" . $row['picture'] . "'>";
     }
 
+    // query package that user use
     $sqlPackage = "SELECT * FROM package WHERE packageID='" . $row['packageID'] . "'";
     $resultPackage = mysqli_query($con, $sqlPackage);
     $rowPackage = mysqli_fetch_array($resultPackage);
+
+    // check expire subscribe date
+    $dateNow = date("Y-m-d", time());
+    if($dateNow == $row["expDate"]){
+        $sqlUpdateExpire = "UPDATE user SET packageID='0', namePay='', expDate='0000-00-00', cardNumber='' WHERE id='$id'";
+        $resultUpdateExpire = mysqli_query($con, $sqlUpdateExpire);
+
+        header("Location: ./index.php?subscribe=expire");
+    }
 
 echo "<!DOCTYPE html>
 <html lang='en'>

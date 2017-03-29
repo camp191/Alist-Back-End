@@ -31,7 +31,7 @@ $row = mysqli_fetch_array($result);
                             <div class="panel-body">
                                 <p><strong>Name: </strong> <?=$row["name"] ?></p>
                                 <p><strong>Package: </strong> <?=$rowPackage["packageName"]?></p>
-                                <p><strong>Exp Date: </strong> <?=$row["expDate"] ?> </p>
+                                <p><strong>Exp Date: </strong> <?php echo($row["packageID"] == 0 ? "-" : $row["expDate"]) ?> </p>
                             </div>
                         </div>                        
                     </div>
@@ -61,6 +61,19 @@ $row = mysqli_fetch_array($result);
                 <!-- /.row -->
                 
                 <div class="row">
+
+                    <?php
+                        if (empty($_GET)) {
+                            echo "";
+                        } else if($_GET["subscribe"] == "done"){
+                            echo "<div class='alert alert-success alert-dismissable'>
+                                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                    <i class='fa fa-check'></i>  Subscribe Done <3. We wish you happy with Alist.
+                                </div>";
+                        }
+
+                    ?>
+
                     <form action="./server/packages/userSubscribe.php" method="post" id="formSubscribe">
                         <div class="col-md-push-3 col-md-6">
                             <div class="form-group">
@@ -87,7 +100,7 @@ $row = mysqli_fetch_array($result);
                             <div class="col-md-8 form-mleft">
                                 <div class="form-group">
                                     <label>Card Number:</label>
-                                    <input class="form-control" name="CardName" value="" id="cardNumber">
+                                    <input class="form-control" name="CardNumber" value="" id="cardNumber">
                                     <p class="help-block">Example: 1234-5678-9012</p>
                                 </div>                            
                             </div>
