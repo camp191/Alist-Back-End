@@ -49,3 +49,10 @@ $("#confirmSubscribe").click(function(){
 $("#confirmDelete").click(function(){
   $("#formDeleteAccount").submit();
 });
+
+// contact form reset
+$("#resetBtn").click(function(){
+  $("#topicContact").val("");
+  $("#messageContact").val("");
+  $("#typeContact").val($("#typeContact option:first").val());
+})
