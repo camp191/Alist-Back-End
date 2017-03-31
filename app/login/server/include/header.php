@@ -52,6 +52,14 @@
     } else {
         $projectLink = "<a data-toggle='modal' href='#packageModal'><i class='fa fa-fw fa-table'></i> Project <span class='label label-warning'>Pro</span></a>";
     }
+
+    // add list function
+    if($row['packageID'] != '0'){
+        $addListLink = "<a href='#' data-toggle='modal' data-target='#addListModal'><i class='fa fa-plus'></i> List</a>";
+    } else {
+        $addListLink = "<a href='#' data-toggle='modal' data-target='#packageModal'><i class='fa fa-plus'></i> List</a>";
+    }
+
     
 
 
@@ -121,7 +129,7 @@ echo "<!DOCTYPE html>
             <!-- Top Menu Items -->
             <ul class='nav navbar-right top-nav'>
                 <!-- Add list-->
-                <li><a href='#' data-toggle='modal' data-target='#myModal'><i class='fa fa-plus'></i> List</a></li>
+                <li>$addListLink</li>
                 <li class='dropdown'>
                     <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-calendar'></i> Today <span class='label label-danger'>10</span> <b class='caret'></b></a>
                     <ul class='dropdown-menu message-dropdown'>

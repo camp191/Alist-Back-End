@@ -8,6 +8,14 @@
   <link rel="icon" href="./assets/images/logo.png">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./temp/styles/activate.css">
+  <?php
+  session_start();
+  if(isset($_SESSION["id"])){
+    header("Location: ./login/index.php");
+  }
+  ?>
+
+
 </head>
 <body>
 
@@ -22,13 +30,14 @@
         </div>
         <div class="col-xs-8 col-sm-10 col-xs-12 text-right">
           <ul class="nav-menu">
-            <li class="menu"><a href="index.html">หน้าแรก</a></li>
+            <li class="menu"><a href="index.php">หน้าแรก</a></li>
             <li class="menu"><a href="pirce.html">ราคาและโปรโมชั่น</a></li>
             <li class="menu"><a href="test.html">ทดลองใช้งาน</a></li>
             <li class="menu"><a class="signIn" id="modal-open">เข้าสู่ระบบ</a></li>
           </ul>
           <a class="fa fa-bars hamburgerBtn"></a>
         </div>
+        <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
       </div>
     </div>
   </div>
@@ -98,7 +107,7 @@
               <h3 class="text-center headerSignIn">เข้าสู่ระบบ</h3>
               <a href="#"><span class="fa fa-close closeIcon" id="modal-close"></span></a>
             </div>
-            <form class="formMain" onsubmit="return false">
+            <form class="formMain" onsubmit="return true" action="./assets/server/user/user_login.php" method="post">
               <div class="cautionSignIn-box">
                 <h4 class="cautionSignIn" id="cautionSignIn-formFill"><span class="fa fa-exclamation-circle"></span> กรุณาข้อมูลให้ครบทุกช่อง</h4>
                 <h4 class="cautionSignIn" id="cautionSignIn-email"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์ให้ถูกต้อง</h4>
@@ -107,12 +116,12 @@
               <fieldset>
                 <div class="row">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
+                    <input class="col-xs-12 formField" name="email" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
                   </div>
                 </div>
                 <div class="row passwordSignIn">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-password" type="password" placeholder="รหัสผ่าน">
+                    <input class="col-xs-12 formField" name="password" id="signin-password" type="password" placeholder="รหัสผ่าน">
                   </div>
                 </div>
               </fieldset>

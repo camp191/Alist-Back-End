@@ -7,10 +7,10 @@
   $fetchResult = mysqli_fetch_array($result);
 
   if(!$fetchResult) {
-    header('Location: http://localhost/alist/app/activate_notdone.html');
+    header('Location: http://localhost/alist/app/activate_notdone.php');
   } else {
     $updateSQL = "UPDATE user SET activate = 'Yes'  WHERE SID = '" . trim($_GET['sid']) . "' AND id = '" . trim($_GET['uid']) . "'";
     $upQuery = mysqli_query($con ,$updateSQL);
-    header('Location: http://localhost/alist/app/activate_done.html');
+    header('Location: http://localhost/alist/app/activate_done.php');
   }
 ?>

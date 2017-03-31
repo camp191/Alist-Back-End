@@ -7,7 +7,14 @@
   <title>Alist || The Best To-Do-List in The World </title>
   <link rel="icon" href="./assets/images/logo.png">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./temp/styles/test.css">
+  <link rel="stylesheet" href="./temp/styles/activate.css">
+  <?php
+  session_start();
+  if(isset($_SESSION["id"])){
+    header("Location: ./login/index.php");
+  }
+  ?>
+
 </head>
 <body>
 
@@ -22,13 +29,14 @@
         </div>
         <div class="col-xs-8 col-sm-10 col-xs-12 text-right">
           <ul class="nav-menu">
-            <li class="menu"><a href="index.html">หน้าแรก</a></li>
+            <li class="menu"><a href="index.php">หน้าแรก</a></li>
             <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
-            <li class="menu"><a href="#">ทดลองใช้งาน</a></li>
-            <li class="menu"><a class="signIn" id="modal-open">เข้าสู่ระบบ</a></li>
+            <li class="menu"><a href="test.html">ทดลองใช้งาน</a></li>
+            <!-- <li class="menu"><a class="signIn" id="modal-open">เข้าสู่ระบบ</a></li> -->
           </ul>
           <a class="fa fa-bars hamburgerBtn"></a>
         </div>
+        <iframe id="iframe_target" name="iframe_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
       </div>
     </div>
   </div>
@@ -39,69 +47,33 @@
       <div class="container head-page">
         <div class="row">
           <div class="col-xs-12">
-            <div class="head text-center">ทดลองใช้งาน</div>
-            <div class="subHead text-center">ตัวอย่างโปรแกรมทดลองใช้งานบนเว็บไซต์</div>
+            <div class="head text-center">การยืนยันตัวตนสำเร็จ</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <section>
+  <!-- Activate done and sign in -->
+  <section class="questions-answers">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="app-box">
-            <div class="header-App text-center">
-              <img class="headerImage" src="./assets/images/logo-app.png" alt="App Logo">
-              <h3 class="text-center headerText">Alist <span class="version">v. 0.0.1 Beta</span></h3>
-            </div>
-
-            <div class="todo-main">
-              <div class="todo-box">
-                <div class="col-xs-12 todo-Style">
-                  <div class="tabBar">
-                    <div class="col-xs-6 text-center tabNotDoneBox">
-                      <a class="tabNotDone" href="#">รายการที่ยังไม่ได้ทำ <span class="tag" id="tag">3</span></a>
-                    </div>
-                    <div class="col-xs-6 text-center tabDoneBox">
-                      <a class="tabDone" href="#">รายการที่ทำสำเร็จแล้ว</a>
-                    </div>
-                  </div>
-
-                  <ul class="todo-notdone">
-                    <li class="ndList">ออกไปจ่ายตลาด <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
-                    <li class="ndList">เคลียร์งาน RWD <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
-                    <li class="ndList">ไปกินข้าวกับแม่ <a href="#" class="fa fa-check checkIcon doneBtn"></a><a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
-                  </ul>
-
-                  <ul class="todo-done">
-                    <li class="ndList">อ่านหนังสือสอบ <a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
-                    <li class="ndList">ทำกับข้าว <a href="#" class="fa fa-trash trashIcon deleteBtn"></a></li>
-                  </ul>
-
-                  <div class="done-box text-center">
-                    <h2 class="content">รายการที่ยังไม่ได้ทำหมดแล้ว <br />สามารถเพิ่มรายการที่ต้องทำด้านล่างนี้เลย</h2>
-                    <h2 class="fa fa-chevron-down content"></h2>
-                  </div>
-                </div>
-              </div>
-
-              <div class="add-form">
-                <form  onsubmit="return false">
-                  <fieldset class="col-xs-10 fieldsetStyle">
-                    <input class="todoInput" id="todoInput" type="text" placeholder="พิมพ์รายการที่ต้องทำที่นี่เลย">
-                  </fieldset>
-                  <button class="addBtn col-xs-2" id="addBtn">เพิ่ม</button>
-                </form>
-                <h4 class="cautionAdd col-xs-12" id="cautionAdd"><span class="fa fa-exclamation-circle"></span> กรุณาใส่รายการที่ต้องการทำ</h4>
-              </div>
-            </div>
-          </div>
+        <div class="col-sm-10 col-sm-offset-1">
+          <h4 class="text-center subHead">การยืนยันตัวตนเพื่อใช้งาน Alist สำเร็จแล้ว สามารถเข้าระบบได้ทันที</h4>
         </div>
       </div>
+      <div class="row test-alist">
+        <div class="text-center">
+            <button class="testBtn" id="modal-open">เข้าสู่ระบบ</button>
+        </div>
+      </div>
+
     </div>
+
+
   </section>
+
+
 
   <!-- Footer -->
   <footer class="footer-alist">
@@ -143,7 +115,7 @@
               <h3 class="text-center headerSignIn">เข้าสู่ระบบ</h3>
               <a href="#"><span class="fa fa-close closeIcon" id="modal-close"></span></a>
             </div>
-            <form class="formMain" onsubmit="return false">
+            <form class="formMain" onsubmit="return true" action="./assets/server/user/user_login.php" method="post">
               <div class="cautionSignIn-box">
                 <h4 class="cautionSignIn" id="cautionSignIn-formFill"><span class="fa fa-exclamation-circle"></span> กรุณาข้อมูลให้ครบทุกช่อง</h4>
                 <h4 class="cautionSignIn" id="cautionSignIn-email"><span class="fa fa-exclamation-circle"></span> กรุณาใส่อีเมล์ให้ถูกต้อง</h4>
@@ -152,12 +124,12 @@
               <fieldset>
                 <div class="row">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
+                    <input class="col-xs-12 formField" name="email" id="signin-email" autofocus="autofocus" type="text" placeholder="E-mail">
                   </div>
                 </div>
                 <div class="row passwordSignIn">
                   <div class="col-xs-12">
-                    <input class="col-xs-12 formField" id="signin-password" type="password" placeholder="รหัสผ่าน">
+                    <input class="col-xs-12 formField" name="password" id="signin-password" type="password" placeholder="รหัสผ่าน">
                   </div>
                 </div>
               </fieldset>
@@ -201,6 +173,6 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="./temp/scripts/test.js"></script>
+  <script type="text/javascript" src="./temp/scripts/price.js"></script>
 </body>
 </html>

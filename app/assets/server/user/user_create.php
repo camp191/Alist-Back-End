@@ -16,7 +16,7 @@
 
   if ($Password == $RePassword && mysqli_num_rows($result) == 0) {
     $sqlInsertUser= "INSERT INTO user(name, email, password, sex, job,picture, birthdate, namePay, cardNumber, packageID, expDate, SID, activate)
-            VALUES ('$Name','$Email','$Password','-','','','','','','0','', '$SessionID' ,'No')";
+            VALUES ('$Name','$Email','$Password','-','','','1990-01-01','','','0','', '$SessionID' ,'No')";
     $result = mysqli_query($con, $sqlInsertUser) or die ("Error in query: $sqlInsertUser" . mysqli_error());
 
     $uid = mysqli_insert_id($con);
@@ -293,7 +293,7 @@
               <td>
                 <h3>สวัสดี, $Name</h3>
                 <p class='lead'>ขอบคุณ, คุณ $Name ที่เลือกใช้ Alist todolist ที่ดีที่สุดในโลก</p>
-                <p>Alist นั้นมีแพคเกจในการใช้งานอยู่ 2 รูปแบบคือ Basic และ Pro คุณสามารถเลือกใช้งานเพื่อให้เหมาะกับการใช้งานของคุณได้ <a href='http://localhost/alist/app/price.html' target='_blank'>ดูรายละเอียดเพิ่มเติม</a></p>
+                <p>Alist นั้นมีแพคเกจในการใช้งานอยู่ 2 รูปแบบคือ Basic และ Pro คุณสามารถเลือกใช้งานเพื่อให้เหมาะกับการใช้งานของคุณได้ <a href='http://localhost/alist/app/price.php' target='_blank'>ดูรายละเอียดเพิ่มเติม</a></p>
                 <!-- Callout Panel -->
                 <p class='callout'>
                   การยืนยันการสมัครสมาชิก สามารถยืนยันได้โดยการคลิกลิงก์ที่แนบมาข้างๆ ขอให้มีความสุขกับการใช้ Alist <a href='http://localhost/alist/app/assets/server/user/user_activate.php?sid=" . session_id() . "&uid=" . $uid . "' target='_blank'>ยืนยันการสมัครสมาชิก &raquo;</a>

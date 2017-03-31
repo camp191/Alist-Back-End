@@ -18,7 +18,7 @@
         if($result){
             mysqli_close($con);
             header("Location: ./../../contact.php?contact=done");
-            //exit();
+            exit();
         } else {
             mysqli_close($con);
             header("Location: ./../../contact.php?contact=fail");

@@ -28,9 +28,9 @@
         </div>
         <div class="col-xs-8 col-sm-10 col-xs-12 text-right">
           <ul class="nav-menu">
-            <li class="menu"><a href="index.html">หน้าแรก</a></li>
-            <li class="menu"><a href="price.html">ราคาและโปรโมชั่น</a></li>
-            <li class="menu"><a href="test.html">ทดลองใช้งาน</a></li>
+            <li class="menu"><a href="index.php">หน้าแรก</a></li>
+            <li class="menu"><a href="price.php">ราคาและโปรโมชั่น</a></li>
+            <li class="menu"><a href="test.php">ทดลองใช้งาน</a></li>
             <li class="menu"><a class="signIn" id="modal-open">เข้าสู่ระบบ</a></li>
           </ul>
           <a class="fa fa-bars hamburgerBtn"></a>

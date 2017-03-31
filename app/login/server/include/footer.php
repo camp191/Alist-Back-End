@@ -1,24 +1,80 @@
 <?php
     mysqli_close($con);
+
+    // check package conditon for show project function
+    
+
     echo "</div>
     <!-- /#wrapper -->
 
     <!-- Add list Modal -->
-    <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
+    <div class='modal fade' id='addListModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>
         <div class='modal-dialog' role='document'>
+            <form action='./server/lists/addList.php' method='post'>
             <div class='modal-content'>
             <div class='modal-header'>
                 <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
                 <h4 class='modal-title' id='myModalLabel'>Add List</h4>
             </div>
             <div class='modal-body'>
-                ...
+
+            <div class='row'>
+                <div class='col-md-10 col-md-push-1'>
+                    
+                        <div class='form-group'>
+                            <label>List Topic:</label>
+                            <input class='form-control' name='listTopic' value=''>
+                        </div>
+
+                        <div class='form-group'>
+                            <label>List Description:</label>
+                            <textarea rows='4' class='form-control' name='listDescription' value=''></textarea>
+                        </div>
+
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <div class='form-group'>
+                                    <label>End Date:</label>
+                                    <input class='form-control' id='date' name='date' value='$dateNow'>
+                                </div>
+                            </div>
+                            <div class='col-md-6 important-group'>
+                                <div class='form-group'>
+                                    <label>Important:</label>
+                                    <div class='btn-group' data-toggle='buttons'>
+                                        <label class='btn btn-danger'>
+                                            <input type='radio' name='listImportant' id='listImportant' value='Yes'> Yes
+                                        </label>
+                                        <label class='btn btn-danger'>
+                                            <input type='radio' name='listImportant' id='listImportant' value='No'> No
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='form-group'>
+                            <label>Project Name:</label>
+                            <select class='form-control' name='listProjectName'>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    
+                </div>
+            </div>
+
+
+                
+
             </div>
             <div class='modal-footer'>
                 <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
-                <button type='button' class='btn btn-primary'>Save changes</button>
+                <button class='btn btn-primary'>Add List</button>
             </div>
             </div>
+            </form>
         </div>
     </div>
 

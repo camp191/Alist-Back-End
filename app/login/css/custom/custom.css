@@ -74,3 +74,8 @@ html,body{  height: 96.5%; }
 /* textarea contact form */
 textarea { resize: vertical; }
 
+@media screen and (min-width: 992px){
+    .important-group{
+        margin-top: 15px;
+    }
+}
