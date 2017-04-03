@@ -56,3 +56,8 @@ $("#resetBtn").click(function(){
   $("#messageContact").val("");
   $("#typeContact").val($("#typeContact option:first").val());
 })
+
+// initial tooltip
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});

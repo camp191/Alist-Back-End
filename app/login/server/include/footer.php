@@ -1,7 +1,18 @@
 <?php
     mysqli_close($con);
 
-    // check package conditon for show project function
+    // check package conditon for show on add project function
+    if($row['packageID'] == 2){
+        $projectName = "<div class='form-group'>
+                            <label>Project Name:</label>
+                            <select class='form-control' name='listProjectName'>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>";
+    } else {
+        $projectName = "";
+    }
     
 
     echo "</div>
@@ -53,14 +64,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class='form-group'>
-                            <label>Project Name:</label>
-                            <select class='form-control' name='listProjectName'>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        </div>
+                        $projectName
+                        
                     
                 </div>
             </div>

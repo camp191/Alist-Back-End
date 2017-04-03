@@ -31,6 +31,7 @@
 
     // check expire subscribe date
     $dateNow = date("Y-m-d", time());
+    $dateTomorrow = date('Y-m-d', time() + 86400);
     if($dateNow == $row["expDate"]){
         $sqlUpdateExpire = "UPDATE user SET packageID='0', namePay='', expDate='0000-00-00', cardNumber='' WHERE id='$id'";
         $resultUpdateExpire = mysqli_query($con, $sqlUpdateExpire);
