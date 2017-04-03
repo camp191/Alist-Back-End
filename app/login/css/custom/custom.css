@@ -84,3 +84,8 @@ textarea { resize: vertical; }
 .row-table{
     vertical-align: middle !important;
 }
+
+/* alert */
+.alert-padding {
+    padding: 0px;
+}

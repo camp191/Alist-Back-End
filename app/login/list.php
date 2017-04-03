@@ -54,7 +54,41 @@ if(isset($_GET['addList']) || empty($_GET)) {
                     </div>
                     <?php if(isset($_GET["filter"]) && $_GET["filter"] == "done"){
                         // Done List
-                        echo "";
+                        echo "<div class='col-lg-12'>
+                        <div class='col-md-6'>
+                            <h2>Done List Table <small>ตารางรายการที่ทำเสร็จแล้ว</small></h2>
+                        </div>
+
+                        <!-- Table List -->
+                    <table class='table table-hover'>
+                        <!-- head table-->
+                        <tr>
+                            <th class='col-md-1 text-center row-table'>List NO.</th>
+                            <th class='col-md-2 text-center row-table'>List Name</th>
+                            <th class='col-md-4 text-center row-table'>List Description</th>
+                            <th class='col-md-1 text-center row-table'>End Date</th>
+                            <th class='col-md-1 text-center row-table'>Done Date</th>
+                            <th class='col-md-1 text-center row-table'>Delete</th>
+                        </tr>";
+
+                    $doneList = 1;
+                    while($rowDoneList = mysqli_fetch_array($resultDoneList)){
+                        echo "<tr><td class='text-center row-table'>$doneList</td>
+                            <td class='text-center row-table'>" . $rowDoneList["listName"];
+                                if($rowDoneList['isImportant'] == 'Yes'){
+                                    echo " <span class='label label-danger label-tooltip' data-toggle='tooltip' data-placement='top' title='Important'><i class='fa fa-exclamation-triangle'></i></span>";                                    
+                                }
+                            echo "</td>
+                            <td class='row-table'>" . $rowDoneList["listDescription"] . "</td>
+                            <td class='text-center row-table'>" . $rowDoneList["endDate"] . "</td>
+                            <td class='text-center row-table'>" . $rowDoneList["doneDate"] . "</td>
+                            <td class='text-center row-table'><a class='btn btn-danger' href='./server/lists/deleteList.php?listID=" . $rowDoneList['listID'] . 
+                                "'><i class='fa fa-trash'></i> Delete</a></td></tr>";
+                        $doneList++;
+                    }
+                        
+                    echo "</table>
+                    </div>";;
                     } else if (isset($_GET['addList']) || empty($_GET)){
                         // Active List
                         echo "<div class='col-lg-12'>
@@ -137,15 +171,17 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                                     
                                     echo "
                                         <td class='col-md-1 text-center row-table'>
-                                            <div class='btn-group'>
+                                            <div class='btn-group dropup'>
                                                 <button class='btn btn-primary btn-sm dropdown-toggle' type='button' id='MenuList' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                                                     Menu
                                                     <span class='caret'></span>
                                                 </button>
                                                 <ul class='dropdown-menu dropdown-menu-right' aria-labelledby='MenuList'>
-                                                    <li><a href='#'><i class='fa fa-edit'></i> Edit</a></li>
-                                                    <li><a href='#'><i class='fa fa-check-square-o'></i> Done</a></li>
-                                                    <li><a href='#'><i class='fa fa-trash'></i> Delete</a></li>
+                                                    <li><a href='#' data-toggle='modal' data-target='#editListModal'><i class='fa fa-edit'></i> Edit</a></li>
+                                                    <li><a href='./server/lists/doneList.php?listID=" . $rowActiveList['listID'];
+                                                    echo "'><i class='fa fa-check-square-o'></i> Done</a></li>
+                                                    <li><a href='./server/lists/deleteList.php?listID=" . $rowActiveList['listID'];
+                                                    echo "'><i class='fa fa-trash'></i> Delete</a></li>
                                                 </ul>
                                             </div>
                                         </td>

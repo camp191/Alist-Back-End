@@ -1,6 +1,9 @@
 <?php
     session_start();
     $id = $_SESSION["id"];
+
+    // timezone
+    date_default_timezone_set("Asia/Bangkok");
     
     // include mysql connection
     include "./../assets/server/connection.php";
@@ -11,11 +14,22 @@
         exit();
     }
 
+    // variable
+    $dateNow = date("Y-m-d", time());
+    $dateTomorrow = date('Y-m-d', time() + 86400);
+    $countTodayList = 0;
+    $alertTodayList = '';
+
     // query basic info user
     $sql = "SELECT * from user WHERE id='$id'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
     $nameShow = $row["name"];
+
+    //query list for today
+    $sqlTodayList = "SELECT * from list WHERE id='$id' AND endDate='$dateNow' AND isDone='No'";
+    $resultTodayList = mysqli_query($con, $sqlTodayList);
+    
 
     // check condition for avatar picture
     if($row['picture'] == ''){
@@ -30,8 +44,6 @@
     $rowPackage = mysqli_fetch_array($resultPackage);
 
     // check expire subscribe date
-    $dateNow = date("Y-m-d", time());
-    $dateTomorrow = date('Y-m-d', time() + 86400);
     if($dateNow == $row["expDate"]){
         $sqlUpdateExpire = "UPDATE user SET packageID='0', namePay='', expDate='0000-00-00', cardNumber='' WHERE id='$id'";
         $resultUpdateExpire = mysqli_query($con, $sqlUpdateExpire);
@@ -61,8 +73,64 @@
         $addListLink = "<a href='#' data-toggle='modal' data-target='#packageModal'><i class='fa fa-plus'></i> List</a>";
     }
 
-    
+    // calculate remain time in today
+    $datetime = new DateTime('tomorrow');
+    $tomorrow = $datetime->format('Y-m-d');
+    $timeLeft = (strtotime($tomorrow) - time())/(60*60);
+    $timeLeftShow = number_format((float)$timeLeft,2,'.','');
 
+    //loop today function
+    while($rowTodayList = mysqli_fetch_array($resultTodayList)){
+
+        if($rowTodayList['isImportant'] == 'Yes'){
+            $listImportant = "<span class='label label-danger'>Important</span>";
+        } else {
+            $listImportant = "";
+        }
+
+        $alertTodayList .= "<li class='message-preview'>
+                            <a>
+                                <div class='media'>
+                                    <span>
+                                        <span class='alert-padding'>
+                                            <h5 class='media-heading'><strong>" . $rowTodayList['listName'] .  "</strong> " . $listImportant .
+                                            "</h5>
+                                            <p class='small text-muted'><i class='fa fa-clock-o'></i> $timeLeftShow Hours</p>
+                                        </span>
+                                        <span class='col-xs-12 alert-padding'>
+                                            <p>" . $rowTodayList['listDescription'] . "</p>
+                                        </span>
+                                        <div class='text-center alert-padding'>
+                                            <button onclick=location.href='./server/lists/doneList.php?listID=". $rowTodayList['listID'] . "' type='button' class='btn btn-success btn-sm'><i class='fa fa-calendar-check-o'></i> Done</button>
+                                            <button class='btn btn-warning btn-sm'><i class='fa fa-edit'></i> Edit</button>
+                                            <button onclick=location.href='./server/lists/deleteList.php?listID=". $rowTodayList['listID'] . "' type='button' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i> Delete</button>
+                                        </div>                      
+                                    </span>
+                                </div>
+                            </a>
+                        </li>";
+        $countTodayList++;
+    }
+
+    // condition for no today list
+    if($alertTodayList == ""){
+        $alertTodayList = "<li class='message-preview'>
+                            <a>
+                                <div class='media'>
+                                    <span>
+                                        All of Today lists are Done.                      
+                                    </span>
+                                </div>
+                            </a>
+                        </li>";
+    }
+
+    // condition count today list
+    if($countTodayList != 0){
+        $showCountTodayList = "<span class='label label-danger'>$countTodayList</span>";
+    } else {
+        $showCountTodayList = "";
+    }
 
 echo "<!DOCTYPE html>
 <html lang='en'>
@@ -132,55 +200,11 @@ echo "<!DOCTYPE html>
                 <!-- Add list-->
                 <li>$addListLink</li>
                 <li class='dropdown'>
-                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-calendar'></i> Today <span class='label label-danger'>10</span> <b class='caret'></b></a>
+                    <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-calendar'></i> Today $showCountTodayList <b class='caret'></b></a>
                     <ul class='dropdown-menu message-dropdown'>
-                        <li class='message-preview'>
-                            <a href='#'>
-                                <div class='media'>
-                                    <span class='pull-left'>
-                                        <img class='media-object' src='http://placehold.it/50x50' alt=''>
-                                    </span>
-                                    <div class='media-body'>
-                                        <h5 class='media-heading'><strong>John Smith</strong>
-                                        </h5>
-                                        <p class='small text-muted'><i class='fa fa-clock-o'></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class='message-preview'>
-                            <a href='#'>
-                                <div class='media'>
-                                    <span class='pull-left'>
-                                        <img class='media-object' src='http://placehold.it/50x50' alt=''>
-                                    </span>
-                                    <div class='media-body'>
-                                        <h5 class='media-heading'><strong>John Smith</strong>
-                                        </h5>
-                                        <p class='small text-muted'><i class='fa fa-clock-o'></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class='message-preview'>
-                            <a href='#'>
-                                <div class='media'>
-                                    <span class='pull-left'>
-                                        <img class='media-object' src='http://placehold.it/50x50' alt=''>
-                                    </span>
-                                    <div class='media-body'>
-                                        <h5 class='media-heading'><strong>John Smith</strong>
-                                        </h5>
-                                        <p class='small text-muted'><i class='fa fa-clock-o'></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                        $alertTodayList
                         <li class='message-footer'>
-                            <a href='#'>Read All New Messages</a>
+                            <a href='./list.php'>See All Active Lists</a>
                         </li>
                     </ul>
                 </li>
