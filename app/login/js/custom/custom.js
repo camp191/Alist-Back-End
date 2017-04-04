@@ -127,3 +127,166 @@ $('.modalEditList').click(function(){
   })
 })
 
+// add project page in add list section
+var d = new Date();
+var month = d.getMonth()+1;
+var day = d.getDate();
+var outputDate = d.getFullYear() + '-' + (month<10 ? '0' : '') + month + '-' + (day<10 ? '0' : '') + day;
+
+$('document').ready(function(){
+  $('#add-list').click(function(){
+    $('.template-project').append(`<div class="list-blank"><hr>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Topic:</label>
+                                        <input class="form-control" name="topicProject" value="">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Description:</label>
+                                        <input class="form-control" name="topicProject" value="">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Date:</label>
+                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Important:</label>
+                                        <select class="form-control" name="typeContact">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>          
+                                    </div>                                           
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                </div></div>`)
+  });
+
+  $('.template-project').on('click','.delete-list', function(e){
+    e.preventDefault;
+    $(this).parent().parent('div').remove();
+  })
+
+})
+
+// reset form add project page
+$('#resetAddProject').click(function(){
+  $('#topicProject').val('');
+  $("#typeProject").val($("#typeProject option:first").val());
+  $('#descriptionProject').val('');
+  $('.list-blank').remove();
+  $("#templateList").val($("#templateList option:first").val());
+})
+
+// chage for add template
+var travelTemplate = `<div class="list-blank"><hr>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Topic:</label>
+                                        <input class="form-control" name="topicProject" value="วางแผน">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Description:</label>
+                                        <input class="form-control" name="topicProject" value="">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Date:</label>
+                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Important:</label>
+                                        <select class="form-control" name="typeContact">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>          
+                                    </div>                                           
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                </div></div>
+                                
+
+                                <div class="list-blank"><hr>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Topic:</label>
+                                        <input class="form-control" name="topicProject" value="ซื้อตั๋ว">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Description:</label>
+                                        <input class="form-control" name="topicProject" value="">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Date:</label>
+                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Important:</label>
+                                        <select class="form-control" name="typeContact">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>          
+                                    </div>                                           
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                </div></div>
+                                
+                                
+                                <div class="list-blank"><hr>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Topic:</label>
+                                        <input class="form-control" name="topicProject" value="ซื้อของเตรียมเดินทาง">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Description:</label>
+                                        <input class="form-control" name="topicProject" value="">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mleft">
+                                    <div class="form-group">
+                                        <label>List Date:</label>
+                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-6 form-mright">
+                                    <div class="form-group">
+                                        <label>List Important:</label>
+                                        <select class="form-control" name="typeContact">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>          
+                                    </div>                                           
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                </div></div>`
+
+$("#templateList").on('change', function(){
+  if($(this).val()=='travel'){
+    $('.template-project').html(travelTemplate);
+  } else if ($(this).val() == 'no'){
+    $('.template-project').html("");
+  }
+})

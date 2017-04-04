@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php $projectName ?>
+                        <?= $projectName ?>
                 </div>
             </div>
             </div>
