@@ -102,7 +102,7 @@
                                         </span>
                                         <div class='text-center alert-padding'>
                                             <button onclick=location.href='./server/lists/doneList.php?listID=". $rowTodayList['listID'] . "' type='button' class='btn btn-success btn-sm'><i class='fa fa-calendar-check-o'></i> Done</button>
-                                            <button class='btn btn-warning btn-sm'><i class='fa fa-edit'></i> Edit</button>
+                                            <button type='button' data-editList='" . $rowTodayList['listID'] . "' data-toggle='modal' data-target='#editListModal' class='btn btn-warning btn-sm modalEditList'><i class='fa fa-edit'></i> Edit</button>
                                             <button onclick=location.href='./server/lists/deleteList.php?listID=". $rowTodayList['listID'] . "' type='button' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i> Delete</button>
                                         </div>                      
                                     </span>

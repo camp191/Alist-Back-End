@@ -177,7 +177,7 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                                     <span class='caret'></span>
                                                 </button>
                                                 <ul class='dropdown-menu dropdown-menu-right' aria-labelledby='MenuList'>
-                                                    <li><a href='#' data-toggle='modal' data-target='#editListModal'><i class='fa fa-edit'></i> Edit</a></li>
+                                                    <li><a href='#' class='modalEditList' data-editList='" . $rowActiveList['listID'] . "' data-toggle='modal' data-target='#editListModal'><i class='fa fa-edit'></i> Edit</a></li>
                                                     <li><a href='./server/lists/doneList.php?listID=" . $rowActiveList['listID'];
                                                     echo "'><i class='fa fa-check-square-o'></i> Done</a></li>
                                                     <li><a href='./server/lists/deleteList.php?listID=" . $rowActiveList['listID'];

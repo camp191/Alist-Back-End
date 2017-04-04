@@ -61,3 +61,14 @@ $("#resetBtn").click(function(){
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+// Ajax modal edit list
+$('.modalEditList').click(function(){
+  var listID = $(this).attr('data-editList');
+  $.ajax({
+    url:"./server/lists/editListPage.php?listID=" + listID,
+    success:function(result){
+      $(".modalEdit-parent").html(result);
+    }
+  })
+})
