@@ -89,7 +89,7 @@ $row = mysqli_fetch_array($result);
 
                             <div class="form-group">
                                 <label>Birthdate:</label>
-                                <input class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd" value="<?=$row["birthdate"]?>">
+                                <input class="form-control" name='date' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="<?=$row["birthdate"]?>">
                                 <p class="help-block">Example: yyyy-mm-dd Format</p>
                             </div>
 

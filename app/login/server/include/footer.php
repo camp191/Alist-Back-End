@@ -46,7 +46,7 @@
                             <div class='col-md-6'>
                                 <div class='form-group'>
                                     <label>End Date:</label>
-                                    <input class='form-control' data-provide='datepicker' data-date-format='yyyy-mm-dd' value='$dateNow'>
+                                    <input class='form-control' data-provide='datepicker' name='date' data-date-format='yyyy-mm-dd' value='$dateNow'>
                                 </div>
                             </div>
                             <div class='col-md-6 important-group'>

@@ -6,7 +6,7 @@ $id = $_SESSION['id'];
 $sqlActiveList = "SELECT * FROM list WHERE id='$id' AND isDone='No'";
 $resultActiveList = mysqli_query($con, $sqlActiveList);
 
-$sqlDoneList = "SELECT * FROM list WHERE id='$id' AND isDone='Yes'";
+$sqlDoneList = "SELECT * FROM list WHERE id='$id' AND isDone='Yes' ORDER BY doneDate";
 $resultDoneList = mysqli_query($con, $sqlDoneList);
 
 // check GET add list done
@@ -103,21 +103,21 @@ if(isset($_GET['addList']) || empty($_GET)) {
                             <div class='text-right'>
                                 <div class='btn-group' data-toggle='buttons'>
                                     <label class='btn btn-warning active'>
-                                        <input type='radio' name='orderList' id='orderList' value='Yes' checked> Date Created
+                                        <input type='radio' name='orderList' id='orderList' value='dateCreated' checked> Date Created
                                     </label>
                                     <label class='btn btn-warning'>
-                                        <input type='radio' name='orderList' id='orderList' value='No'> Deadline
+                                        <input type='radio' name='orderList' id='orderList' value='deadline'> Deadline
                                     </label>
                                     <label class='btn btn-warning'>
-                                        <input type='radio' name='orderList' id='orderList' value='No'> Important
+                                        <input type='radio' name='orderList' id='orderList' value='important'> Important
                                     </label>
                                 </div>
                             </div>
 
                             </h2>
                         </div>
-
-                        <!-- Table List -->
+                    <div class='change-table'>
+                    <!-- Table List -->
                     <table class='table table-hover'>
                         <!-- head table-->
                         <tr>
@@ -189,6 +189,8 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                     $listNumber++;
                             } 
                     echo "</table>
+
+                    </div><!-- ChangeTable -->
 
                     </div>";
                     }

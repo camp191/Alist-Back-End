@@ -76,8 +76,9 @@
     // calculate remain time in today
     $datetime = new DateTime('tomorrow');
     $tomorrow = $datetime->format('Y-m-d');
-    $timeLeft = (strtotime($tomorrow) - time())/(60*60);
-    $timeLeftShow = number_format((float)$timeLeft,2,'.','');
+    $timeLeftHours = floor((strtotime($tomorrow) - time())/(60*60));
+    $timeLeftMinutes = floor(((strtotime($tomorrow) - time())/60)%60);
+    $timeLeftShow = $timeLeftHours . " Hours " . $timeLeftMinutes . " Minutes";
 
     //loop today function
     while($rowTodayList = mysqli_fetch_array($resultTodayList)){
@@ -95,7 +96,7 @@
                                         <span class='alert-padding'>
                                             <h5 class='media-heading'><strong>" . $rowTodayList['listName'] .  "</strong> " . $listImportant .
                                             "</h5>
-                                            <p class='small text-muted'><i class='fa fa-clock-o'></i> $timeLeftShow Hours</p>
+                                            <p class='small text-muted'><i class='fa fa-clock-o'></i> $timeLeftShow </p>
                                         </span>
                                         <span class='col-xs-12 alert-padding'>
                                             <p>" . $rowTodayList['listDescription'] . "</p>

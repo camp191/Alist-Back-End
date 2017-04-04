@@ -62,6 +62,60 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+// Ajax list table order
+$('input:radio[name="orderList"]').change(function(){
+  if($(this).val() == "dateCreated"){
+    $.ajax({
+      url:"./server/lists/listDateOrder.php",
+      success:function(result){
+        $(".change-table").hide().html(result).fadeIn();
+        $('.modalEditList').click(function(){
+          var listID = $(this).attr('data-editList');
+          $.ajax({
+            url:"./server/lists/editListPage.php?listID=" + listID,
+            success:function(result){
+              $(".modalEdit-parent").html(result);
+            }
+          })
+        })
+
+      }
+    })
+  } else if($(this).val() == "deadline"){
+    $.ajax({
+      url:"./server/lists/listDeadline.php",
+      success:function(result){
+        $(".change-table").hide().html(result).fadeIn();
+        $('.modalEditList').click(function(){
+          var listID = $(this).attr('data-editList');
+          $.ajax({
+            url:"./server/lists/editListPage.php?listID=" + listID,
+            success:function(result){
+              $(".modalEdit-parent").html(result);
+            }
+          })
+        })
+      }
+    })
+  } else if ($(this).val() == "important"){
+    $.ajax({
+      url:"./server/lists/listImportant.php",
+      success:function(result){
+        $(".change-table").hide().html(result).fadeIn();
+        $('.modalEditList').click(function(){
+          var listID = $(this).attr('data-editList');
+          $.ajax({
+            url:"./server/lists/editListPage.php?listID=" + listID,
+            success:function(result){
+              $(".modalEdit-parent").html(result);
+            }
+          })
+        })
+      }
+    })
+  }
+})
+
 // Ajax modal edit list
 $('.modalEditList').click(function(){
   var listID = $(this).attr('data-editList');
@@ -72,3 +126,4 @@ $('.modalEditList').click(function(){
     }
   })
 })
+
