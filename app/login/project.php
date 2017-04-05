@@ -1,6 +1,16 @@
 <?php
 $page = "project";
 include "./server/include/header.php";
+
+// check get process project
+if (empty($_GET)) {
+    $projectProcessDone = "";
+} else if($_GET["process"] == "done"){
+    $projectProcessDone = "<div class='alert alert-success alert-dismissable'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+            <i class='fa fa-check'></i>  Your Process Done.
+        </div>";
+}
 ?>
 
         <div id="page-wrapper">
@@ -19,6 +29,7 @@ include "./server/include/header.php";
                                 <i class="fa fa-table"></i>  Project
                             </li>
                         </ol>
+                       <?= $projectProcessDone ?>
                     </div>
                 </div>
                 <!-- /.row -->

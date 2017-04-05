@@ -68,7 +68,7 @@ echo "<table class='table table-hover'>
                         echo "</td>";
                 
                 if($row['packageID'] == 2){
-                    echo "<td class='col-md-1 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
+                    echo "<td class='col-md-2 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
                 }
                                 
                 echo "
@@ -91,4 +91,5 @@ echo "<table class='table table-hover'>
                 $listNumber++;
         } 
 echo "</table>";
+mysqli_close($con);
 ?>

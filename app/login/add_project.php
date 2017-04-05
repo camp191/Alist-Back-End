@@ -25,83 +25,85 @@ include "./server/include/header.php";
                 </div>
                 <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-md-8 col-md-push-2">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">1. Add Project Detail</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-10 col-md-push-1">
-                                    <div class="form-group">
-                                        <label>Topic:</label>
-                                        <input class="form-control" id="topicProject" name="topicProject" value="">
+                <form action="./server/projects/addProject.php" method="post">
+                    <div class="row">
+                        <div class="col-md-8 col-md-push-2">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">1. Add Project Detail</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-10 col-md-push-1">
+                                        <div class="form-group">
+                                            <label>Topic:</label>
+                                            <input class="form-control" id="topicProject" name="topicProject" value="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Project Type:</label>
+                                            <select class="form-control" id="typeProject" name="typeProject">
+                                                <option value="personal" selected="selected">Personal</option>
+                                                <option value="work">Work</option>
+                                                <option value="travel">Travel</option>
+                                                <option value="other">Other</option>
+                                            </select>          
+                                        </div> 
+
+                                        <div class="form-group">
+                                            <label>Description:</label>
+                                            <textarea class="form-control" id="descriptionProject" rows="3" name="descriptionProject" value=""></textarea>
+                                        </div>                                                    
                                     </div>
-
-                                    <div class="form-group">
-                                        <label>Project Type:</label>
-                                        <select class="form-control" id="typeProject" name="typeProject">
-                                            <option>Personal</option>
-                                            <option>Work</option>
-                                            <option>Travel</option>
-                                            <option>Other</option>
-                                        </select>          
-                                    </div> 
-
-                                    <div class="form-group">
-                                        <label>Description:</label>
-                                        <textarea class="form-control" id="descriptionProject" rows="3" name="descriptionProject" value=""></textarea>
-                                    </div>                                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.row -->
+                    <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-md-8 col-md-push-2">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">2. Add List (Optional)</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-10 col-md-push-1">
-                                    <div class="form-group">
-                                        <label>Template:</label>
-                                        <select class="form-control" id="templateList" name="templateList">
-                                            <option value="no">No Template</option>
-                                            <option value="travel">Travel</option>
-                                        </select>          
-                                    </div>
-                                    <h4>Add List <button id="add-list" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Add</button></h4>
+                    <div class="row">
+                        <div class="col-md-8 col-md-push-2">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">2. Add List (Optional)</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-10 col-md-push-1">
+                                        <div class="form-group">
+                                            <label>Template:</label>
+                                            <select class="form-control" id="templateList" name="templateList">
+                                                <option value="no">No Template</option>
+                                                <option value="travel">Travel</option>
+                                            </select>          
+                                        </div>
+                                        <h4>Add List <button type="button" id="add-list" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Add</button></h4>
 
-                                    <div class="template-project">
-                                    </div><!--- list-template -->
+                                        <div class="template-project">
+                                        </div><!--- list-template -->
 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-md-8 col-md-push-2">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">3. Confirm</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-10 col-md-push-1 text-center">
-                                    <button id="resetAddProject" class="btn btn-default">Reset Form</button>
-                                    <button class="btn btn-primary">Confirm</button>
-                                </div> 
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.row -->
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-push-2">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">3. Confirm</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-10 col-md-push-1 text-center">
+                                        <button type="button" id="resetAddProject" class="btn btn-default">Reset Form</button>
+                                        <button type="submit" class="btn btn-primary">Confirm</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </form>
 
 
             </div>

@@ -166,7 +166,7 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                          echo "</td>";
                                     
                                     if($row['packageID'] == 2){
-                                        echo "<td class='col-md-1 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
+                                        echo "<td class='col-md-2 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
                                     }
                                                     
                                     echo "

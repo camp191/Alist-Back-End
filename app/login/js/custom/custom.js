@@ -139,27 +139,27 @@ $('document').ready(function(){
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
                                         <label>List Topic:</label>
-                                        <input class="form-control" name="topicProject" value="">
+                                        <input class="form-control" name="list[topic][]" value="">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
                                         <label>List Description:</label>
-                                        <input class="form-control" name="topicProject" value="">
+                                        <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
-                                        <label>List Date:</label>
-                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                        <label>End Date:</label>
+                                        <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
-                                        <label>List Important:</label>
-                                        <select class="form-control" name="typeContact">
+                                        <label>Important:</label>
+                                        <select class="form-control" name="list[important][]">
                                             <option>Yes</option>
-                                            <option>No</option>
+                                            <option selected>No</option>
                                         </select>          
                                     </div>                                           
                                 </div>
@@ -189,25 +189,25 @@ var travelTemplate = `<div class="list-blank"><hr>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
                                         <label>List Topic:</label>
-                                        <input class="form-control" name="topicProject" value="วางแผน">
+                                        <input class="form-control" name="list[topic][]" value="วางแผน">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
                                         <label>List Description:</label>
-                                        <input class="form-control" name="topicProject" value="">
+                                        <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
-                                        <label>List Date:</label>
-                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                        <label>End Date:</label>
+                                        <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
-                                        <label>List Important:</label>
-                                        <select class="form-control" name="typeContact">
+                                        <label>Important:</label>
+                                        <select class="form-control" name="list[important][]">
                                             <option>Yes</option>
                                             <option>No</option>
                                         </select>          
@@ -222,25 +222,25 @@ var travelTemplate = `<div class="list-blank"><hr>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
                                         <label>List Topic:</label>
-                                        <input class="form-control" name="topicProject" value="ซื้อตั๋ว">
+                                        <input class="form-control" name="list[topic][]" value="ซื้อตั๋ว">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
                                         <label>List Description:</label>
-                                        <input class="form-control" name="topicProject" value="">
+                                        <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
-                                        <label>List Date:</label>
-                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                        <label>End Date:</label>
+                                        <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
-                                        <label>List Important:</label>
-                                        <select class="form-control" name="typeContact">
+                                        <label>Important:</label>
+                                        <select class="form-control" name="list[important][]">
                                             <option>Yes</option>
                                             <option>No</option>
                                         </select>          
@@ -255,25 +255,25 @@ var travelTemplate = `<div class="list-blank"><hr>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
                                         <label>List Topic:</label>
-                                        <input class="form-control" name="topicProject" value="ซื้อของเตรียมเดินทาง">
+                                        <input class="form-control" name="list[topic][]" value="ซื้อของเตรียมเดินทาง">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
                                         <label>List Description:</label>
-                                        <input class="form-control" name="topicProject" value="">
+                                        <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
-                                        <label>List Date:</label>
-                                        <input class="form-control" name='dateAdd' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
+                                        <label>End Date:</label>
+                                        <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
                                 <div class="col-md-6 form-mright">
                                     <div class="form-group">
-                                        <label>List Important:</label>
-                                        <select class="form-control" name="typeContact">
+                                        <label>Important:</label>
+                                        <select class="form-control" name="list[important][]">
                                             <option>Yes</option>
                                             <option>No</option>
                                         </select>          
