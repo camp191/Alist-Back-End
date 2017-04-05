@@ -34,6 +34,18 @@ echo "<table class='table table-hover'>
         $listNumber = 1;
 
         while($rowActiveList = mysqli_fetch_array($resultActiveList)){
+
+                //query project name
+                $sqlProjectName = "SELECT * FROM project WHERE id='$id' AND projectID='" . $rowActiveList['projectID'] . "'";
+                $ProjectNameResult = mysqli_query($con, $sqlProjectName);
+                $rowProjectName = mysqli_fetch_array($ProjectNameResult);
+
+                if($rowProjectName['projectName'] == ''){
+                    $projectNameShow = "-";
+                } else {
+                    $projectNameShow = $rowProjectName['projectName'];
+                }
+
                 echo "<tr";
 
                 if($rowActiveList['endDate'] == $dateNow){
@@ -65,7 +77,7 @@ echo "<table class='table table-hover'>
                         echo "</td>";
                 
                 if($row['packageID'] == 2){
-                    echo "<td class='col-md-2 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
+                    echo "<td class='col-md-2 text-center row-table'>" . $projectNameShow . "</td>";
                 }
                                 
                 echo "

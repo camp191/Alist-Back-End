@@ -133,6 +133,10 @@
         $showCountTodayList = "";
     }
 
+    // query project
+    $sqlProject = "SELECT * FROM project WHERE id='$id'";
+    $resultSQLProject = mysqli_query($con, $sqlProject);
+
 echo "<!DOCTYPE html>
 <html lang='en'>
 

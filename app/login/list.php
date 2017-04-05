@@ -28,8 +28,6 @@ if(isset($_GET['addList']) || empty($_GET)) {
     <li class='active'><a href='./list.php?filter=done'>Done List</a></li>";
 } 
 
-
-
 ?>
         <div id="page-wrapper">
 
@@ -135,6 +133,18 @@ if(isset($_GET['addList']) || empty($_GET)) {
                             $listNumber = 1;
 
                             while($rowActiveList = mysqli_fetch_array($resultActiveList)){
+
+                                    //query project name
+                                    $sqlProjectName = "SELECT * FROM project WHERE id='$id' AND projectID='" . $rowActiveList['projectID'] . "'";
+                                    $ProjectNameResult = mysqli_query($con, $sqlProjectName);
+                                    $rowProjectName = mysqli_fetch_array($ProjectNameResult);
+
+                                    if($rowProjectName['projectName'] == ''){
+                                        $projectNameShow = "-";
+                                    } else {
+                                        $projectNameShow = $rowProjectName['projectName'];
+                                    }
+
                                     echo "<tr";
 
                                     if($rowActiveList['endDate'] == $dateNow){
@@ -166,7 +176,7 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                          echo "</td>";
                                     
                                     if($row['packageID'] == 2){
-                                        echo "<td class='col-md-2 text-center row-table'>" . $rowActiveList['projectID'] . "</td>";
+                                        echo "<td class='col-md-2 text-center row-table'>" . $projectNameShow . "</td>";
                                     }
                                                     
                                     echo "

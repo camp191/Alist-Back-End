@@ -16,7 +16,7 @@
     if($rowUser["packageID"] != "2"){
         $sqlAddList = "INSERT INTO list(listName,listDescription, endDate, isImportant, isDone, id) VALUES('$listTopic','$listDescription','$listDate','$listImportant','No','$id')";
     } else {
-        $sqlAddList = "INSERT INTO list(listName,listDescription, endDate, isImportant, isDone, id) VALUES('$listTopic','$listDescription','$listDate','$listImportant','No','$id')";        
+        $sqlAddList = "INSERT INTO list(listName,listDescription, endDate, isImportant, isDone, id, projectID) VALUES('$listTopic','$listDescription','$listDate','$listImportant','No','$id','$listProjectName')";        
     }
 
     $resultAddList = mysqli_query($con, $sqlAddList);

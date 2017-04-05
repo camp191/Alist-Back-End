@@ -13,13 +13,29 @@
     $result = mysqli_query($con, $sqlListValue);
     $rowListValue = mysqli_fetch_array($result);
 
+    // query project name
+    $sqlProject = "SELECT * FROM project WHERE id='$id'";
+    $resultSQLProject = mysqli_query($con, $sqlProject);
+    
+    $resultLoopProject = '';
+    while($rowProject = mysqli_fetch_array($resultSQLProject)){
+
+        if($rowProject['projectID'] == $rowListValue['projectID']){
+            $selectOption = "selected";
+        } else {
+            $selectOption = "";
+        }
+
+        $resultLoopProject .= "<option value='" . $rowProject['projectID'] . "' " . $selectOption . ">" . $rowProject['projectName'] . "</option>";
+    }
+
     // check package conditon for show on add project function
     if($rowUserValue['packageID'] == 2){
         $projectName = "<div class='form-group'>
                             <label>Project Name:</label>
                             <select class='form-control' name='listProjectName'>
-                                <option>Yes</option>
-                                <option>No</option>
+                                <option value='0'>-</option>
+                                $resultLoopProject
                             </select>
                         </div>";
     } else {

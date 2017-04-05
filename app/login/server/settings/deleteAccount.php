@@ -11,13 +11,21 @@
     if($picture != ""){
         unlink("./../../upload/images/$picture");
     }
+
+    // Delete All lists
+    $sqlDelList = "DELETE FROM list WHERE id='$id'";
+    mysqli_query($con, $sqlDelList);
+
+    // Delete All projects
+    $sqlDelProject = "DELETE FROM project WHERE id='$id";
+    mysqli_query($con, $sqlDelProject);
     
     // Delete Account
     $sqlDelAccount = "DELETE FROM user WHERE id='$id'";
     mysqli_query($con, $sqlDelAccount);
     mysqli_close($con);
     unset($_SESSION["id"]);
+    echo "<script>alert('Delete abount done. Thank you for used alist.')</script>";
     session_destroy();
-    header("Location: ./../../../index.php");
-    exit();
+    echo "<script>window.location = './../../../index.php'</script>";
 ?>

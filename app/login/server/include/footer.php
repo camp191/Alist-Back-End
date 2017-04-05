@@ -1,19 +1,24 @@
 <?php
-    mysqli_close($con);
+    // loop option for package name
+    $resultLoopProject = '';
+    while($rowProject = mysqli_fetch_array($resultSQLProject)){
+        $resultLoopProject .= "<option value='" . $rowProject['projectID'] . "'>" . $rowProject['projectName'] . "</option>";
+    }
 
     // check package conditon for show on add project function
     if($row['packageID'] == 2){
         $projectName = "<div class='form-group'>
                             <label>Project Name:</label>
                             <select class='form-control' name='listProjectName'>
-                                <option>Yes</option>
-                                <option>No</option>
+                                <option value='0'>-</option>
+                                $resultLoopProject
                             </select>
                         </div>";
     } else {
         $projectName = "";
     }
     
+    mysqli_close($con);
 
     echo "</div>
     <!-- /#wrapper -->
@@ -108,11 +113,13 @@
 
     <!-- jQuery -->
     <script src='js/jquery.js'></script>
-
+    <!-- Match Height -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js'><script>
+    <!-- jQuery -->
+    <script src='js/jquery.js'></script>
     <!-- Date and Time Plugin Javascript -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js'></script>
     <script src='js/custom/custom.js'></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src='js/bootstrap.min.js'></script>
 

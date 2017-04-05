@@ -22,7 +22,7 @@
     if($rowUser["packageID"] != "2"){
         $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', isImportant='$listImportant' WHERE id='$id' AND listID='$listID'";
     } else {
-        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', isImportant='$listImportant' WHERE id='$id' AND listID='$listID'";
+        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', isImportant='$listImportant', projectID='$listProjectName' WHERE id='$id' AND listID='$listID'";
     }
 
     $resultEditList = mysqli_query($con, $sqlEditList);

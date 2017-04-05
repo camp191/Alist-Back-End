@@ -31,6 +31,16 @@ $row = mysqli_fetch_array($result);
                                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                                 <i class='fa fa-check'></i>  ข้อมูลบัญชีได้ถูกบันทึกเรียบร้อยแล้ว
                             </div>";
+                    } else if($_GET["stage"] == "currentPassWrong"){
+                        echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                <i class='fa fa-exclamation'></i>  Current Password Wrong!
+                            </div>";
+                    } else if($_GET["stage"] == "newPassNotMatch"){
+                        echo "<div class='alert alert-danger alert-dismissable'>
+                                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                <i class='fa fa-exclamation'></i>  New Password and Confim Password doesn't match!
+                            </div>";
                     }
 
                 ?>
@@ -114,23 +124,23 @@ $row = mysqli_fetch_array($result);
                 <!-- /.row -->
                 
                 <div class="row">
-                    <form>
+                    <form action="./server/settings/changePassword.php" method="post">
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Current Password:</label>
-                                <input class="form-control" type="password">
+                                <input class="form-control" type="password" name="currentPassword">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>New Password:</label>
-                                <input class="form-control" type="password">
+                                <input class="form-control" type="password" name="newPassword">
                             </div>                        
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Confirm New Password:</label>
-                                <input class="form-control" type="password">
+                                <input class="form-control" type="password" name="confirmPassword">
                             </div>                        
                         </div>
 

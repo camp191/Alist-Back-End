@@ -312,3 +312,8 @@ $('.template-project').on('click','.move-down', function(e){
     e.preventDefault;
     $(this).parent().parent().insertAfter($(this).parent().parent().next()).fadeIn();
 })
+
+// jquery match height
+$(function() {
+    $('.box').matchHeight();
+});
