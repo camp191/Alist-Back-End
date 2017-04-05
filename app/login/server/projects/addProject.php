@@ -34,13 +34,13 @@
 
         if($resultAddList){
             mysqli_close($con);
-            header("Location: ./../../project.php?process=done");
+            header("Location: ./../../project.php?process=projectListDone");
             exit();
         }
 
     } else {
         mysqli_close($con);
-        header("Location: ./../../project.php?process=done");
+        header("Location: ./../../project.php?process=projectDone");
         exit();
     }
 ?>

@@ -132,10 +132,7 @@ var d = new Date();
 var month = d.getMonth()+1;
 var day = d.getDate();
 var outputDate = d.getFullYear() + '-' + (month<10 ? '0' : '') + month + '-' + (day<10 ? '0' : '') + day;
-
-$('document').ready(function(){
-  $('#add-list').click(function(){
-    $('.template-project').append(`<div class="list-blank"><hr>
+var blankList = `<div class="list-blank"><hr>
                                 <div class="col-md-6 form-mleft">
                                     <div class="form-group">
                                         <label>List Topic:</label>
@@ -164,13 +161,19 @@ $('document').ready(function(){
                                     </div>                                           
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
-                                </div></div>`)
+                                    <button type="button" class="btn btn-info move-up"><i class="fa fa-angle-up"></i></button>
+                                    <button type="button" class="btn btn-info move-down"><i class="fa fa-angle-down"></i></button>
+                                    <button type="button" class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                </div></div>`
+
+$('document').ready(function(){
+  $('#add-list').click(function(){
+    $(blankList).appendTo($('.template-project')).hide().slideDown('slow');
   });
 
   $('.template-project').on('click','.delete-list', function(e){
     e.preventDefault;
-    $(this).parent().parent('div').remove();
+    $(this).parent().parent('div').slideUp("normal", function(){ $(this).remove() });
   })
 
 })
@@ -180,7 +183,7 @@ $('#resetAddProject').click(function(){
   $('#topicProject').val('');
   $("#typeProject").val($("#typeProject option:first").val());
   $('#descriptionProject').val('');
-  $('.list-blank').remove();
+  $('.list-blank').slideUp("normal", function(){$(this).remove()});
   $("#templateList").val($("#templateList option:first").val());
 })
 
@@ -214,7 +217,9 @@ var travelTemplate = `<div class="list-blank"><hr>
                                     </div>                                           
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btn-info move-up"><i class="fa fa-angle-up"></i></button>
+                                    <button type="button" class="btn btn-info move-down"><i class="fa fa-angle-down"></i></button>
+                                    <button type="button" class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
                                 </div></div>
                                 
 
@@ -247,7 +252,9 @@ var travelTemplate = `<div class="list-blank"><hr>
                                     </div>                                           
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btn-info move-up"><i class="fa fa-angle-up"></i></button>
+                                    <button type="button" class="btn btn-info move-down"><i class="fa fa-angle-down"></i></button>
+                                    <button type="button" class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
                                 </div></div>
                                 
                                 
@@ -280,13 +287,28 @@ var travelTemplate = `<div class="list-blank"><hr>
                                     </div>                                           
                                 </div>
                                 <div class="text-center">
-                                    <button class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="button" class="btn btn-info move-up"><i class="fa fa-angle-up"></i></button>
+                                    <button type="button" class="btn btn-info move-down"><i class="fa fa-angle-down"></i></button>
+                                    <button type="button" class="btn btn-danger delete-list"><i class="fa fa-trash"></i> Delete</button>
                                 </div></div>`
 
 $("#templateList").on('change', function(){
   if($(this).val()=='travel'){
-    $('.template-project').html(travelTemplate);
+    $(".list-blank").slideUp("normal", function(){ $(this).remove()});
+    $(travelTemplate).appendTo($('.template-project')).hide().slideDown('slow');
   } else if ($(this).val() == 'no'){
-    $('.template-project').html("");
+    $(".list-blank").slideUp("normal", function(){ $(this).remove()})
+    $("").appendTo($('.template-project')).hide().slideDown('slow');
   }
+})
+
+// move up and down project list
+$('.template-project').on('click','.move-up', function(e){
+    e.preventDefault;
+    $(this).parent().parent().insertBefore($(this).parent().parent().prev()).fadeIn();
+})
+
+$('.template-project').on('click','.move-down', function(e){
+    e.preventDefault;
+    $(this).parent().parent().insertAfter($(this).parent().parent().next()).fadeIn();
 })

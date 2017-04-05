@@ -5,10 +5,15 @@ include "./server/include/header.php";
 // check get process project
 if (empty($_GET)) {
     $projectProcessDone = "";
-} else if($_GET["process"] == "done"){
+} else if($_GET["process"] == "projectDone"){
     $projectProcessDone = "<div class='alert alert-success alert-dismissable'>
             <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-            <i class='fa fa-check'></i>  Your Process Done.
+            <i class='fa fa-check'></i>  Add Project Done
+        </div>";
+} else if($_GET["process"] == "projectListDone"){
+    $projectProcessDone = "<div class='alert alert-success alert-dismissable'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+            <i class='fa fa-check'></i>  Add Project and List Done
         </div>";
 }
 ?>
