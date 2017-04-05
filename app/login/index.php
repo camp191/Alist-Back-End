@@ -280,5 +280,6 @@ include "./server/include/header.php";
 </div>
 <!-- /#page-wrapper -->
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>

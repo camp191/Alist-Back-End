@@ -114,5 +114,6 @@ include "./server/include/header.php";
 
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>

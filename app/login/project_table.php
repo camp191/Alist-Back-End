@@ -57,7 +57,7 @@ $rowProjectWithID = mysqli_fetch_array($resultSQLProjectWithID);
             <div class="modal-body">
                 <div id="topicModal">
                     <input type='hidden' name='projectID' value='<?= $projectID ?>' />
-                    <p>Are you sure to <strong>DELETE</strong> <?= $rowProjectWithID['projectName'] ?> project?</p>               
+                    <p>Are you sure to <strong>DELETE</strong> <?= $rowProjectWithID['projectName'] ?> project and their lists?</p>               
                 </div>        
             </div>
             <div class="modal-footer">
@@ -70,5 +70,6 @@ $rowProjectWithID = mysqli_fetch_array($resultSQLProjectWithID);
         </form> 
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>

@@ -200,6 +200,7 @@ $row = mysqli_fetch_array($result);
 
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>
 

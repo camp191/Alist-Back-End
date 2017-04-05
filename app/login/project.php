@@ -43,6 +43,9 @@ if (empty($_GET)) {
 
                 <div class='row'>
                 <?php
+                    // variable for add list
+                    $resultLoopProject = '';
+                    // loop project
                     while($rowProject = mysqli_fetch_array($resultSQLProject)){
                         // color panel
                         if($rowProject['projectType'] == 'personal'){
@@ -87,6 +90,10 @@ if (empty($_GET)) {
                                 </div>
                             </form>
                             </div>";
+                            
+                            // loop for option in addlist
+                            $resultLoopProject .= "<option value='" . $rowProject['projectID'] . "'>" . $rowProject['projectName'] . "</option>";
+
                     }
                  ?>
                 </div>

@@ -216,5 +216,6 @@ if(isset($_GET['addList']) || empty($_GET)) {
         <!-- /#page-wrapper -->
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>

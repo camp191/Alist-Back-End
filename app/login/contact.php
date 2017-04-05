@@ -88,5 +88,6 @@ include "./server/include/header.php";
         <!-- /#page-wrapper -->
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>

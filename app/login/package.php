@@ -158,5 +158,6 @@ $row = mysqli_fetch_array($result);
         </div>
 
 <?php
+include "./server/include/loopProject.php";
 include "./server/include/footer.php";
 ?>
