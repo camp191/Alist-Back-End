@@ -14,7 +14,7 @@
     $sqlUser = "SELECT * FROM user WHERE id='$id'";
     $resultUser = mysqli_query($con, $sqlUser);
     $rowUser = mysqli_fetch_array($resultUser);
-
+    $listProjectName = 0;
     if($rowUser["packageID"] == "2"){
         $listProjectName = $_REQUEST["listProjectName"];
     }
@@ -28,13 +28,15 @@
     $resultEditList = mysqli_query($con, $sqlEditList);
 
     if($resultEditList){
-        mysqli_close($con);
-        echo "Done";
-        header("Location: ./../../list.php?addList=done");
-        exit();
-    } else {
-        mysqli_close($con);
-        echo "not Done";
-    }
+        if($listProjectName == 0){
+            mysqli_close($con);
+            header("Location: ./../../list.php?addList=done");
+            exit();
+        } else {
+            mysqli_close($con);
+            header("Location: ./../../project_table.php?projectID=$listProjectName&edit=done");
+            exit();
+        }
+    } 
     
 ?>

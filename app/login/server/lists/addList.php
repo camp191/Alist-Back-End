@@ -23,7 +23,14 @@
 
     if($resultAddList){
         mysqli_close($con);
-        header("Location: ./../../list.php?addList=done");
-        exit();
+
+        if($listProjectName == 0){
+            header("Location: ./../../list.php?addList=done");
+            exit();
+        } else {
+            header("Location: ./../../project_table.php?projectID=$listProjectName&edit=done");
+            exit();
+           
+        }
     }
 ?>

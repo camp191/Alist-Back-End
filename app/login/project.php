@@ -15,6 +15,11 @@ if (empty($_GET)) {
             <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
             <i class='fa fa-check'></i>  Add Project and List Done
         </div>";
+} else if($_GET["process"] == "deleteDone"){
+    $projectProcessDone = "<div class='alert alert-success alert-dismissable'>
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+            <i class='fa fa-check'></i>  Delete Project Done
+        </div>";
 }
 
 
@@ -64,7 +69,7 @@ if (empty($_GET)) {
 
                         echo "
                             <div class='col-md-4 col-sm-6'>
-                            <form action='./project_table.php' method='post'>
+                            <form action='./project_table.php' method='get'>
                                 <div class='panel panel-$colorPanel'>
                                     <div class='panel-heading box'>
                                         <div class='row'>

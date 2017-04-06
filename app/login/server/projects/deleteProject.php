@@ -15,7 +15,7 @@
     mysqli_query($con, $sqlDeleteProject);
 
     mysqli_close($con);
-    header("Location: ./../../project.php");
+    header("Location: ./../../project.php?process=deleteDone");
     exit();
 
 ?>

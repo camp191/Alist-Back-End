@@ -317,3 +317,44 @@ $('.template-project').on('click','.move-down', function(e){
 $(function() {
     $('.box').matchHeight();
 });
+
+// change button table project active and done
+$('#active-table').click(function(){
+    if(!($('#active-table').hasClass("active"))){
+        $('#active-table').addClass("active");
+        $('#done-table').removeClass("active");
+    }
+    var projectID = $(this).attr('data-projectID');
+    $.ajax({
+      url:"./server/projects/activeListProjectPage.php?projectID=" + projectID,
+      success:function(result){
+        $(".change-table").hide().html(result).fadeIn();
+        $('.modalEditList').click(function(){
+          var listID = $(this).attr('data-editList');
+          $.ajax({
+            url:"./server/lists/editListPage.php?listID=" + listID,
+            success:function(result){
+              $(".modalEdit-parent").html(result);
+            }
+          })
+        })
+
+      }
+    })
+
+})
+
+$('#done-table').click(function(){
+    if(!($('#done-table').hasClass("active"))){
+        $('#done-table').addClass("active");
+        $('#active-table').removeClass("active");
+    }
+    var projectID = $(this).attr('data-projectID');
+    $.ajax({
+      url:"./server/projects/doneListProjectPage.php?projectID=" + projectID,
+      success:function(result){
+        $(".change-table").hide().html(result).fadeIn();
+      }
+    })
+
+})

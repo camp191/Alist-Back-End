@@ -89,3 +89,13 @@ textarea { resize: vertical; }
 .alert-padding {
     padding: 0px;
 }
+
+/* table project */
+.table-margin {
+    margin-top: 20px;
+}
+
+/* navbar cursor pointer */
+.nav-pointer {
+    cursor: pointer;
+}
