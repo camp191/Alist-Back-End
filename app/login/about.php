@@ -11,20 +11,26 @@ include "./server/include/header.php";
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Blank Page
-                            <small>Subheading</small>
+                            About Alist
+                            <small>เกี่ยวกับ Alist</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2">
+                        <div class="name-logo text-center">
+                            <img src=""> Alist
+                        </div>
+                        <h4 class="text-center">The Best To-do-list in the world</h4>
+                        <blockquote>
+                            <p>If you have many things to do in your life. Alist can help you manage them.</p>
+                            <footer>Thanapat Sorralump <cite title="Source Title">at His House</cite></footer>
+                        </blockquote>
+                        <p class="text-center">Developed By Thanapat Sorralump</p>
+                        <p class="text-center">Copyright &copy; 2017 CamPus</p>
+                    </div>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

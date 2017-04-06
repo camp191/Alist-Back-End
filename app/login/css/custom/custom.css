@@ -19,6 +19,13 @@ html,body{  height: 96.5%; }
     font-weight: normal;
 }
 
+/* About */
+.name-logo {
+    font-family: patuaOne;
+    font-weight: normal;
+    font-size: 50px;
+}
+
 /* mini profile on side bar */
 .mini-profile {
     padding: 10px;
