@@ -36,6 +36,19 @@ while($rowReminder = mysqli_fetch_array($resultTodayRemindList)){
                 </h1>
             </div>
         </div>
+        <?php 
+            if($row['packageID'] == 0){
+                echo "<div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='alert alert-warning alert-dismissable'>
+                                <button type='button'' class='close'' data-dismiss='alert'' aria-hidden='true'>&times;</button>
+                                <i class='fa fa-info-circle'></i>  ตอนนี้คุณยังไม่ได้สมัครแพคเกจ คุณสามารถ <a href='./package.php'' class='alert-link'>คลิกที่นี่</a> เพื่อสมัครได้เลย :D
+                            </div>
+                        </div>
+                    </div>";
+            }
+        ?>
+
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-5 col-lg-push-1">
@@ -52,7 +65,7 @@ while($rowReminder = mysqli_fetch_array($resultTodayRemindList)){
             <div class="col-lg-5 col-lg-push-1">
                 <div class="panel panel-default box">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-list-alt"></i> Reminder Today Lists</h3>
+                        <h3 class="panel-title"><i class="fa fa-list-alt"></i> Today Lists Reminder</h3>
                     </div>  
                     <div class="panel-body">
                         <div class="list-group">
@@ -66,18 +79,6 @@ while($rowReminder = mysqli_fetch_array($resultTodayRemindList)){
             </div>
         </div>
 
-        <?php 
-            if($row['packageID'] == 0){
-                echo "<div class='row'>
-                        <div class='col-lg-12'>
-                            <div class='alert alert-warning alert-dismissable'>
-                                <button type='button'' class='close'' data-dismiss='alert'' aria-hidden='true'>&times;</button>
-                                <i class='fa fa-info-circle'></i>  ตอนนี้คุณยังไม่ได้สมัครแพคเกจ คุณสามารถ <a href='./package.php'' class='alert-link'>คลิกที่นี่</a> เพื่อสมัครได้เลย :D
-                            </div>
-                        </div>
-                    </div>";
-            }
-        ?>
         
         <!-- /.row -->
 

@@ -17,7 +17,7 @@
     mysqli_query($con, $sqlDelList);
 
     // Delete All projects
-    $sqlDelProject = "DELETE FROM project WHERE id='$id";
+    $sqlDelProject = "DELETE FROM project WHERE id='$id'";
     mysqli_query($con, $sqlDelProject);
     
     // Delete Account
