@@ -87,7 +87,7 @@
                   </div>
                 </fieldset>
 
-                <button class="regisBtn" id="signupBtn">ลงทะเบียนใช้งานฟรี 30 วัน !!!</button>
+                <button class="regisBtn" id="signupBtn">ลงทะเบียนใช้งาน</button>
               </form>
             </div>
           </div>
