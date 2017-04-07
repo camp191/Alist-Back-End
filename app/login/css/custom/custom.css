@@ -106,3 +106,24 @@ textarea { resize: vertical; }
 .nav-pointer {
     cursor: pointer;
 }
+
+/* clock style */
+.clock-style {
+    font-size: 50px;
+}
+
+/* Date style */
+.date-style {
+    font-size: 25px;
+}
+
+.clockText-hidden {
+    opacity: 0;
+    font-size: 50px;
+}
+
+/* Reminder Style */
+.textPanel-done {
+    font-size: 20px;
+    margin-top: 45px;
+}

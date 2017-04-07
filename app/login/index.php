@@ -1,6 +1,28 @@
 <?php
 $page = "home";
 include "./server/include/header.php";
+
+//query list for today
+$sqlTodayRemindList = "SELECT * from list WHERE id='$id' AND endDate='$dateNow' AND isDone='No'";
+$resultTodayRemindList = mysqli_query($con, $sqlTodayRemindList);
+
+$alertRemindList = '';
+// reminder
+while($rowReminder = mysqli_fetch_array($resultTodayRemindList)){
+    if($rowReminder['isImportant'] == 'Yes'){
+        $listImportant = "<span class='label label-danger'>Important</span>";
+    } else {
+        $listImportant = "";
+    }
+    $alertRemindList .= "<button type='button' class='list-group-item'>" . $rowReminder['listName'] . " " . $listImportant . "</button>";
+}
+
+    // condition for no today list
+    if($alertRemindList == ""){
+        $alertRemindList = "<p class='text-center textPanel-done'>All of today lists are done.</p>";
+    }
+
+
 ?>
 <div id="page-wrapper">
 
@@ -10,11 +32,39 @@ include "./server/include/header.php";
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Hello, <?php echo $nameShow ?>
+                    Welcome <?php echo $nameShow ?>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-5 col-lg-push-1">
+                <div class="panel panel-default box">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-clock-o"></i> Date and Clock</h3>
+                    </div> 
+                    <div class="panel-body">   
+                        <p id='clock' class="clock-style text-center"><span class="clockText-hidden">A</span></p>
+                        <p id='dateNow' class="date-style text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-lg-push-1">
+                <div class="panel panel-default box">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list-alt"></i> Reminder Today Lists</h3>
+                    </div>  
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <?= $alertRemindList ?>
+                        </div>
+                        <div class="text-right">
+                            <a href="./list.php">View All Lists <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
 
         <?php 
             if($row['packageID'] == 0){
