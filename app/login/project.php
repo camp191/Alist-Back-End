@@ -35,6 +35,17 @@ if (empty($_GET)) {
                         <h1 class="page-header">
                             Project <small>โปรเจค</small>
                             <a href="./add_project.php" class="btn btn-primary"><i class="fa fa-plus"></i> Add Project</a>
+                            <span class="order-margin">
+                                <span>Order By:</span>
+                                <div class='btn-group text-right' data-toggle='buttons'>
+                                    <label class='btn btn-warning active'>
+                                        <input type='radio' name='orderProject' id='orderProject' value='newFirst' checked> New First
+                                    </label>
+                                    <label class='btn btn-warning'>
+                                        <input type='radio' name='orderProject' id='orderProject' value='oldFirst'> Old First
+                                    </label>
+                                </div>
+                            </span>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -45,64 +56,65 @@ if (empty($_GET)) {
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="changeProject-table">
+                    <div class='row'>
+                    <?php
+                        // variable for add list
+                        $resultLoopProject = '';
+                        // loop project
+                        while($rowProject = mysqli_fetch_array($resultSQLProject)){
+                            // color panel
+                            if($rowProject['projectType'] == 'personal'){
+                                $colorPanel = 'primary';
+                                $iconPanel = 'fa-male';
+                            } else if ($rowProject['projectType'] == 'work'){
+                                $colorPanel = 'red';
+                                $iconPanel = 'fa-briefcase';
+                            } else if ($rowProject['projectType'] == 'travel'){
+                                $colorPanel = 'green';
+                                $iconPanel = 'fa-plane';
+                            } else if ($rowProject['projectType'] == 'other'){
+                                $colorPanel = 'yellow';
+                                $iconPanel = 'fa-ellipsis-h';
+                            }
 
-                <div class='row'>
-                <?php
-                    // variable for add list
-                    $resultLoopProject = '';
-                    // loop project
-                    while($rowProject = mysqli_fetch_array($resultSQLProject)){
-                        // color panel
-                        if($rowProject['projectType'] == 'personal'){
-                            $colorPanel = 'primary';
-                            $iconPanel = 'fa-male';
-                        } else if ($rowProject['projectType'] == 'work'){
-                            $colorPanel = 'red';
-                            $iconPanel = 'fa-briefcase';
-                        } else if ($rowProject['projectType'] == 'travel'){
-                            $colorPanel = 'green';
-                            $iconPanel = 'fa-plane';
-                        } else if ($rowProject['projectType'] == 'other'){
-                            $colorPanel = 'yellow';
-                            $iconPanel = 'fa-ellipsis-h';
-                        }
-
-                        echo "
-                            <div class='col-md-4 col-sm-6'>
-                            <form action='./project_table.php' method='get'>
-                                <div class='panel panel-$colorPanel'>
-                                    <div class='panel-heading box'>
-                                        <div class='row'>
-                                            <div class='col-xs-2'>
-                                                <i class='fa $iconPanel fa-3x'></i>
-                                            </div>
-                                            <div class='col-xs-10 text-right'>
-                                                <div><h4><b>" . $rowProject['projectName'] . "</b></h4></div>
-                                                <div>" . $rowProject['projectDescription'] . "</div>
+                            echo "
+                                <div class='col-md-4 col-sm-6'>
+                                <form action='./project_table.php' method='get'>
+                                    <div class='panel panel-$colorPanel'>
+                                        <div class='panel-heading box'>
+                                            <div class='row'>
+                                                <div class='col-xs-2'>
+                                                    <i class='fa $iconPanel fa-3x'></i>
+                                                </div>
+                                                <div class='col-xs-10 text-right'>
+                                                    <div><h4><b>" . $rowProject['projectName'] . "</b></h4></div>
+                                                    <div>" . $rowProject['projectDescription'] . "</div>
+                                                </div>
                                             </div>
                                         </div>
+                                        
+                                        <a href='#' onclick='this.parentNode.parentNode.submit()'>
+                                            <input type='hidden' name='projectID' value='" . $rowProject['projectID'] . "' />
+                                            <div class='panel-footer'>
+                                                <span class='pull-left'>View Details</span>
+                                                <span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span>
+                                                <div class='clearfix'></div>
+                                            </div>
+                                        </a>
+                                        
                                     </div>
-                                    
-                                    <a href='#' onclick='this.parentNode.parentNode.submit()'>
-                                        <input type='hidden' name='projectID' value='" . $rowProject['projectID'] . "' />
-                                        <div class='panel-footer'>
-                                            <span class='pull-left'>View Details</span>
-                                            <span class='pull-right'><i class='fa fa-arrow-circle-right'></i></span>
-                                            <div class='clearfix'></div>
-                                        </div>
-                                    </a>
-                                    
-                                </div>
-                            </form>
-                            </div>";
-                            
-                            // loop for option in addlist
-                            $resultLoopProject .= "<option value='" . $rowProject['projectID'] . "'>" . $rowProject['projectName'] . "</option>";
+                                </form>
+                                </div>";
+                                
+                                // loop for option in addlist
+                                $resultLoopProject .= "<option value='" . $rowProject['projectID'] . "'>" . $rowProject['projectName'] . "</option>";
 
-                    }
-                 ?>
+                        }
+                    ?>
+                    </div>
+                    <!-- /.row -->
                 </div>
-                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->

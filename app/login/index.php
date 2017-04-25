@@ -87,6 +87,18 @@ while($rowReminder = mysqli_fetch_array($resultTodayRemindList)){
 
 </div>
 <!-- /#page-wrapper -->
+
+<script>
+        var myVar = setInterval(function() {
+    myTimer();
+    }, 1000);
+
+    function myTimer() {
+    var d = new Date();
+    document.getElementById("clock").innerText = d.toLocaleTimeString();
+    }
+</script>
+
 <?php
 include "./server/include/loopProject.php";
 include "./server/include/footer.php";

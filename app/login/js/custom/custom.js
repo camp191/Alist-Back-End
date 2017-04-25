@@ -359,16 +359,27 @@ $('#done-table').click(function(){
 
 })
 
-var myVar = setInterval(function() {
-  myTimer();
-}, 1000);
-
-function myTimer() {
-  var d = new Date();
-  document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-}
-
 var d = new Date();
 var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 $('#dateNow').html(days[d.getDay()] + " " + d.getDate() + " " +months[d.getMonth()] + " " + d.getFullYear());
+
+
+// Ajax list project order
+$('input:radio[name="orderProject"]').change(function(){
+  if($(this).val() == "newFirst"){
+    $.ajax({
+      url:"./server/projects/newFirstOrder.php",
+      success:function(result){
+        $(".changeProject-table").hide().html(result).fadeIn();
+      }
+    })
+  } else if($(this).val() == "oldFirst"){
+    $.ajax({
+      url:"./server/projects/oldFirstOrder.php",
+      success:function(result){
+        $(".changeProject-table").hide().html(result).fadeIn();
+      }
+    })
+  }
+})

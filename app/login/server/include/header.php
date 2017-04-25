@@ -134,7 +134,7 @@
     }
 
     // query project
-    $sqlProject = "SELECT * FROM project WHERE id='$id'";
+    $sqlProject = "SELECT * FROM project WHERE id='$id' ORDER BY projectID DESC";
     $resultSQLProject = mysqli_query($con, $sqlProject);
 
 echo "<!DOCTYPE html>
