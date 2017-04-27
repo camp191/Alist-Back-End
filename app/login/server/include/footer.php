@@ -62,8 +62,8 @@
                                         <label class='btn btn-danger'>
                                             <input type='radio' name='listImportant' id='listImportant' value='Yes'> Yes
                                         </label>
-                                        <label class='btn btn-danger'>
-                                            <input type='radio' name='listImportant' id='listImportant' value='No'> No
+                                        <label class='btn btn-danger active'>
+                                            <input type='radio' name='listImportant' id='listImportant' value='No' checked> No
                                         </label>
                                     </div>
 
