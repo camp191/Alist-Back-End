@@ -122,7 +122,8 @@ if(isset($_GET['addList']) || empty($_GET)) {
                             <th class='text-center row-table'>List NO.</th>
                             <th class='text-center row-table'>List Name</th>
                             <th class='text-center row-table'>List Description</th>
-                            <th class='text-center row-table'>End Date</th>";
+                            <th class='text-center row-table'>End Date</th>
+                            <th class='text-center row-table'>End Time</th>";
                                 // check package id for add column Project Name
                                 if($row['packageID'] == 2){
                                     echo "<th class='text-center row-table'>Project Name</th>";
@@ -165,7 +166,7 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                     
                                     echo "</td>
                                         <td class='col-md-4 row-table'>" . $rowActiveList['listDescription'] . "</td>
-                                        <td class='col-md-1 text-center row-table'>";
+                                        <td class='col-md-2 text-center row-table'>";
                                          if($rowActiveList['endDate'] == $dateNow){
                                             echo "Today";
                                         } else if($rowActiveList['endDate'] == $dateTomorrow){
@@ -174,6 +175,15 @@ if(isset($_GET['addList']) || empty($_GET)) {
                                             echo $rowActiveList['endDate'];
                                         }
                                          echo "</td>";
+                                    
+                                    echo "<td class='col-md-1 row-table text-center'>";
+                                        if ( ($rowActiveList['endTime'] < $timeNow) && ($rowActiveList['endDate'] <= $dateNow) ) {
+                                            echo "Time Out";
+                                        } else {
+                                            echo $rowActiveList['endTime'];
+                                        }
+                                      
+                                     echo "</td>";
                                     
                                     if($row['packageID'] == 2){
                                         echo "<td class='col-md-2 text-center row-table'>" . $projectNameShow . "</td>";

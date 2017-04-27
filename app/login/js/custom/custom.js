@@ -145,13 +145,19 @@ var blankList = `<div class="list-blank"><hr>
                                         <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mleft">
+                                <div class="col-md-4 form-mleft">
                                     <div class="form-group">
                                         <label>End Date:</label>
                                         <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mright">
+                                <div class="col-md-4 form-mleft">
+                                    <div class="form-group">
+                                        <label>End Time:</label>
+                                        <input class="form-control" name='list[endTime][]' type='time' name='endTime' value="08:00:00">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-4 form-mright">
                                     <div class="form-group">
                                         <label>Important:</label>
                                         <select class="form-control" name="list[important][]">
@@ -201,13 +207,19 @@ var travelTemplate = `<div class="list-blank"><hr>
                                         <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mleft">
+                                <div class="col-md-4 form-mleft">
                                     <div class="form-group">
                                         <label>End Date:</label>
                                         <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mright">
+                                <div class="col-md-4 form-mleft">
+                                    <div class="form-group">
+                                        <label>End Time:</label>
+                                        <input class="form-control" name='list[endTime][]' type='time' name='endTime' value="08:00:00">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-4 form-mright">
                                     <div class="form-group">
                                         <label>Important:</label>
                                         <select class="form-control" name="list[important][]">
@@ -236,13 +248,19 @@ var travelTemplate = `<div class="list-blank"><hr>
                                         <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mleft">
+                                <div class="col-md-4 form-mleft">
                                     <div class="form-group">
                                         <label>End Date:</label>
                                         <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mright">
+                                <div class="col-md-4 form-mleft">
+                                    <div class="form-group">
+                                        <label>End Time:</label>
+                                        <input class="form-control" name='list[endTime][]' type='time' name='endTime' value="08:00:00">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-4 form-mright">
                                     <div class="form-group">
                                         <label>Important:</label>
                                         <select class="form-control" name="list[important][]">
@@ -271,13 +289,19 @@ var travelTemplate = `<div class="list-blank"><hr>
                                         <input class="form-control" name="list[description][]" value="">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mleft">
+                                <div class="col-md-4 form-mleft">
                                     <div class="form-group">
                                         <label>End Date:</label>
                                         <input class="form-control" name='list[endDate][]' data-provide="datepicker" data-date-format="yyyy-mm-dd" value="${outputDate}">
                                     </div>                                           
                                 </div>
-                                <div class="col-md-6 form-mright">
+                                <div class="col-md-4 form-mleft">
+                                    <div class="form-group">
+                                        <label>End Time:</label>
+                                        <input class="form-control" name='list[endTime][]' type='time' name='endTime' value="08:00:00">
+                                    </div>                                           
+                                </div>
+                                <div class="col-md-4 form-mright">
                                     <div class="form-group">
                                         <label>Important:</label>
                                         <select class="form-control" name="list[important][]">

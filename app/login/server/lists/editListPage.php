@@ -65,13 +65,19 @@
                         </div>
 
                         <div class='row'>
-                            <div class='col-md-6'>
+                            <div class='col-md-4'>
                                 <div class='form-group'>
                                     <label>End Date:</label>
                                     <input data-provide="datepicker" data-date-format="yyyy-mm-dd" class='form-control dateEdit' name='date' value='<?= $rowListValue['endDate'] ?>'>
                                 </div>
                             </div>
-                            <div class='col-md-6 important-group'>
+                            <div class='col-md-4'>
+                                <div class='form-group'>
+                                    <label>End Time:</label>
+                                    <input class='form-control' type='time' name='endTime' value='<?= $rowListValue['endTime'] ?>'>
+                                </div>
+                            </div>
+                            <div class='col-md-4 important-group'>
                                 <div class='form-group'>
                                     <label>Important:</label>
                                     <div class='btn-group' data-toggle='buttons'>

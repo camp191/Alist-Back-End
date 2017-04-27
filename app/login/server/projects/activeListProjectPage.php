@@ -9,6 +9,7 @@
     $id = $_SESSION['id'];
     $dateNow = date("Y-m-d", time());
     $dateTomorrow = date('Y-m-d', time() + 86400);
+    $timeNow = date("H:i:s", time());
 
     $sqlActiveList = "SELECT * FROM list WHERE id='$id' AND isDone='No' AND projectID='$projectID'";
     $resultActiveList = mysqli_query($con, $sqlActiveList);
@@ -22,6 +23,7 @@
         <th class='text-center row-table'>List Name</th>
         <th class='text-center row-table'>List Description</th>
         <th class='text-center row-table'>End Date</th>
+        <th class='text-center row-table'>End Time</th>
         <th class='text-center row-table'>Control</th>
     </tr>
     <?php
@@ -58,6 +60,16 @@
                         echo $rowActiveList['endDate'];
                     }
                         echo "</td>";
+
+                echo "<td class='col-md-1 row-table text-center'>";
+                    if ( ($rowActiveList['endTime'] < $timeNow) && ($rowActiveList['endDate'] <= $dateNow) ) {
+                        echo "Time Out";
+                    } else {
+                        echo $rowActiveList['endTime'];
+                    }
+                    
+                echo "</td>";
+
                                                                     
                 echo "
                     <td class='col-md-1 text-center row-table'>

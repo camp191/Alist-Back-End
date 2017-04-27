@@ -7,9 +7,10 @@
     $listName = $_REQUEST['listTopic'];
     $listDescription = $_REQUEST['listDescription'];
     $listDate = $_REQUEST["date"];
+    $listTime = $_REQUEST["endTime"];
     $listImportant = $_REQUEST["listImportant"];
 
-    echo $listID,$id,$listName,$listDescription,$listDate,$listImportant;
+    // echo $listID,$id,$listName,$listDescription,$listDate,$listImportant;
 
     $sqlUser = "SELECT * FROM user WHERE id='$id'";
     $resultUser = mysqli_query($con, $sqlUser);
@@ -20,9 +21,9 @@
     }
 
     if($rowUser["packageID"] != "2"){
-        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', isImportant='$listImportant' WHERE id='$id' AND listID='$listID'";
+        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', endTime='$listTime', isImportant='$listImportant' WHERE id='$id' AND listID='$listID'";
     } else {
-        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', isImportant='$listImportant', projectID='$listProjectName' WHERE id='$id' AND listID='$listID'";
+        $sqlEditList = "UPDATE list SET listName='$listName',listDescription='$listDescription', endDate='$listDate', endTime='$listTime', isImportant='$listImportant', projectID='$listProjectName' WHERE id='$id' AND listID='$listID'";
     }
 
     $resultEditList = mysqli_query($con, $sqlEditList);

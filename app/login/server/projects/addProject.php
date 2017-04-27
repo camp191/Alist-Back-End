@@ -24,12 +24,12 @@
 
         $addValue = array();
         for($i=0; $i < count($list['topic']); $i++){
-            $addValue[] = '("' . $_POST['list']['topic'][$i] . '","' . $_POST['list']['description'][$i] . '","' . $_POST['list']['endDate'][$i] . '","' . $_POST['list']['important'][$i] . '","' . 'No' . '","' . "$id" . '","' . $rowLatestProject['projectID'] . '")';
+            $addValue[] = '("' . $_POST['list']['topic'][$i] . '","' . $_POST['list']['description'][$i] . '","' . $_POST['list']['endDate'][$i] . '","' . $_POST['list']['endTime'][$i] . '","' . $_POST['list']['important'][$i] . '","' . 'No' . '","' . "$id" . '","' . $rowLatestProject['projectID'] . '")';
         }
 
         $valueAddListSQL = implode("," , $addValue);
 
-        $sqlAddList = "INSERT INTO list(listName,listDescription,endDate,isImportant,isDone,id,projectID) VALUES " . $valueAddListSQL;
+        $sqlAddList = "INSERT INTO list(listName,listDescription,endDate,endTime,isImportant,isDone,id,projectID) VALUES " . $valueAddListSQL;
         $resultAddList = mysqli_query($con, $sqlAddList);
 
         if($resultAddList){

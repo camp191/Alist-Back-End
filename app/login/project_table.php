@@ -84,6 +84,7 @@ if($rowProjectWithID['projectType'] == 'personal'){
                             <th class='text-center row-table'>List Name</th>
                             <th class='text-center row-table'>List Description</th>
                             <th class='text-center row-table'>End Date</th>
+                            <th class='text-center row-table'>End Time</th>
                             <th class='text-center row-table'>Control</th>
                         </tr>
                         <?php
@@ -120,6 +121,15 @@ if($rowProjectWithID['projectType'] == 'personal'){
                                             echo $rowActiveList['endDate'];
                                         }
                                          echo "</td>";
+
+                                    echo "<td class='col-md-1 row-table text-center'>";
+                                        if ( ($rowActiveList['endTime'] < $timeNow) && ($rowActiveList['endDate'] <= $dateNow) ) {
+                                            echo "Time Out";
+                                        } else {
+                                            echo $rowActiveList['endTime'];
+                                        }
+                                        
+                                    echo "</td>";
                                                                                         
                                     echo "
                                         <td class='col-md-1 text-center row-table'>

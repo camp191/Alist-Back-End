@@ -19,7 +19,8 @@
     $dateTomorrow = date('Y-m-d', time() + 86400);
     $countTodayList = 0;
     $alertTodayList = '';
-
+    $timeNow = date("H:i:s", time());
+    
     // query basic info user
     $sql = "SELECT * from user WHERE id='$id'";
     $result = mysqli_query($con, $sql);
@@ -27,7 +28,7 @@
     $nameShow = $row["name"];
 
     //query list for today
-    $sqlTodayList = "SELECT * from list WHERE id='$id' AND endDate='$dateNow' AND isDone='No'";
+    $sqlTodayList = "SELECT * from list WHERE id='$id' AND endDate='$dateNow' AND isDone='No' Order By endTime";
     $resultTodayList = mysqli_query($con, $sqlTodayList);
     
 
@@ -72,16 +73,20 @@
     } else {
         $addListLink = "<a href='#' data-toggle='modal' data-target='#packageModal'><i class='fa fa-plus'></i> List</a>";
     }
-
-    // calculate remain time in today
-    $datetime = new DateTime('tomorrow');
-    $tomorrow = $datetime->format('Y-m-d');
-    $timeLeftHours = floor((strtotime($tomorrow) - time())/(60*60));
-    $timeLeftMinutes = floor(((strtotime($tomorrow) - time())/60)%60);
-    $timeLeftShow = $timeLeftHours . " Hours " . $timeLeftMinutes . " Minutes";
+    
 
     //loop today function
     while($rowTodayList = mysqli_fetch_array($resultTodayList)){
+
+        // calculate remain time in today
+        $endTime = $rowTodayList['endTime'];
+        $timeLeftHours = floor((strtotime($endTime) - time())/(60*60));
+        $timeLeftMinutes = floor(((strtotime($endTime) - time())/60)%60);
+        if ($timeLeftHours > 0 || $timeLeftMinutes > 0) {
+            $timeLeftShow = $timeLeftHours . " Hours " . $timeLeftMinutes . " Minutes";
+        } else {
+            $timeLeftShow = "Time Out";
+        }
 
         if($rowTodayList['isImportant'] == 'Yes'){
             $listImportant = "<span class='label label-danger'>Important</span>";
@@ -180,9 +185,9 @@ echo "<!DOCTYPE html>
 
 </head>
 
-<body>
+<body>";
 
-    <div id='wrapper'>
+    echo "<div id='wrapper'>
 
         <!-- Navigation -->
         <nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
